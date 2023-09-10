@@ -1,8 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./public/index.html"],
+  content: [
+    "./public/index.php",
+    "./public/ejercicio.php",
+    "./public/registro.php",
+  ],
   theme: {
     extend: {},
   },
-  plugins: [],
 };
