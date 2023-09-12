@@ -5,6 +5,22 @@
         return $link;
     }
 
+    private function close($link){
+        mysqli_close($link);
+    }
+
+
+    public function addRegistro( $tipo_insulina, $dosis, $tipo_dosis, $tipo_medicion , $agua, $dia_atipico ,$observaciones){
+            $link = $this->open();
+            $sql = "INSERT INTO registro_diario (Fecha_Hora, Tipo_insulina, Dosis ,Tipo_dosis, Tipo_medicion, Cantidad_carbohidratos ,Cantidad_agua, Dia_atipico, Observaciones, Cve_paciente ) VALUES (NOW(), ?, ?, ?,?, 100, ?, ?, ?, 1);";
+            $query = mysqli_prepare($link, $sql) or die("Error at login");
+            $query -> bind_param("sssssss", $tipo_insulina, $dosis,$tipo_dosis, $tipo_medicion, $agua ,$dia_atipico, $observaciones );
+            $query -> execute();
+
+            $this->close($link);
+        
+        
+        }
     
  }
 
