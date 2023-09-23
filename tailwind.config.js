@@ -5,7 +5,4 @@ module.exports = {
     "./public/ejercicio.php",
     "./public/registro.php",
   ],
-  theme: {
-    extend: {},
-  },
 };
