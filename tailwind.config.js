@@ -4,5 +4,6 @@ module.exports = {
     "./public/index.php",
     "./public/ejercicio.php",
     "./public/registro.php",
+    "./public/alimentos.php",
   ],
 };

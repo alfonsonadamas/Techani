@@ -22,11 +22,14 @@
         
     }
 
-    public function anadirComida(){
+    public function verRegistrosDia(){
         $link = $this->open();
         
+        $sql = "SELECT * FROM registro_diario WHERE DATE(Fecha_Hora) = CURDATE();";
+
+        $result = $link ->query($sql);
         
-        $this->close($link);
+        return $result;
 
     }
 
@@ -39,6 +42,37 @@
 
         return $result;
     }
+
+    public function buscarAlimentosProteina(){
+        $link = $this->open();
+        
+        $sql = "SELECT * FROM `catalogo_alimentos` WHERE Tipo_alimento = 'Proteina';";
+
+        $result = $link ->query($sql);
+
+        return $result;
+    }
+
+    public function buscarAlimentosGrasa(){
+        $link = $this->open();
+        
+        $sql = "SELECT * FROM `catalogo_alimentos` WHERE Tipo_alimento = 'Grasa';";
+
+        $result = $link ->query($sql);
+
+        return $result;
+    }
+
+    public function buscarAlimentosLacteo(){
+        $link = $this->open();
+        
+        $sql = "SELECT * FROM `catalogo_alimentos` WHERE Tipo_alimento = 'Lacteo';";
+
+        $result = $link ->query($sql);
+
+        return $result;
+    }
+
 
    
 

@@ -669,8 +669,4 @@ video {
   .sm\:flex-row {
     flex-direction: row;
   }
-
-  .sm\:flex-col {
-    flex-direction: column;
-  }
 }
