@@ -7,6 +7,7 @@
     <title>Techani</title>
   </head>
   <body>
+    
     <h1>Registro diario</h1>
     <form action="php/addRegistro.php" method="post" class="sm:flex sm:flex-row">
       <div>
@@ -19,8 +20,8 @@
         </div>
 
         <div class="flex flex-col mb-2">
-          <label for="dosis" class="block mb-1 text-sm font-medium text-gray-900">Dosis en ml</label>
-          <input type="number" name="dosis" min="1" max="25" placeholder="1" value="1" class="border-2 border-black p-1.5">
+          <label for="dosis" class="block mb-1 text-sm font-medium text-gray-900">Dosis en unidades</label>
+          <input type="number" name="dosis" min="1" max="100" placeholder="1" value="1" class="border-2 border-black p-1.5">
         </div>
 
         <div class="flex flex-col">
