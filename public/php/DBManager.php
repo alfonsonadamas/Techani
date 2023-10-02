@@ -9,6 +9,10 @@
         mysqli_close($link);
     }
 
+    public function login($usuario, $contrasena){
+        
+    }
+
 
     public function addRegistro( $tipo_insulina, $dosis, $tipo_dosis, $tipo_medicion , $agua, $dia_atipico ,$observaciones){
         $link = $this->open();
@@ -20,6 +24,15 @@
         $this->close($link);
         
         
+    }
+
+    public function addRegistrAlimentoo($cadena) {
+        $link = $this->open();
+       $query = mysqli_prepare($link, $cadena) or die("Error");
+       $query ->execute();
+
+        $this->close($link);
+
     }
 
     public function verRegistrosDia(){

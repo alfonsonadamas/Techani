@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <form action="">
+    <form action="" id="formAlimentos">
         <?php
             
             if ($data ->num_rows > 0) {
@@ -53,42 +53,60 @@
             <option value="al_correc">Alimento de Correccion</option>
         </select>
 
-        <button>Siguiente</button>
+        <table id="tablaPrueba">
+            <thead>
+                <tr>
+                    <th>
+                        Tipo de Alimento
+                    </th>
+                    <th>
+                        Alimento
+                    </th>
+                    <th>
+                        Porcion
+                    </th>
+                </tr>
+            </thead>
 
-        <table>
-            <tr>
-                <th>
-                    Tipo de Alimento
-                </th>
-                <th>
-                    Alimento
-                </th>
-                <th>
-                    Porcion
-                </th>
-            </tr>
+            <tbody>
+                <!-- <tr>
+                    <td>
+                        <select name="" id="tipo_alimento0">
+                            <option value="" selected>--Selecciona una opcion--</option>
+                            <option value="">Proteina</option>
+                            <option value="">Grasa c/ Proteina</option>
+                            <option value="">Lacteo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="" id="comida" disabled>
+                            <option value="" selected>--Selecciona una opcion--</option>
 
-            <tr>
-                <td>
-                    <select name="" id="tipo_alimento">
-                        <option value="" selected>--Selecciona una opcion--</option>
-                        <option value="">Proteina</option>
-                        <option value="">Grasa c/ Proteina</option>
-                        <option value="">Lacteo</option>
-                    </select>
-                </td>
-                <td>
-                    <select name="" id="comida" disabled>
-                        <option value="" selected>--Selecciona una opcion--</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" id="porcion" disabled>
+                    </td>
+                </tr> -->
 
-                    </select>
-                </td>
-                <td>
-                    <input type="number" id="porcion" disabled>
-                </td>
-            </tr>
+
+            </tbody>
+
+
+
         </table>
 
+
+
+
+        <div>
+            <button id="agregar">+ | Agregar un nuevo alimento</button>
+        </div>
+
+
+        <div>
+            <button>Enviar</button>
+        </div>
 
 
 

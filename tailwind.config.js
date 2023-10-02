@@ -5,5 +5,13 @@ module.exports = {
     "./public/ejercicio.php",
     "./public/registro.php",
     "./public/alimentos.php",
+    "./public/login.php",
   ],
+  theme: {
+    extend: {
+      fontFamily: {
+        fuentesec: ["Dancing Script", "cursive"],
+      },
+    },
+  },
 };
