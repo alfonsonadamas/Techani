@@ -27,7 +27,7 @@
         ?>
 
 
-            <option value="<?php echo $row["idRegistro_diario"] ?>"><?php echo $row["Fecha_Hora"] ?></option>
+            <option value="<?php echo $row["idRegistro_diario"] ?>"><?php echo $row["Fecha_Formateada"] ?></option>
             <?php
             }
 

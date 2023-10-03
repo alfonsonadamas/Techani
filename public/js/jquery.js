@@ -26,9 +26,6 @@ jQuery(function () {
               select.empty();
               $.each(data, function (key, value) {
                 select.append(
-                  "<option selected>--Selecciona una opcion--</option>"
-                );
-                select.append(
                   '<option value="' +
                     value.Clave_alimento +
                     '">' +
@@ -48,9 +45,6 @@ jQuery(function () {
               select.empty();
               $.each(data, function (key, value) {
                 select.append(
-                  "<option selected>--Selecciona una opcion--</option>"
-                );
-                select.append(
                   '<option value="' +
                     value.Clave_alimento +
                     '">' +
@@ -69,9 +63,6 @@ jQuery(function () {
               var select = $(`#${comidaid}`);
               select.empty();
               $.each(data, function (key, value) {
-                select.append(
-                  "<option selected>--Selecciona una opcion--</option>"
-                );
                 select.append(
                   '<option value="' +
                     value.Clave_alimento +

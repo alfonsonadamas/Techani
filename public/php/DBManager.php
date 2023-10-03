@@ -38,7 +38,7 @@
     public function verRegistrosDia(){
         $link = $this->open();
         
-        $sql = "SELECT * FROM registro_diario WHERE DATE(Fecha_Hora) = CURDATE();";
+        $sql = "SELECT idRegistro_diario, DATE_FORMAT(Fecha_Hora, '%d %b %Y %h:%i') AS Fecha_Formateada  FROM registro_diario WHERE DATE(Fecha_Hora) = CURDATE();";
 
         $result = $link ->query($sql);
         
