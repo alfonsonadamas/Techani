@@ -11,6 +11,14 @@ module.exports = {
     extend: {
       fontFamily: {
         fuentesec: ["Dancing Script", "cursive"],
+        fuenteTechani: ["Open Sans", "sans-serif"],
+        fuenteEslogan: ["Open Sans", "sans - serif"],
+      },
+      colors: {
+        azul: "#277BC0",
+        azulSecundario: "#4DBDEB",
+        azulBorde: "#277BC0",
+        amarillo: "#FFE08C",
       },
     },
   },
