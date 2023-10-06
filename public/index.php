@@ -13,7 +13,7 @@
     <h3>Apodo</h3>
 
     <a href="registro.php">Registro Diario</a>
-    <a href="ejercicio.php">Registro de Ejercicio</a>
+    <a href="registroEjercicios.php">Registro de Ejercicio</a>
     <a href="expediente.php">Añadir Expediente Clinico</a>
     <a href="alimentos.php">Alimentos</a>
     <a href="cuenta.php">Cuenta</a>

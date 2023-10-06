@@ -4,6 +4,6 @@
 
     $db = new DBManager();
 
-    $data = $db->verRegistros();
+    $data = $db->verRegistrosDiarios();
 
 ?>
