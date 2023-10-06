@@ -65,7 +65,7 @@
 
     }
 
-    public function verRegistros(){
+    public function verRegistrosDiarios(){
         $link = $this->open();
         
         $sql = "SELECT * FROM registro_diario ";
