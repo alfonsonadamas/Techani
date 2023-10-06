@@ -9,6 +9,29 @@
         mysqli_close($link);
     }
 
+    public function login($usuario, $contrasena){
+        $link = $this->open();
+
+        $sql1 = "SELECT Cve_paciente FROM paciente WHERE correo=? AND contraseña=?";
+        
+        $query = mysqli_prepare($link, $sql1) or die("Error at login");
+        $query -> bind_param("ss", $usuario, $contrasena);
+        $query -> execute();
+        $result = $query->get_result();
+
+        if ($result->num_rows == 1) {
+            $response = array("success" => true, "redirect_url" => "principal.php");
+            
+        } else {
+            $response = array("success" => false, "message" => "Inicio de sesión fallido");
+        }
+
+        echo json_encode($response);
+
+        $this->close($link);
+
+    }
+
 
     public function addRegistro( $tipo_insulina, $dosis, $tipo_dosis, $tipo_medicion , $agua, $dia_atipico ,$observaciones){
         $link = $this->open();
@@ -22,11 +45,23 @@
         
     }
 
-    public function anadirComida(){
+    public function addRegistrAlimentoo($cadena) {
+        $link = $this->open();
+       $query = mysqli_prepare($link, $cadena) or die("Error");
+       $query ->execute();
+
+        $this->close($link);
+
+    }
+
+    public function verRegistrosDia(){
         $link = $this->open();
         
+        $sql = "SELECT idRegistro_diario, DATE_FORMAT(Fecha_Hora, '%d %b %Y %h:%i') AS Fecha_Formateada  FROM registro_diario WHERE DATE(Fecha_Hora) = CURDATE();";
+
+        $result = $link ->query($sql);
         
-        $this->close($link);
+        return $result;
 
     }
 
@@ -39,6 +74,37 @@
 
         return $result;
     }
+
+    public function buscarAlimentosProteina(){
+        $link = $this->open();
+        
+        $sql = "SELECT * FROM `catalogo_alimentos` WHERE Tipo_alimento = 'Proteina';";
+
+        $result = $link ->query($sql);
+
+        return $result;
+    }
+
+    public function buscarAlimentosGrasa(){
+        $link = $this->open();
+        
+        $sql = "SELECT * FROM `catalogo_alimentos` WHERE Tipo_alimento = 'Grasa';";
+
+        $result = $link ->query($sql);
+
+        return $result;
+    }
+
+    public function buscarAlimentosLacteo(){
+        $link = $this->open();
+        
+        $sql = "SELECT * FROM `catalogo_alimentos` WHERE Tipo_alimento = 'Lacteo';";
+
+        $result = $link ->query($sql);
+
+        return $result;
+    }
+
 
    
 
