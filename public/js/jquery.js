@@ -111,3 +111,36 @@ jQuery(document).on("submit", "#formAlimentos", function (event) {
       console.log("complete");
     });
 });
+
+jQuery(document).on("submit", "#login", function (event) {
+  event.preventDefault();
+  $("#login_enviar").prop("disabled", true);
+  jQuery
+    .ajax({
+      url: "../public/php/endPointLogin.php",
+      type: "POST",
+      dataType: "json",
+      data: $(this).serialize(),
+    })
+    .done(function (response) {
+      console.log(response);
+      if (response.success) {
+        window.location.href = response.redirect_url;
+      } else {
+        $("#login_enviar").prop("disabled", false);
+        $("#alerta").addClass("block");
+        $("#alerta").removeClass("hidden");
+      }
+    })
+    .fail(function (resp) {
+      console.log("error");
+    })
+    .always(function (param) {
+      console.log("complete");
+    });
+});
+
+//mostrar pdf
+jQuery(document).on("click", "#boton", function () {
+  window.open("../public/php/pdf.php", "_blank");
+});
