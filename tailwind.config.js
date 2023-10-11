@@ -5,6 +5,7 @@ module.exports = {
   //   "./public/ejercicio.php",
   //   "./public/registro.php",
   //   "./public/login.php",
+  
 
   // ],
   content: [
@@ -15,6 +16,7 @@ module.exports = {
     "./public/login.php",
     "./public/principal.php",
     "./node_modules/flowbite/**/*.js",
+    
   ],
   theme: {
     extend: {
@@ -31,6 +33,6 @@ module.exports = {
       },
     },
   },
-  plugins: [require("flowbite/plugin")],
+  
 };
 
