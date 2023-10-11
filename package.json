@@ -2,8 +2,11 @@
   "devDependencies": {
     "tailwindcss": "^3.3.3"
   },
-
   "scripts": {
-    "dev":"tailwindcss -i ./src/styles.css -o ./public/build/styles.css --watch"
+    "dev": "tailwindcss -i ./src/styles.css -o ./public/build/styles.css --watch"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "flowbite": "^1.8.1"
   }
 }

@@ -8,10 +8,13 @@ module.exports = {
 
   // ],
   content: [
-    "./public/**/*.php",
-    "./public/**/**/*.php",
-    "./public/**/**/*.js",
-    "./public/**/*.vue",
+    "./public/index.php",
+    "./public/ejercicio.php",
+    "./public/registro.php",
+    "./public/alimentos.php",
+    "./public/login.php",
+    "./public/principal.php",
+    "./node_modules/flowbite/**/*.js",
   ],
   theme: {
     extend: {
@@ -21,9 +24,13 @@ module.exports = {
         fuenteEslogan: ["Open Sans", "sans - serif"],
       },
       colors: {
-        azul:"#277BC0",
+        azul: "#277BC0",
+        azulSecundario: "#4DBDEB",
+        azulBorde: "#277BC0",
+        amarillo: "#FFE08C",
       },
     },
   },
+  plugins: [require("flowbite/plugin")],
 };
 
