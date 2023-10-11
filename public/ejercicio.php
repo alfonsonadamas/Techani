@@ -10,6 +10,7 @@
 
 <h1>Registro de Ejercicio</h1>
 <div class="flex flex-col mb-2">
+          <form action="php/addEjercicio.php" method="post" class="sm:flex sm:flex-row">
           <label for="Medición de glucosa" class="block mb-1 text-sm font-medium text-gray-900">Medición de glucosa antes ejercicio</label>
           <input type="number" name="Medición de glucosa" min="1" max="200" placeholder="1" value="1" class="border-2 border-black p-1.5">
         </div>
@@ -80,6 +81,13 @@
             </select>
         </div>
 
+        <div>
+        <input type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" >
+      </div>
+
+
+      
+      </form>
 </body>
 <script src="js/script.js"></script>
 </html>

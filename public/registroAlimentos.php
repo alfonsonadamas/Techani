@@ -11,6 +11,7 @@
 
 <h1>Registro Alimentos</h1>
 <div class="flex flex-col">
+        <form action="php/addRegistroAlimentos.php" method="post" class="sm:flex sm:flex-row">
         <label for="Tipo">Tipo de alimento</label>
         <select name="tipo_alimento" id="tipo_alimento" class="border-2 border-black" onchange="ocultar()">
           <option value="Fruta">Fruta</option>
@@ -50,6 +51,7 @@
         <div>
         <input type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" >
       </div>
-    
+      </form>
 </body>
+<script src="js/script.js"></script>
 </html>
