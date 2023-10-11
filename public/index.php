@@ -18,6 +18,9 @@
     <a href="expediente.php">Añadir Expediente Clinico</a>
     <a href="alimentos.php">Alimentos</a>
     <a href="cuenta.php">Cuenta</a>
+    <a href="estadoAnimo.php">Estado de ánimo</a>
+    <a href="citas.php">Citas</a>
+
 
   </body>
 </html>
