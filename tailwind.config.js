@@ -1,5 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // content: [
+  //   "./public/index.php",
+  //   "./public/ejercicio.php",
+  //   "./public/registro.php",
+  //   "./public/login.php",
+  
+
+  // ],
   content: [
     "./public/index.php",
     "./public/ejercicio.php",
@@ -8,6 +16,7 @@ module.exports = {
     "./public/login.php",
     "./public/principal.php",
     "./node_modules/flowbite/**/*.js",
+    
   ],
   theme: {
     extend: {
@@ -24,4 +33,6 @@ module.exports = {
       },
     },
   },
+  
 };
+

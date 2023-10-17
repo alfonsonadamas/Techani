@@ -10,7 +10,26 @@
     }
 
     public function login($usuario, $contrasena){
+        $link = $this->open();
+
+        $sql1 = "SELECT Cve_paciente FROM paciente WHERE correo=? AND contraseña=?";
         
+        $query = mysqli_prepare($link, $sql1) or die("Error at login");
+        $query -> bind_param("ss", $usuario, $contrasena);
+        $query -> execute();
+        $result = $query->get_result();
+
+        if ($result->num_rows == 1) {
+            $response = array("success" => true, "redirect_url" => "principal.php");
+            
+        } else {
+            $response = array("success" => false, "message" => "Inicio de sesión fallido");
+        }
+
+        echo json_encode($response);
+
+        $this->close($link);
+
     }
 
 
@@ -46,7 +65,7 @@
 
     }
 
-    public function verRegistros(){
+    public function verRegistrosDiarios(){
         $link = $this->open();
         
         $sql = "SELECT * FROM registro_diario ";
