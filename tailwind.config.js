@@ -7,6 +7,7 @@ module.exports = {
     "./public/alimentos.php",
     "./public/login.php",
     "./public/principal.php",
+    "./public/registroAlimentos.php",
     "./node_modules/flowbite/**/*.js",
   ],
   theme: {
@@ -21,8 +22,9 @@ module.exports = {
         azulSecundario: "#4DBDEB",
         azulBorde: "#277BC0",
         amarillo: "#FFE08C",
+        fondoGris: "#F6F6F6",
       },
     },
   },
-  plugins: [require("flowbite/plugin")],
+
 };
