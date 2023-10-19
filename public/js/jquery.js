@@ -144,3 +144,5 @@ jQuery(document).on("submit", "#login", function (event) {
 jQuery(document).on("click", "#boton", function () {
   window.open("../public/php/pdf.php", "_blank");
 });
+
+
