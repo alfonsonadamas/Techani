@@ -82,6 +82,10 @@
                         <option value="24_horas">24 Horas</option>
                       </select>
                     </div>
+                    <div class="ml-4 mr-4 flex mb-2 flex-col">
+                      <label for="glucosa" class="block mb-1 text-sm font-medium text-gray-900">Glucosa</label>
+                      <input type="number" name="glucosa" min="1" max="25" placeholder="1" value="1" class="bg-gray-50 border border-gray-300 p-1 text-gray-900 text-sm rounded-lg block">
+                    </div>
                   </div>
 
                   <div class="sm:w-1/2 border ml:2 mr:2 mb-5 sm:ml-5 sm:mb-10 shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
