@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="build/styles.css" />
+  <link rel="shortcut icon" href="img/logo blanco.png" type="image/x-icon">
   <title>Techani</title>
 </head>
 
@@ -15,27 +16,27 @@
       <div class="bg-azul w-1/4 mt-6 ml-6 mb-6 rounded-3xl flex flex-col items-center justify-center shadow-xl">
         <img class="mb-10" src="img/Techani blanco con nombre.png" alt="" width="130">
         <div class="">
-          <div class="flex items-center h-10 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
+          <div class="flex items-center h-10 px-5 transition duration-500 ease-in-out bg-azulFondo rounded-lg">
             <img src="img/registro.png" alt="" width="30">
-            <a class="text-white ml-3" href="">Registro Diario</a>
+            <a class="text-white ml-3" href="registro.php">Registro Diario</a>
           </div>
-          <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
+          <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
             <img src="img/comida-sana.png" alt="" width="30">
-            <a class="text-white ml-3" href="">Registro de Alimentos</a>
+            <a class="text-white ml-3" href="alimentos.php">Registro de Alimentos</a>
           </div>
-          <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
+          <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
             <img src="img/rutina-de-ejercicio.png" alt=" " width="30">
             <a class="text-white ml-3" href="">Registro de Ejercicio</a>
           </div>
-          <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
+          <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
             <img src="img/carpeta.png" alt="" width="30">
-            <a class="text-white ml-3" href="">Registros</a>
+            <a class="text-white ml-3" href="">Análisis Clínicos</a>
           </div>
-          <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
+          <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
             <img src="img/alarma.png" alt="" width="30">
             <a class="text-white ml-3" href="">Alarmas</a>
           </div>
-          <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
+          <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
             <img src="img/calendario.png" alt="" width="30">
             <a class="text-white ml-3" href="">Citas Médicas</a>
           </div>
@@ -58,39 +59,40 @@
           <div class="w-full">
             <div class="sm:flex sm:justify-center">
               <form action="php/addRegistro.php" method="post" class="sm:w-4/5 sm:flex sm:flex-col">
-                <h1 class="text-left mb-10 mt-10 font-size text-2xl text-black font-sans">Registro Diario</h1>
+                <h1 class="text-left mb-10 mt-10 font-size text-2xl text-black font-sans">Registro
+                  Diario</h1>
                 <div class="sm:flex sm:flex-row sm:justify-center sm:w-full">
                   <div class="sm:w-1/2 border ml:2 mr:2 mb-5 sm:mr-5 sm:mb-10 shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
                     <div class="ml-4 mr-4 flex flex-row sm:flex sm:flex-col">
                       <div class="flex flex-col items-left mr-4 mb-2 w-full sm:w-full">
-                        <label for="tipo_insulina" class="block mt-2 mb-1 text-sm font-medium text-gray-900 ">Tipo de Insulina</label>
+                        <label for="tipo_insulina" class="block mt-2 mb-1 text-sm font-medium text-gray-900 ">Tipo de
+                          Insulina</label>
                         <select data-te-select-init data-te-select-clear-button="true" name="tipo_insulina" id="" class="bg-gray-50 p-1 border border-gray-300 text-gray-900 text-sm rounded-lg block">
                           <option value="lenta" class="">Lenta</option>
                           <option value="rapida">Rapida</option>
                         </select>
                       </div>
                       <div class="flex flex-col w-full sm:w-full mb-2">
-                        <label for="dosis" class="block text-sm font-medium resize-none mt-2 mb-1 text-gray-900">Dosis en ml</label>
+                        <label for="dosis" class="block text-sm font-medium resize-none mt-2 mb-1 text-gray-900">Dosis
+                          en ml</label>
                         <input type="number" name="dosis" min="1" max="25" placeholder="1" value="1" class="bg-gray-50 border border-gray-300 p-1 text-gray-900 text-sm rounded-lg block">
                       </div>
                     </div>
                     <div class="ml-4 mr-4 flex mb-2 flex-col">
-                      <label for="tipo_dosis" class="block mb-1 text-sm font-medium text-gray-900">Tipo de dosis</label>
+                      <label for="tipo_dosis" class="block mb-1 text-sm font-medium text-gray-900">Tipo de
+                        dosis</label>
                       <select name="tipo_dosis" id="" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                         <option value="alimentos">Para Alimentos</option>
                         <option value="correccion">Corrección</option>
                         <option value="24_horas">24 Horas</option>
                       </select>
                     </div>
-                    <div class="ml-4 mr-4 flex mb-2 flex-col">
-                      <label for="glucosa" class="block mb-1 text-sm font-medium text-gray-900">Glucosa</label>
-                      <input type="number" name="glucosa" min="1" max="25" placeholder="1" value="1" class="bg-gray-50 border border-gray-300 p-1 text-gray-900 text-sm rounded-lg block">
-                    </div>
                   </div>
 
                   <div class="sm:w-1/2 border ml:2 mr:2 mb-5 sm:ml-5 sm:mb-10 shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
                     <div class="ml-4 mr-4 mb-2 flex flex-col">
-                      <label for="tipo_medicion" class="block mt-2 mb-1 text-sm font-medium text-gray-900">Tipo de medicion</label>
+                      <label for="tipo_medicion" class="block mt-2 mb-1 text-sm font-medium text-gray-900">Tipo de
+                        medicion</label>
                       <select name="tipo_medicion" id="" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                         <option value="prep_d">Prepandrial - Desayuno</option>
                         <option value="post_d">Postpandrial - Desayuno</option>
@@ -102,45 +104,56 @@
                       </select>
                     </div>
                     <div class="ml-4 mr-4 mb-2 flex flex-col">
-                      <label for="vasos_agua" class="block mb-1 text-sm font-medium text-gray-900">Cantidad de agua consumida en vasos de 250ml</label>
+                      <label for="vasos_agua" class="block mb-1 text-sm font-medium text-gray-900">Cantidad de agua
+                        consumida en vasos de 250ml</label>
                       <input type="number" name="vasos_agua" min="0" max="20" placeholder="0" value="0" class="bg-gray-50 border p-1 border-gray-300 text-gray-900 text-sm rounded-lg block">
                     </div>
 
-                    <div>
-                      <div class="flex flex-col">
-                        <label for="vasos_agua" class="">Cantidad de agua consumida en vasos de 250ml</label>
-                        <input type="number" name="vasos_agua" min="0" max="20" placeholder="0" value="0" class="border-2 border-black">
-                      </div>
-
-                      <div class="flex flex-col">
-                        <label for="dia_atipico">Dia atipico</label>
-                        <select name="dia_atipico" id="dia_atipico" class="border-2 border-black" onchange="ocultar()">
-                          <option value="menstruacion">Menstruación</option>
-                          <option value="vacuna">Vacuna</option>
-                          <option value="enfermedad">Enfermedad</option>
-                          <option value="examen">Examen</option>
-                          <option value="otro" id="otro">Otro...</option>
-                        </select>
-
-                        <input type="text" id="especifique" placeholder="Especifique" class="hidden border-2 border-black resize-none ">
-
-                        <!-- <textarea name=""  cols="30" rows="10" ></textarea> -->
-                      </div>
-
-                      <div class="flex flex-col">
-                        <label for="observaciones">Observaciones</label>
-                        <textarea name="observaciones" id="" cols="30" rows="10" class="border-2 border-black resize-none"></textarea>
-                      </div>
+                    <div class="ml-4 mr-4 mb-2 flex flex-col">
+                      <label for="dia_atipico" class="block mb-1 text-sm font-medium text-gray-900">Dia atipico</label>
+                      <select name="dia_atipico" id="dia_atipico" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block" onchange="ocultar()">
+                        <option value="menstruacion">Menstruación</option>
+                        <option value="vacuna">Vacuna</option>
+                        <option value="enfermedad">Enfermedad</option>
+                        <option value="examen">Examen</option>
+                        <option value="otro" id="otro">Otro...</option>
+                      </select>
+                      <input type="text" id="especifique" placeholder="Especifique" class="hidden mt-2 bg-gray-50 border border-gray-300 p-1 text-gray-900 text-sm rounded-lg resize-none ">
                     </div>
-
-
-                    <div>
-                      <input type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
-                    </div>
-
-
-
+                  </div>
+                </div>
+                <div class="w-full ml:2 mr:2 mb-5 p-4 flex flex-col border shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
+                  <label for="observaciones" class="block text-sm font-medium mb-1 text-gray-900">Observaciones</label>
+                  <textarea name="observaciones" id="" cols="30" rows="10" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm p-1 rounded-lg block resize-none"></textarea>
+                </div>
+                <div class="ml-4 mr-4">
+                  <input type="submit" class="bg-amarillo text-black hover:bg-yellow-300font-bold py-2 px-4 rounded cursor-pointer justify-end">
+                </div>
               </form>
+            </div>
+            <div class="sm:flex sm:justify-center">
+              <div class="sm:w-4/5 sm:flex sm:flex-col">
+                <h2 class="text-left mb-10 mt-10 font-size text-2xl text-black font-sans">Registros
+                  Anteriores</h2>
+                <div class="sm:flex sm:flex-wrap justify-between flex flex-wrap shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl p-4">
+                  <?php
+                  require_once("php/verRegistros.php");
+                  while ($row = $data->fetch_assoc()) {
+                  ?>
+                    <div class="sm:flex sm:mb-2 mb-2 sm:flex-col sm:flex-wrap justify-center items-center">
+                      <img src="../src/img/pdf.png" class="w-20 h-auto" alt="">
+                      <label for="" class="block text-sm font-medium mb-1 text-gray-900"><?php echo $row["Fecha_Hora"] ?></label>
+                    </div>
+                  <?php
+                  }
+                  ?>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 <script src="js/script.js"></script>
 

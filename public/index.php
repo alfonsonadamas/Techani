@@ -45,8 +45,8 @@
                         experiencia integral en el
                         control y monitoreo de la diabetes tipo 1 y 2.</p>
                     <div class="flex justify-around mt-10">
-                        <a class="bg-amarillo px-7 py-1 rounded-lg" href="">Registrarse</a>
-                        <a class="bg-amarillo px-7 py-1 rounded-lg" href="">Iniciar Sesion</a>
+                        <a class="bg-amarillo px-7 py-1 rounded-lg" href="registroCorreo.php">Registrarse</a>
+                        <a class="bg-amarillo px-7 py-1 rounded-lg" href="login.php">Iniciar Sesion</a>
                     </div>
                 </div>
             </div>
