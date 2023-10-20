@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expediente</title>
     <link rel="stylesheet" href="build/styles.css" />
+    
     </head>
 <body class="bg-blue-100 font-fuenteTechani text-gray-800">
 
