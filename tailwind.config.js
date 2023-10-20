@@ -7,22 +7,20 @@ module.exports = {
     "./public/alimentos.php",
     "./public/login.php",
     "./public/principal.php",
-    "./node_modules/flowbite/**/*.js",
+    "./public/registroCorreo.php",
   ],
   theme: {
     extend: {
       fontFamily: {
         fuentesec: ["Dancing Script", "cursive"],
         fuenteTechani: ["Open Sans", "sans-serif"],
-        fuenteEslogan: ["Open Sans", "sans - serif"],
       },
       colors: {
         azul: "#277BC0",
         azulSecundario: "#4DBDEB",
-        azulBorde: "#277BC0",
         amarillo: "#FFE08C",
+        azulFondo: "#18578B",
       },
     },
   },
-  plugins: [require("flowbite/plugin")],
 };
