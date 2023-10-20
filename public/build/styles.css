@@ -1098,6 +1098,10 @@ input:checked + .toggle-bg{
   z-index: 50;
 }
 
+.m-4{
+  margin: 1rem;
+}
+
 .mx-14{
   margin-left: 3.5rem;
   margin-right: 3.5rem;
@@ -1126,6 +1130,11 @@ input:checked + .toggle-bg{
 .my-7{
   margin-top: 1.75rem;
   margin-bottom: 1.75rem;
+}
+
+.mx-40{
+  margin-left: 10rem;
+  margin-right: 10rem;
 }
 
 .mb-1{
@@ -1184,6 +1193,10 @@ input:checked + .toggle-bg{
   margin-right: 3.5rem;
 }
 
+.mr-2{
+  margin-right: 0.5rem;
+}
+
 .mr-20{
   margin-right: 5rem;
 }
@@ -1208,12 +1221,24 @@ input:checked + .toggle-bg{
   margin-top: 0.5rem;
 }
 
+.mt-4{
+  margin-top: 1rem;
+}
+
 .mt-6{
   margin-top: 1.5rem;
 }
 
 .mt-9{
   margin-top: 2.25rem;
+}
+
+.mb-4{
+  margin-bottom: 1rem;
+}
+
+.mt-5{
+  margin-top: 1.25rem;
 }
 
 .block{
@@ -1551,6 +1576,16 @@ input:checked + .toggle-bg{
   background-color: rgb(39 123 192 / var(--tw-bg-opacity));
 }
 
+.bg-blue-100{
+  --tw-bg-opacity: 1;
+  background-color: rgb(225 239 254 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(63 131 248 / var(--tw-bg-opacity));
+}
+
 .bg-blue-700{
   --tw-bg-opacity: 1;
   background-color: rgb(26 86 219 / var(--tw-bg-opacity));
@@ -1775,6 +1810,11 @@ input:checked + .toggle-bg{
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
+.text-gray-800{
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+
 .text-gray-900{
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
@@ -1885,6 +1925,11 @@ input:checked + .toggle-bg{
   background-color: rgb(77 189 235 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-blue-600:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(28 100 242 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-blue-800:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(30 66 159 / var(--tw-bg-opacity));
@@ -1935,6 +1980,11 @@ input:checked + .toggle-bg{
 .focus\:ring-blue-300:focus{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(164 202 254 / var(--tw-ring-opacity));
+}
+
+.focus\:ring-blue-500:focus{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(63 131 248 / var(--tw-ring-opacity));
 }
 
 .focus\:ring-gray-200:focus{
@@ -2008,6 +2058,10 @@ input:checked + .toggle-bg{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+:is(.dark .dark\:ring-offset-gray-800){
+  --tw-ring-offset-color: #1F2937;
+}
+
 :is(.dark .dark\:hover\:bg-blue-700:hover){
   --tw-bg-opacity: 1;
   background-color: rgb(26 86 219 / var(--tw-bg-opacity));
@@ -2038,7 +2092,16 @@ input:checked + .toggle-bg{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+:is(.dark .dark\:focus\:ring-blue-600:focus){
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(28 100 242 / var(--tw-ring-opacity));
+}
+
 @media (min-width: 640px){
+  .sm\:m-7{
+    margin: 1.75rem;
+  }
+
   .sm\:mb-10{
     margin-bottom: 2.5rem;
   }
@@ -2055,12 +2118,24 @@ input:checked + .toggle-bg{
     margin-right: 1.25rem;
   }
 
+  .sm\:mt-10{
+    margin-top: 2.5rem;
+  }
+
   .sm\:flex{
     display: flex;
   }
 
+  .sm\:grid{
+    display: grid;
+  }
+
   .sm\:w-1\/2{
     width: 50%;
+  }
+
+  .sm\:w-11\/12{
+    width: 91.666667%;
   }
 
   .sm\:w-4\/5{
@@ -2069,6 +2144,10 @@ input:checked + .toggle-bg{
 
   .sm\:w-full{
     width: 100%;
+  }
+
+  .sm\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .sm\:flex-row{
@@ -2085,5 +2164,9 @@ input:checked + .toggle-bg{
 
   .sm\:justify-center{
     justify-content: center;
+  }
+
+  .sm\:gap-4{
+    gap: 1rem;
   }
 }

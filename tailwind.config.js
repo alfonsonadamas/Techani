@@ -7,6 +7,7 @@ module.exports = {
     "./public/alimentos.php",
     "./public/login.php",
     "./public/principal.php",
+    "./public/expediente.php",
     "./node_modules/flowbite/**/*.js",
   ],
   theme: {
