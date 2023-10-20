@@ -9,6 +9,8 @@ module.exports = {
     "./public/principal.php",
     "./public/registroAlimentos.php",
     "./public/registroCorreo.php",
+    "./public/expediente.php",
+    "./node_modules/flowbite/**/*.js",
   ],
   theme: {
     extend: {
