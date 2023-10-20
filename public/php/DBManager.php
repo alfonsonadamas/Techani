@@ -1,5 +1,6 @@
 <?php
  class DBManager{
+    private $key;
     private function open(){
         $link = mysqli_connect("127.0.0.1", "root", null, "techani") or die('Error connecting to Data Base');
         return $link;
@@ -39,6 +40,7 @@
         $query = mysqli_prepare($link, $sql) or die("Error at login");
         $query -> bind_param("sssssss", $tipo_insulina, $dosis,$tipo_dosis, $tipo_medicion, $agua ,$dia_atipico, $observaciones );
         $query -> execute();
+        header("location: ../registro.php");
 
         $this->close($link);
         
@@ -68,7 +70,7 @@
     public function verRegistrosDiarios(){
         $link = $this->open();
         
-        $sql = "SELECT * FROM registro_diario ";
+        $sql = "SELECT idRegistro_diario, DATE_FORMAT(Fecha_Hora, '%d %b %Y %h:%i') AS Fecha_Formateada  FROM registro_diario WHERE DATE(Fecha_Hora) = CURDATE();";
 
         $result = $link ->query($sql);
 
