@@ -7,6 +7,7 @@ module.exports = {
     "./public/alimentos.php",
     "./public/login.php",
     "./public/principal.php",
+    "./public/registroAlimentos.php",
     "./public/registroCorreo.php",
   ],
   theme: {
@@ -19,6 +20,7 @@ module.exports = {
         azul: "#277BC0",
         azulSecundario: "#4DBDEB",
         amarillo: "#FFE08C",
+        fondoGris: "#F6F6F6",
         azulFondo: "#18578B",
       },
     },
