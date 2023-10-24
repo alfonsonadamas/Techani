@@ -112,6 +112,7 @@
                     <div class="ml-4 mr-4 mb-2 flex flex-col">
                       <label for="dia_atipico" class="block mb-1 text-sm font-medium text-gray-900">Dia atipico</label>
                       <select name="dia_atipico" id="dia_atipico" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block" onchange="ocultar()">
+                        <option value="ninguno">Ninguno</option>
                         <option value="menstruacion">Menstruación</option>
                         <option value="vacuna">Vacuna</option>
                         <option value="enfermedad">Enfermedad</option>
@@ -122,20 +123,61 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full ml:2 mr:2 mb-5 p-4 flex flex-col border shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
+                <div class="w-full ml-2 mr-2 mb-5 p-4 flex flex-col border shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
                   <label for="observaciones" class="block text-sm font-medium mb-1 text-gray-900">Observaciones</label>
-                  <textarea name="observaciones" id="" cols="30" rows="10" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm p-1 rounded-lg block resize-none"></textarea>
+                  <textarea name="observaciones" id="observaciones" cols="30" rows="10" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm p-1 rounded-lg block resize-none"></textarea>
+                  <div id="contador-caracteres">Caracteres restantes: 600</div>
                 </div>
+                <script>
+                  const textarea = document.getElementById('observaciones');
+                  const contadorCaracteres = document.getElementById('contador-caracteres');
+                  const maxLength = 600;
+
+                  textarea.addEventListener('input', () => {
+                    let inputValue = textarea.value;
+                    const lineBreaks = (inputValue.match(/\n/g) || []).length;
+                    const totalCaracteres = inputValue.length + lineBreaks * 50;
+
+                    if (totalCaracteres > maxLength || totalCaracteres + 50 > maxLength) {
+                      const maxTextLength = maxLength - lineBreaks * 50;
+                      inputValue = inputValue.substring(0, maxTextLength);
+                      textarea.value = inputValue;
+                    }
+
+                    const caracteresRestantes = maxLength - totalCaracteres;
+                    contadorCaracteres.textContent = `Caracteres restantes: ${
+                                        Math.max(0, caracteresRestantes)
+                                    }`;
+                  });
+
+                  textarea.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter') {
+                      const caracteresRestantes = maxLength - (textarea.value.length + (
+                        textarea.value.match(/\n/g) || []).length * 50);
+                      if (caracteresRestantes <= 50) {
+                        event.preventDefault();
+                      }
+                    }
+                  });
+                </script>
                 <div class="ml-4 mr-4">
                   <input type="submit" class="bg-amarillo text-black hover:bg-yellow-300font-bold py-2 px-4 rounded cursor-pointer justify-end">
                 </div>
               </form>
             </div>
             <div class="sm:flex sm:justify-center">
+
               <div class="sm:w-4/5 sm:flex sm:flex-col">
-                <h2 class="text-left mb-10 mt-10 font-size text-2xl text-black font-sans">Registros
+                <h2 class="text-left mb-5 mt-10 font-size text-2xl text-black font-sans">Registros
                   Anteriores</h2>
-                <div class="sm:flex sm:flex-wrap justify-between flex flex-wrap shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl p-4">
+
+                <div class="flex">
+                  <h1>Fecha:</h1>
+                  <input type="date" id="FechaFiltro">
+                  <button id="filtrar">Filtrar</button>
+                </div>
+                <div class="sm:flex sm:flex-wrap justify-between flex flex-wrap shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl p-4" id="registros">
+
                   <?php
                   require_once("php/verRegistros.php");
                   while ($row = $data->fetch_assoc()) {
