@@ -120,10 +120,42 @@
                         </div>
                       </div>
                       </div>
-                      <div class="w-full ml:2 mr:2 mb-5 p-4 flex flex-col border shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
+                      
+                      <div class="w-full ml-2 mr-2 mb-5 p-4 flex flex-col border shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
                           <label for="observaciones" class="block text-sm font-medium mb-1 text-gray-900">Observaciones</label>
-                          <textarea name="observaciones" id="" cols="30" rows="10"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm p-1 rounded-lg block resize-none"></textarea>
+                          <textarea name="observaciones" id="observaciones" cols="30" rows="10" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm p-1 rounded-lg block resize-none"></textarea>
+                          <div id="contador-caracteres">Caracteres restantes: 600</div>
                       </div>
+                      <script>
+                          const textarea = document.getElementById('observaciones');
+                          const contadorCaracteres = document.getElementById('contador-caracteres');
+                          const maxLength = 600;
+
+                          textarea.addEventListener('input', () => {
+                            let inputValue = textarea.value;
+                            const lineBreaks = (inputValue.match(/\n/g) || []).length;
+                            const totalCaracteres = inputValue.length + lineBreaks * 50;
+
+                            if (totalCaracteres > maxLength || totalCaracteres + 50 > maxLength) {
+                              // Limitar el texto al máximo permitido
+                              const maxTextLength = maxLength - lineBreaks * 50;
+                              inputValue = inputValue.substring(0, maxTextLength);
+                              textarea.value = inputValue;
+                            }
+
+                            const caracteresRestantes = maxLength - totalCaracteres;
+                            contadorCaracteres.textContent = `Caracteres restantes: ${Math.max(0, caracteresRestantes)}`;
+                          });
+
+                          textarea.addEventListener('keydown', (event) => {
+                            if (event.key === 'Enter') {
+                              const caracteresRestantes = maxLength - (textarea.value.length + (textarea.value.match(/\n/g) || []).length * 50);
+                              if (caracteresRestantes <= 50) {
+                                event.preventDefault(); // Evitar el salto de línea si quedan 50 caracteres o menos
+                              }
+                            }
+                          });
+                      </script>
                       <div class="ml-4 mr-4">
                         <input type="submit" class="bg-amarillo text-black hover:bg-yellow-300font-bold py-2 px-4 rounded cursor-pointer justify-end" >
                       </div>

@@ -23,6 +23,5 @@ module.exports = {
         amarillo: "#FFE08C",
       },
     },
-  },
-  plugins: [require("flowbite/plugin")],
+  }
 };
