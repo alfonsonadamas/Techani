@@ -22,8 +22,8 @@ const sinRegistrosMessage = document.getElementById("sinRegistros");
 filtrarButton.addEventListener("click", () => {
   const fechaFiltro = fechaFiltroInput.value;
   let registrosMostrados = 0;
-  
-  registros.forEach(registro => {
+
+  registros.forEach((registro) => {
     const fechaRegistro = registro.querySelector("label").textContent;
 
     if (fechaFiltro === "" || fechaRegistro === fechaFiltro) {
@@ -41,33 +41,41 @@ filtrarButton.addEventListener("click", () => {
   });
 });
 
-const textarea = document.getElementById('observaciones');
-const contadorCaracteres = document.getElementById('contador-caracteres');
-const maxLength = 300;
+// textarea.addEventListener("input", () => {});
 
-textarea.addEventListener('input', () => {
-    let inputValue = textarea.value;
-    const lineBreaks = (inputValue.match(/\n/g) || []).length;
-    const totalCaracteres = inputValue.length + lineBreaks * 30;
+function caracteresRestantes() {
+  const textarea = document.getElementById("observaciones");
+  const maxLength = 300;
+  const contadorCaracteres = document.getElementById("contador-caracteres");
 
-    if (totalCaracteres > maxLength || totalCaracteres + 30 > maxLength) {
-        const maxTextLength = maxLength - lineBreaks * 30;
-        inputValue = inputValue.substring(0, maxTextLength);
-        textarea.value = inputValue;
+  let inputValue = textarea.value;
+  const lineBreaks = (inputValue.match(/\n/g) || []).length;
+  const totalCaracteres = inputValue.length + lineBreaks * 30;
+
+  if (totalCaracteres > maxLength || totalCaracteres + 30 > maxLength) {
+    const maxTextLength = maxLength - lineBreaks * 30;
+    inputValue = inputValue.substring(0, maxTextLength);
+    textarea.value = inputValue;
+  }
+
+  const caracteresRestantes = maxLength - totalCaracteres;
+  contadorCaracteres.textContent = `Caracteres restantes: ${Math.max(
+    0,
+    caracteresRestantes
+  )}`;
+}
+
+// textarea.addEventListener("keydown", (event) => {});
+
+function Enter(event) {
+  const textarea = document.getElementById("observaciones");
+  const maxLength = 300;
+  if (event.key === "Enter") {
+    const caracteresRestantes =
+      maxLength -
+      (textarea.value.length + (textarea.value.match(/\n/g) || []).length * 30);
+    if (caracteresRestantes <= 30) {
+      event.preventDefault();
     }
-
-    const caracteresRestantes = maxLength - totalCaracteres;
-    contadorCaracteres.textContent = `Caracteres restantes: ${
-        Math.max(0, caracteresRestantes)
-    }`;
-});
-
-textarea.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        const caracteresRestantes = maxLength - (textarea.value.length + (
-            textarea.value.match(/\n/g) || []).length * 30);
-        if (caracteresRestantes <= 30) {
-            event.preventDefault();
-        }
-    }
-});
+  }
+}
