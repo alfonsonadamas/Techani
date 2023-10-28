@@ -28,7 +28,7 @@
         <p class="hidden" id="mensajeCorreo">Correo no valido. <br> Por favor introduzca uno de la forma:
             correo@example.com</p>
         <p class="hidden" id="mensajeCorreoValido">Correo valido</p>
-        <input type="text" placeholder="Contraseña" id="contraseña">
+        <input type="password" placeholder="Contraseña" id="contraseña">
         <ul class="max-w-md space-y-1 -500 list-inside hidden" id="mensajeContraseña">
             <p id="errorMsg">Contraseña no valida.</p>
             <li class="flex items-center">
@@ -58,7 +58,7 @@
         </ul>
 
 
-        <input type="text" placeholder="Confirmar Contraseña" id="confContraseña">
+        <input type="password" placeholder="Confirmar Contraseña" id="confContraseña">
         <ul class="list-inside hidden" id="confMsg">
             <li class="flex items-center">
                 <svg class="w-3.5 h-3.5 mr-2 text-red-600  flex-shrink-0" aria-hidden="true"
