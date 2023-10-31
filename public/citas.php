@@ -68,10 +68,10 @@
                     </div>
                     <div class="flex items-center ml-8">
                         <img class="rounded-full" src="img/perfil.jpg" alt="" width="35">
-                        <p class="mx-8">Sofia Garcia</p>
+                        <p class="mx-8">Sofi Garcia</p>
                     </div>
                 </div>
-                <!-- Aqui editale -->
+                
 
 
 
