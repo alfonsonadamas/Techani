@@ -84,7 +84,7 @@
 
             <div id="divForm" class="ml-10 mr-10">
 
-                <form id="form" method="post" action="guardar_cita.php" 
+                <form id="form" action="php/addCitas.php" method="post" 
                 class="flex flex-col hidden p-4
                  bg-white sm:w-4/5 border ml:2 mr:2 mb-5 sm:mr-5 sm:mb-10 shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl
                  " >
