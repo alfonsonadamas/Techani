@@ -282,4 +282,17 @@ jQuery(document).on("input", "#usuario", function () {
   }
 });
 
+jQuery(document).on("click", "#agregar", function () {
+  if ( $("#form").hasClass("hidden")) {
+    $("#form").removeClass("hidden")
+    $("#form").addClass("block")
+  } 
+  else{
+    $("#form").addClass("hidden")
+    $("#form").removeClass("block")
+  }
+})
 
+jQuery(document).on("click", "#btnsubir", function () {
+  $("#doc").trigger('click');
+})

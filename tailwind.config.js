@@ -17,6 +17,7 @@ module.exports = {
     "./public/principal.php",
     "./public/registroAlimentos.php",
     "./public/registroCorreo.php",
+    "./public/analisis.php",
   ],
   theme: {
     extend: {
