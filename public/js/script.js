@@ -14,6 +14,27 @@ function ocultar() {
   }
 }
 
+
+function mostrar(){
+
+  const btn = document.getElementById('btn');
+  const form=document.getElementById('form');
+
+  btn.addEventListener('click',()=>{
+
+    if(form.classList.contains('hidden')){
+
+        form.classList.remove('hidden');
+
+    } else{
+
+      form.classList.add('hidden');
+    }
+  });
+}
+
+mostrar();
+
 const fechaFiltroInput = document.getElementById("FechaFiltro");
 const filtrarButton = document.getElementById("filtrar");
 const registros = document.querySelectorAll(".registro");
