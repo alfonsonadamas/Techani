@@ -1271,6 +1271,14 @@ input:checked + .toggle-bg {
   height: 66.666667%;
 }
 
+.h-8{
+  height: 2rem;
+}
+
+.h-8{
+  height: 2rem;
+}
+
 .h-40 {
   height: 10rem;
 }
@@ -1387,6 +1395,9 @@ input:checked + .toggle-bg {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y))
     rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
     scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+
+.max-w-md{
+  max-width: 28rem;
 }
 
 .transform {
@@ -1451,7 +1462,13 @@ input:checked + .toggle-bg {
   justify-content: space-around;
 }
 
-.rounded {
+.space-y-1 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}
+
+.rounded{
   border-radius: 0.25rem;
 }
 
@@ -1652,12 +1669,27 @@ input:checked + .toggle-bg {
   line-height: 1;
 }
 
-.text-lg {
-  font-size: 1.125rem;
+.text-sm{
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-xl{
+  font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
 .text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-sm{
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -1812,8 +1844,40 @@ input:checked + .toggle-bg {
   opacity: 0.5;
 }
 
-@media (min-width: 640px) {
-  .sm\:mb-10 {
+@media (prefers-color-scheme: dark){
+  .dark\:border-gray-600{
+    --tw-border-opacity: 1;
+    border-color: rgb(75 85 99 / var(--tw-border-opacity));
+  }
+
+  .dark\:bg-gray-700{
+    --tw-bg-opacity: 1;
+    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  }
+
+  .dark\:text-gray-400{
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-white{
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+
+  .dark\:placeholder-gray-400::-moz-placeholder{
+    --tw-placeholder-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+  }
+
+  .dark\:placeholder-gray-400::placeholder{
+    --tw-placeholder-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+  }
+}
+
+@media (min-width: 640px){
+  .sm\:mb-10{
     margin-bottom: 2.5rem;
   }
 
