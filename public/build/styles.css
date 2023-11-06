@@ -947,6 +947,10 @@ input[type="range"]::-ms-fill-lower{
   margin-bottom: 1.5rem;
 }
 
+.mb-7{
+  margin-bottom: 1.75rem;
+}
+
 .mb-8{
   margin-bottom: 2rem;
 }
@@ -1079,6 +1083,10 @@ input[type="range"]::-ms-fill-lower{
   height: 8rem;
 }
 
+.h-4\/5{
+  height: 80%;
+}
+
 .h-4\/6{
   height: 66.666667%;
 }
@@ -1107,6 +1115,10 @@ input[type="range"]::-ms-fill-lower{
   width: 50%;
 }
 
+.w-1\/3{
+  width: 33.333333%;
+}
+
 .w-1\/4{
   width: 25%;
 }
@@ -1117,10 +1129,6 @@ input[type="range"]::-ms-fill-lower{
 
 .w-2\/4{
   width: 50%;
-}
-
-.w-2\/5{
-  width: 40%;
 }
 
 .w-20{
@@ -1243,6 +1251,10 @@ input[type="range"]::-ms-fill-lower{
   justify-content: space-around;
 }
 
+.justify-evenly{
+  justify-content: space-evenly;
+}
+
 .space-y-1 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1293,6 +1305,10 @@ input[type="range"]::-ms-fill-lower{
 
 .border-r-2{
   border-right-width: 2px;
+}
+
+.border-solid{
+  border-style: solid;
 }
 
 .border-black{
@@ -1383,9 +1399,19 @@ input[type="range"]::-ms-fill-lower{
   padding: 1.5rem;
 }
 
+.px-10{
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .px-12{
   padding-left: 3rem;
   padding-right: 3rem;
+}
+
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .px-4{
@@ -1415,6 +1441,10 @@ input[type="range"]::-ms-fill-lower{
 
 .text-left{
   text-align: left;
+}
+
+.text-center{
+  text-align: center;
 }
 
 .font-fuenteTechani{
@@ -1471,6 +1501,10 @@ input[type="range"]::-ms-fill-lower{
   font-weight: 600;
 }
 
+.uppercase{
+  text-transform: uppercase;
+}
+
 .leading-6{
   line-height: 1.5rem;
 }
@@ -1492,6 +1526,11 @@ input[type="range"]::-ms-fill-lower{
 .text-black{
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-blue-500{
+  --tw-text-opacity: 1;
+  color: rgb(63 131 248 / var(--tw-text-opacity));
 }
 
 .text-gray-900{
