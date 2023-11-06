@@ -172,6 +172,11 @@ jQuery(document).on("input", "#correo", function () {
     $("#correoConf").removeClass("text-green-600");
   }
 
+  console.log(comprobacionContra);
+  console.log(comprobacionCorreo);
+  console.log(comprobacionUsuario);
+  console.log(comprobacionContraConf);
+
   if (
     comprobacionContra == true &&
     comprobacionCorreo == true &&
@@ -219,11 +224,16 @@ jQuery(document).on("input", "#contraseña", function () {
     regexEsp.test(password)
   ) {
     $("#errorMsg").html("Contraseña Valida");
-    comprobacionContra == true;
+    comprobacionContra = true;
   } else {
     $("#errorMsg").html("Contraseña no Valida");
-    comprobacionContra == false;
+    comprobacionContra = false;
   }
+
+  console.log(comprobacionContra);
+  console.log(comprobacionCorreo);
+  console.log(comprobacionUsuario);
+  console.log(comprobacionContraConf);
 
   if (
     comprobacionContra == true &&
@@ -255,6 +265,11 @@ jQuery(document).on("input", "#confContraseña", function () {
     comprobacionContraConf = false;
   }
 
+  console.log(comprobacionContra);
+  console.log(comprobacionCorreo);
+  console.log(comprobacionUsuario);
+  console.log(comprobacionContraConf);
+
   if (
     comprobacionContra == true &&
     comprobacionCorreo == true &&
@@ -282,6 +297,11 @@ jQuery(document).on("input", "#usuario", function () {
     $("#siguiente").prop("disabled", true);
     comprobacionUsuario = false;
   }
+
+  console.log(comprobacionContra);
+  console.log(comprobacionCorreo);
+  console.log(comprobacionUsuario);
+  console.log(comprobacionContraConf);
 
   if (
     comprobacionContra == true &&
@@ -315,4 +335,24 @@ $("#siguienteCont").on("click", function (event) {
   $("#enviar").removeClass("hidden");
   $("#siguienteCont").addClass("hidden");
   $("#correoVerif").addClass("hidden");
+});
+
+jQuery(document).on("submit", "#registro", function (event) {
+  event.preventDefault();
+  jQuery
+    .ajax({
+      url: "../public/php/endPointRegistroCorreo.php",
+      type: "POST",
+      dataType: "json",
+      data: $(this).serialize(),
+    })
+    .done(function (response) {
+      console.log(response);
+    })
+    .fail(function (resp) {
+      console.log("error");
+    })
+    .always(function (param) {
+      console.log("complete");
+    });
 });

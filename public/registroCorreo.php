@@ -20,7 +20,7 @@
             <form action="" class="flex flex-col w-full px-10 justify-evenly" id="registroCorreo">
 
                 <input class="rounded-lg border-solid border-2 border-gray-300 p-1 mb-2 w-full" type="text"
-                    placeholder="Usuario" id="usuario">
+                    placeholder="Usuario" id="usuario" name="usuario">
                 <ul class="max-w-md space-y-1 w-full list-inside hidden" id="mensajeUsuario">
 
                     <li class="flex items-center" id="msgUsuario">
@@ -34,7 +34,7 @@
                     </li>
                 </ul>
                 <input class="rounded-lg border-solid border-2 border-gray-300 p-1 mb-2  w-full hidden" type="email"
-                    placeholder="Correo" id="correo">
+                    placeholder="Correo" id="correo" name="correo">
                 <ul class="list-inside hidden" id="correoVerif">
                     <li class="flex items-center">
                         <svg class="w-3.5 h-3.5 mr-2 text-red-600  flex-shrink-0" aria-hidden="true"
@@ -48,7 +48,7 @@
 
                 <p class="hidden" id="mensajeCorreoValido">Correo valido</p>
                 <input class="rounded-lg border-solid border-2 hidden border-gray-300 p-1 mb-2 w-full" type="password"
-                    placeholder="Contraseña" id="contraseña">
+                    placeholder="Contraseña" id="contraseña" name="contraseña">
                 <ul class="max-w-md space-y-1 -500 list-inside hidden" id="mensajeContraseña">
 
                     <li class="flex items-center">

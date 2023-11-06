@@ -106,6 +106,11 @@
 
         return $result;
     }
+
+    public function registrarCorreo(){
+        $link = $this->open();
+        $sql = "INSERT INTO `paciente` (`Cve_paciente`, `Nombre`, `Apellido_paterno`, `Apellido_materno`, `Fecha_nacimiento`, `Sexo`, `Correo`, `Contraseña`) VALUES (1, ?, ?, ?, ?, ?, ?, ?);";
+    }
  }
 
 ?>
