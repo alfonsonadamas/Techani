@@ -8,6 +8,7 @@ module.exports = {
     "./public/login.php",
     "./public/principal.php",
     "./public/expediente.php",
+    "./public/registroAlarmas.php",
     "./node_modules/flowbite/**/*.js",
   ],
   theme: {

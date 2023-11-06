@@ -1107,6 +1107,11 @@ input:checked + .toggle-bg{
   margin-right: 3.5rem;
 }
 
+.mx-40{
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
 .mx-6{
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -1132,11 +1137,6 @@ input:checked + .toggle-bg{
   margin-bottom: 1.75rem;
 }
 
-.mx-40{
-  margin-left: 10rem;
-  margin-right: 10rem;
-}
-
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -1149,12 +1149,20 @@ input:checked + .toggle-bg{
   margin-bottom: 0.5rem;
 }
 
+.mb-4{
+  margin-bottom: 1rem;
+}
+
 .mb-5{
   margin-bottom: 1.25rem;
 }
 
 .mb-6{
   margin-bottom: 1.5rem;
+}
+
+.mb-7{
+  margin-bottom: 1.75rem;
 }
 
 .mb-8{
@@ -1225,20 +1233,16 @@ input:checked + .toggle-bg{
   margin-top: 1rem;
 }
 
+.mt-5{
+  margin-top: 1.25rem;
+}
+
 .mt-6{
   margin-top: 1.5rem;
 }
 
 .mt-9{
   margin-top: 2.25rem;
-}
-
-.mb-4{
-  margin-bottom: 1rem;
-}
-
-.mt-5{
-  margin-top: 1.25rem;
 }
 
 .block{
@@ -1349,8 +1353,24 @@ input:checked + .toggle-bg{
   width: 18rem;
 }
 
+.w-\[10\%\]{
+  width: 10%;
+}
+
+.w-\[30\%\]{
+  width: 30%;
+}
+
+.w-\[60\%\]{
+  width: 60%;
+}
+
 .w-full{
   width: 100%;
+}
+
+.w-\[45\%\]{
+  width: 45%;
 }
 
 .flex-1{
@@ -1423,6 +1443,10 @@ input:checked + .toggle-bg{
   resize: both;
 }
 
+.grid-cols-2{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .grid-cols-4{
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -1441,6 +1465,10 @@ input:checked + .toggle-bg{
 
 .flex-wrap{
   flex-wrap: wrap;
+}
+
+.content-center{
+  align-content: center;
 }
 
 .items-start{
@@ -1475,6 +1503,10 @@ input:checked + .toggle-bg{
   justify-content: space-around;
 }
 
+.gap-4{
+  gap: 1rem;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -1487,6 +1519,10 @@ input:checked + .toggle-bg{
 
 .rounded{
   border-radius: 0.25rem;
+}
+
+.rounded-2xl{
+  border-radius: 1rem;
 }
 
 .rounded-3xl{
@@ -1554,6 +1590,11 @@ input:checked + .toggle-bg{
 .border-gray-300{
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-sky-950{
+  --tw-border-opacity: 1;
+  border-color: rgb(8 47 73 / var(--tw-border-opacity));
 }
 
 .border-slate-400{
