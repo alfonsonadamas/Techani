@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="build/styles.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
     <title>Techani</title>
 </head>
 
@@ -39,7 +40,7 @@
                     <div
                         class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
                         <img src="img/carpeta.png" alt="" width="30">
-                        <a class="text-white ml-3" href="">Registros</a>
+                        <a class="text-white ml-3" href="">Análisis Clinicos</a>
                     </div>
                     <div
                         class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
@@ -66,62 +67,63 @@
                     </div>
                 </div>
                 <!-- Aqui editale -->
-                <div class="m-11 ml-28">
-                    <h1 class="text-left mb-10 mt-10 font-size text-2xl text-black font-sans">Registro de comidas</h1>
-                    <div class="ml-10">
-                        <div
-                            class="bg-white sm:w-4/5 border ml:2 mr:2 mb-5 sm:mr-5 sm:mb-10 shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
-                            <div class="m-4">
-                                <div class="flex flex-col">
-                                    <label for="Tipo">Tipo de alimento</label>
-                                    <select name="tipo_alimento" id="tipo_alimento"
-                                        class="border-2 border-black rounded-md" onchange="ocultar()">
-                                        <option value="Fruta">Fruta</option>
-                                        <option value="Leguminosa">Leguminosa</option>
-                                        <option value="Celeral">Celeral</option>
-                                        <option value="Lacteo">Lacteo</option>
-                                        <option value="Proteína">Proteína</option>
-                                        <option value="Grasa">Grasa</option>
-                                        <option value="Azucares">Azucares</option>
-                                    </select>
+                <div class="ml-8 mt-10">
+                    <div class="ml-6 ">
+                        <h1 class="font-bold text-2xl">Análisis Clínicos</h1>
+                    </div>
 
+                    <div class="ml-6 mt-7">
+                        <button class="border border-black p-2 rounded-lg hover:bg-gray-200 " id="agregar"> + Agregar
+                            Análisis </button>
+                    </div>
 
+                    <div id="form" class="hidden mb-14">
+                        <form action=""
+                            class="border border-gray-400 w-2/4 rounded-lg my-7 ml-20 shadow-xl drop-shadow-lg p-6 flex flex-col items-center">
+                            <div class="flex mb-8">
+                                <div class="flex flex-col mr-20">
+                                    <label for="" class="font-semibold text-lg mb-2">Tipo de Estudio</label>
+                                    <input type="text" class="border border-black w-56 h-8">
                                 </div>
 
-                                <div class="flex flex-col">
-                                    <label for="Descripción alimento">Descripción del alimento</label>
-                                    <textarea name="Descripción alimento" id="" cols="30" rows="10"
-                                        class="border-2 border-black resize-none"></textarea>
+                                <div class="flex flex-col ">
+                                    <label for="" class="font-semibold text-lg mb-2">Fecha</label>
+                                    <input type="date" class="border border-black w-40 h-8">
                                 </div>
-
-                                <label for="Tipo">Unidad de medida</label>
-                                <select name="unidad_medida" id="unidad_medida" class="border-2 border-black"
-                                    onchange="ocultar()">
-                                    <option value="Pieza">Pieza</option>
-                                    <option value="Gramos">Gramos</option>
-                                    <option value="Caja">Caja</option>
-                                    <option value="Vaso">Vaso</option>
-                                </select>
-
-                                <div class="flex flex-col mb-2">
-                                    <label for="Cantidad porcion"
-                                        class="block mb-1 text-sm font-medium text-gray-900">Cantidad por
-                                        porción</label>
-                                    <input type="number" name="Cantidad porcion" min="1" max="100" placeholder="1"
-                                        value="1" class="border-2 border-black p-1.5">
-                                </div>
-                                <div class="flex flex-col mb-2">
-                                    <label for="Carbohidratos porcion"
-                                        class="block mb-1 text-sm font-medium text-gray-900">Carbohidratos por
-                                        porción</label>
-                                    <input type="number" name="Carbohidratos porcion" min="1" max="100" placeholder="1"
-                                        value="1" class="border-2 border-black p-1.5">
-                                </div>
-
-                                <div>
-                                    <input type="submit"
-                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
-                                </div>
+                            </div>
+                            <div class="flex mb-5">
+                                <input
+                                    class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                    id="default_size" type="file">
+                            </div>
+                            <div
+                                class="w-full ml-2 mr-2 mb-5 p-4 flex flex-col border shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
+                                <label for="observaciones"
+                                    class="block font-medium mb-1 text-gray-900 text-lg">Observaciones</label>
+                                <textarea name="observaciones" id="observaciones" cols="30" rows="10"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm p-1 rounded-lg block resize-none"
+                                    oninput="caracteresRestantes()" onkeydown="Enter(event)"></textarea>
+                                <div id="contador-caracteres">Caracteres restantes: 300</div>
+                            </div>
+                            <div class="ml-4 mr-4">
+                                <input type="submit"
+                                    class="bg-amarillo text-black hover:bg-yellow-300font-bold py-2 px-4 cursor-pointer justify-end rounded-lg">
+                            </div>
+                        </form>
+                    </div>
+                    <div
+                        class="border border-gray-400 w-11/12 rounded-lg shadow-xl drop-shadow-lg flex justify-center my-14">
+                        <div class="flex flex-col items-center my-7">
+                            <img src="img/pdf.png" alt="" width="80">
+                            <p>Titulo</p>
+                        </div>
+                    </div>
+                </div>
 
 </body>
+<script src="js/code.jquery.com_jquery-3.7.1.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+<script src="js/script.js"></script>
+
 </html>

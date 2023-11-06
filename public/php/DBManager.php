@@ -47,6 +47,20 @@
         
     }
 
+    public function addCitas($fechaCita, $horaCita, $tipoCita, $lugar, $observaciones) {
+        $link = $this->open();
+        $sql = "INSERT INTO citas (Fecha, Hora, Tipo_Cita, Lugar, Observaciones, Cve_paciente) VALUES (?, ?, ?, ?, ?, 1)";
+        $query = mysqli_prepare($link, $sql) or die("Error al insertar la cita");
+        $query->bind_param("sssss", $fechaCita, $horaCita, $tipoCita, $lugar, $observaciones);
+        $query -> execute();
+        
+            
+        header("location: ../citas.php");
+        
+        $this->close($link);
+    }
+    
+
     public function addRegistrAlimentoo($cadena) {
         $link = $this->open();
        $query = mysqli_prepare($link, $cadena) or die("Error");
@@ -107,7 +121,7 @@
         return $result;
     }
 
-
+    
    
 
 
