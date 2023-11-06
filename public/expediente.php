@@ -15,11 +15,11 @@
 
     <form action="procesar_formulario.php" class="sm:w-11/12 " method="post">
 
-       <div class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
+       <div id="card1" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
             <h2 class="font-fuenteEslogan m-4 size">DATOS PERSONALES</h2>
             <div class="mt-4 ml-4 mr-4 flex mb-2 flex-col">
                 <label class="block mb-1 text-sm font-medium text-gray-900">Nombre de la persona que participará en la investigación:</label>
-                <input type="text" name="nombre" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                <input type="text" name="nombre"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
             </div>
 
             
@@ -31,7 +31,7 @@
         
             <div class="ml-4 mr-4 flex mb-2 flex-col">
                 <label class="block text-sm font-semibold">Correo electrónico:</label>
-                <input type="email" name="correo" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                <input type="email" name="correo"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
             </div>
 
         
@@ -46,33 +46,40 @@
         
             <div class="ml-4 mr-4 flex mb-2 flex-col">
                 <label class="block text-sm font-semibold">¿Cuál es su fecha de nacimiento?</label>
-                <input type="date" name="fecha_nacimiento" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                <input type="date" name="fecha_nacimiento"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
             </div>
 
         
             <div class="ml-4 mr-4 flex mb-2 flex-col">
                 <label class="block text-sm font-semibold">¿Cuál es su lugar de nacimiento?</label>
-                <input type="text" name="lugar_nacimiento" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                <input type="text" name="lugar_nacimiento"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
             </div>
 
             
             <div class="ml-4 mr-4 flex mb-2 flex-col">
                 <label class="block text-sm font-semibold">¿Cuál es su Estado de nacimiento?</label>
-                <input type="text" name="estado_nacimiento" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                <input type="text" name="estado_nacimiento class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
             </div>
 
         
             <div class="ml-4 mr-4 flex mb-2 flex-col">
                 <label class="block text-sm font-semibold">¿En qué Estado de la República radica actualmente?</label>
-                <input type="text" name="estado_residencia" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                <input type="text" name="estado_residencia"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
             </div>
        </div>
+            
+       <div id="card11" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl hidden">
+            <p>Gracias por responder Datos Personales</p>
+       </div>
+       <div id="buttonC1">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer" onclick="ocultarCard1()">Guardar</button>
+       </div>
 
-       <div class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
+       <div id="card2" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
             <h2 class="font-fuenteEslogan m-4 size">DIABETES HISTÓRICO</h2>
             <div class="ml-4 mr-4 flex mb-2 flex-col">
                 <label class="block text-sm font-semibold">¿Qué tipo de diabetes tiene?</label>
-                <select name="tipo_diabetes" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                <select name="tipo_diabetes"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                     <option value="1">Tipo 1</option>
                         <option value="2">Tipo 2</option>
                         <option value="ninguna">Ninguna</option>
@@ -134,6 +141,8 @@
                     <div class="flex flex-row items-center">
                         <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="tratamiento_inicial" value="Metformina" class="mr-2"> Metformina
                         <div class="hidden ml-8">
+                            <label>Favor de poner el nombre:</label>
+                            <input type="text" name="nombre_insulina_metmorfina" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                             <label>Dosis y frecuencia:</label>
                             <input type="text" name="dosis_frecuencia_metformina" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                         </div>
@@ -151,7 +160,14 @@
             </div>
         </div>
 
-        <div class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
+        <div id="card21" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl hidden">
+            <p>Gracias por responder Datos Personales</p>
+       </div>
+       <div id="buttonC2">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer" onclick="ocultarCard2()">Guardar</button>
+       </div>
+
+        <div id="card3" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
             <h2 class="font-fuenteEslogan m-4 size">DATOS CLÍNICOS</h2>
             <div class="ml-4 mr-4 flex mb-2 flex-col">
                 <label class="block text-sm font-semibold">¿Dónde sigue su tratamiento actualmente?</label>
@@ -217,7 +233,17 @@
             
             <div class="ml-4 mr-4 flex mb-2 flex-col">
                 <label class="block text-sm font-semibold">¿Cuál es su medición de presión arterial el día de hoy?</label>
-                <input type="text" name="presion_arterial" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                <p class="block text-sm font-semibold">Ejemplo: 120/80</p>
+                <div class="flex flex-row content-center">
+                    <p class="block text-sm font-semibold w-[45%]">Presión Sistólica</p>
+                    <span class="block text-sm font-semibold w-[10%] text-center">/</span>
+                    <p class="block text-sm font-semibold w-[45%]">Presión Diastólica</p>
+                </div>
+                <div class="flex flex-row">
+                    <input type="text" name="presion_arterial_sist" class="w-[45%] bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    <span class="block text-sm font-semibold w-[10%] text-center">/</span>
+                    <input type="text" name="presion_arterial_dias" class="w-[45%] bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                </div>
             </div>
 
             
@@ -261,8 +287,15 @@
                 <input type="text" name="otros_padecimientos" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
             </div>
         </div>
+
+        <div id="card31" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl hidden">
+            <p>Gracias por responder Datos Personales</p>
+       </div>
+       <div id="buttonC3">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer" onclick="ocultarCard3()">Guardar</button>
+       </div>
         
-        <div class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
+        <div id="card4" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
             <h2 class="font-fuenteEslogan m-4 size">DIABETES ACTUAL</h2>
             <div class="ml-4 mr-4 flex mb-2 flex-col">
                 <label class="block text-sm font-semibold">¿Qué tipo de tratamiento lleva para el control de la diabetes tipo 1 actualmente?</label>
@@ -273,9 +306,9 @@
                     </div>
                     <div class="ml-6 flex flex-col hidden">
                         <label class="block text-sm font-semibold">Favor de poner el nombre:</label>
-                        <input type="text" name="nombre_insulina_lenta" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        <input type="text" name="nombre_lenta_ac" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                         <label class="block text-sm font-semibold mt-2">Dosis en unidades y frecuencia:</label>
-                        <input type="text" name="dosis_insulina_lenta" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        <input type="text" name="dosis_lenta_ac" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                     </div>
                 </div>
 
@@ -287,9 +320,9 @@
                     </div>
                     <div class="hidden ml-6 flex flex-col">
                         <label class="block text-sm font-semibold">Favor de poner el nombre:</label>
-                        <input type="text" name="nombre_insulina_rapida" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        <input type="text" name="nombre_rapida_ac" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                         <label class="block text-sm font-semibold mt-2">Dosis en unidades y frecuencia:</label>
-                        <input type="text" name="dosis_insulina_rapida" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        <input type="text" name="dosis_rapida_ac" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                     </div>
                 </div>
 
@@ -300,6 +333,8 @@
                         <label for="">Metformina</label>
                     </div>
                     <div class="hidden ml-6 flex flex-col">
+                        <label class="block text-sm font-semibold">Favor de poner el nombre:</label>
+                        <input type="text" name="nombre_metmorfina_ac" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                         <label class="block text-sm font-semibold">Dosis y frecuencia:</label>
                         <input type="text" name="dosis_metformina" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                     </div>
@@ -313,9 +348,9 @@
                     </div>
                     <div class="hidden ml-6 flex flex-col">
                         <label class="block text-sm font-semibold">Nombre:</label>
-                        <input type="text" name="nombre_otro_tratamiento" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        <input type="text" name="nombre_otro_ac" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                         <label class="block text-sm font-semibold mt-2">Dosis y frecuencia:</label>
-                        <input type="text" name="dosis_otro_tratamiento" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        <input type="text" name="dosis_otro_ac" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                     </div>
                 </div>
             </div>
@@ -486,7 +521,7 @@
 
             <div class="ml-4 mr-4 flex mb-2 flex-col">
                 <label class="block text-sm font-semibold">¿Cómo lleva el control de alimentos?</label>
-                <select name="tipo_diabetes" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                <select name="tipo_diabetes"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                     <option disabled selected value>--Seleccione una opción--</option>
                     <option value="Por raciones, establecidas por su médico">Por raciones, establecidas por su médico</option>
                     <option value="Por cuenta de carbohidratos">Por cuenta de carbohidratos</option>
@@ -506,14 +541,14 @@
                         <label class="block text-sm font-semibold">Duración en horas:</label>
                         <input type="text" name="duracion_ejercicio" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                         <label class="block text-sm font-semibold">Frecuencia:</label>
-                        <select name="tipo_diabetes" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        <select name="tipo_diabetes"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                             <option disabled selected value>--Seleccione una opción--</option>
                             <option value="Diario">Diario</option>
                             <option value="Tres días por semana">Tres días por semana</option>
                             <option value="Dos días por semana">Dos días por semana</option>
                         </select>
                         <label class="block text-sm font-semibold">Intensidad:</label>
-                        <select name="tipo_diabetes" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        <select name="tipo_diabetes"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                             <option disabled selected value>--Seleccione una opción--</option>
                             <option value="Intenso">Intenso</option>
                             <option value="Regular">Regular</option>
@@ -533,7 +568,14 @@
             </div>
         </div>
 
-        <div class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
+        <div id="card41" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl hidden">
+            <p>Gracias por responder Datos Personales</p>
+       </div>
+       <div id="buttonC4">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer" onclick="ocultarCard4()">Guardar</button>
+       </div>
+
+        <div id="card5" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
             <h2 class="font-fuenteEslogan m-4 size">DATOS PERSONALES</h2>
             <div>
                 <div class="ml-4 mr-4 flex mb-2 flex-col">
@@ -618,7 +660,14 @@
             </div>
         </div>
 
-        <div class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
+        <div id="card51" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl hidden">
+            <p>Gracias por responder Datos Personales</p>
+       </div>
+       <div id="buttonC5">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer" onclick="ocultarCard5()">Guardar</button>
+       </div>
+
+        <div id="card6" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
             <h2 class="font-fuenteEslogan m-4 size">ANTECEDENTES HEREDO-FAMILIARES</h2>
             <div class="ml-4 mr-4 flex flex-col">
                 <label class="block text-sm font-semibold">¿Sus padres o abuelos padecen o padecieron?</label>
@@ -649,23 +698,30 @@
             </div>
         </div>
 
-        <div class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
+        <div id="card61" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl hidden">
+            <p>Gracias por responder Datos Personales</p>
+       </div>
+       <div id="buttonC6">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer" onclick="ocultarCard6()">Guardar</button>
+       </div>
+
+        <div id="card7" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
             <h2 class="font-fuenteEslogan m-4 size">ANTECEDENTES NEONATALES</h2>
             <div class="ml-4 mr-4 flex flex-col">
 
                 <div class="flex flex-col">
                     <label class="block mb-1 text-sm font-medium text-gray-900">¿Cuánto peso usted al nacer?</label>
-                    <input type="text" name="peso" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    <input type="text" name="peso"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                 </div>
 
                 <div class="flex flex-col">
                     <label class="block mb-1 text-sm font-medium text-gray-900">¿Cuál fue su talla al nacer?</label>
-                    <input type="text" name="talla" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    <input type="text" name="talla"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                 </div>
 
                 <div class="flex flex-col">
                     <label class="block mb-1 text-sm font-medium text-gray-900">¿Cuál fue su calificación de Apgar al nacer?</label>
-                    <input type="text" name="cal_Apgar" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    <input type="text" name="cal_Apgar"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                 </div>
 
                 <label class="block text-sm font-semibold">Nació por parto natural o cesárea</label>
@@ -676,7 +732,7 @@
 
                 <div class="flex flex-col">
                     <label class="block mb-1 text-sm font-medium text-gray-900">A las cuántas semanas nació</label>
-                    <input type="text" name="semanas_n" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    <input type="text" name="semanas_n"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                 </div>
 
                 <label class="block text-sm font-semibold">¿Hubo algún contratiempo en el embarazo?</label>
@@ -691,7 +747,7 @@
 
                 <div class="flex flex-col">
                     <label class="block mb-1 text-sm font-medium text-gray-900">¿Cuál es su tipo de sangre?</label>
-                    <input type="text" name="tipo-sangre" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    <input type="text" name="tipo-sangre"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                 </div>
 
                 <label class="block text-sm font-semibold">¿Ha tenido alguna cirugía?</label>
@@ -716,25 +772,32 @@
 
                 <div class="flex flex-col">
                     <label class="block mb-1 text-sm font-medium text-gray-900">Presión actual</label>
-                    <input type="text" name="presion" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    <input type="text" name="presion"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                 </div>
 
                 <div class="flex flex-col">
                     <label class="block mb-1 text-sm font-medium text-gray-900">Colesterol HDL</label>
-                    <input type="text" name="colesterol" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    <input type="text" name="colesterol"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                 </div>
 
                 <div class="flex flex-col">
                     <label class="block mb-1 text-sm font-medium text-gray-900">Tiempo en rango</label>
-                    <input type="text" name="tiempo_rango" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    <input type="text" name="tiempo_rango"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                 </div>
 
                 <div class="flex flex-col">
                     <label class="block mb-1 text-sm font-medium text-gray-900">Glucosa promedio</label>
-                    <input type="text" name="glucosa_promedio" required class="bg-gray-50 border mb-4 border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    <input type="text" name="glucosa_promedio"  class="bg-gray-50 border mb-4 border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                 </div>
             </div>
         </div>
+
+        <div id="card71" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl hidden">
+            <p>Gracias por responder Datos Personales</p>
+       </div>
+       <div id="buttonC7">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer" onclick="ocultarCard7()">Guardar</button>
+       </div>
 
         <div class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
             <div class="ml-4 mr-4 flex flex-col">

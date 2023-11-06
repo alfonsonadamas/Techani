@@ -10,6 +10,7 @@ module.exports = {
     "./public/registroAlimentos.php",
     "./public/registroCorreo.php",
     "./public/expediente.php",
+    "./public/registroAlarmas.php",
     "./node_modules/flowbite/**/*.js",
   ],
   theme: {
