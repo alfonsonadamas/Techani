@@ -356,3 +356,59 @@ jQuery(document).on("submit", "#registro", function (event) {
       console.log("complete");
     });
 });
+
+$("#siguiente").on("click", function (event) {
+  event.preventDefault();
+  $("#correo").removeClass("hidden");
+  $("#usuario").addClass("hidden");
+  $("#msgUsuario").addClass("hidden");
+  $("#siguiente").addClass("hidden");
+  $("#siguienteCont").removeClass("hidden");
+  $("#login").addClass("hidden");
+});
+
+$("#siguienteCont").on("click", function (event) {
+  event.preventDefault();
+  $("#correo").addClass("hidden");
+  $("#contraseña").removeClass("hidden");
+  $("#confContraseña").removeClass("hidden");
+  $("#mensajeCorreo").addClass("hidden");
+  $("#mensajeCorreoValido").addClass("hidden");
+  $("#enviar").removeClass("hidden");
+  $("#siguienteCont").addClass("hidden");
+  $("#correoVerif").addClass("hidden");
+});
+
+jQuery(document).on("submit", "#registro", function (event) {
+  event.preventDefault();
+  jQuery
+    .ajax({
+      url: "../public/php/endPointRegistroCorreo.php",
+      type: "POST",
+      dataType: "json",
+      data: $(this).serialize(),
+    })
+    .done(function (response) {
+      console.log(response);
+    })
+    .fail(function (resp) {
+      console.log("error");
+    })
+    .always(function (param) {
+      console.log("complete");
+    });
+});
+
+jQuery(document).on("click", "#agregar", function () {
+  if ($("#form").hasClass("hidden")) {
+    $("#form").removeClass("hidden");
+    $("#form").addClass("block");
+  } else {
+    $("#form").addClass("hidden");
+    $("#form").removeClass("block");
+  }
+});
+
+jQuery(document).on("click", "#btnsubir", function () {
+  $("#doc").trigger("click");
+});

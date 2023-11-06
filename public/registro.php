@@ -195,35 +195,33 @@
                             </form>
                         </div>
                         <div class="sm:flex sm:justify-center">
+
                             <div class="sm:w-4/5 sm:flex sm:flex-col">
                                 <h2 class="text-left mb-5 mt-10 font-size text-2xl text-black font-sans">Registros
                                     Anteriores</h2>
 
-                                <div
-                                    class="sm:flex sm:flex-wrap justify-between flex flex-wrap shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl p-4">
+                                <div class="flex">
+                                    <h1>Fecha:</h1>
+                                    <input type="date" id="FechaFiltro">
+                                    <button id="filtrar">Filtrar</button>
+                                </div>
+                                <div class="sm:flex sm:flex-wrap justify-between flex flex-wrap shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl p-4"
+                                    id="registros">
 
                                     <?php
                         require_once("php/verRegistros.php");
-                        while($row=$data->fetch_assoc()){
+                        while ($row = $data->fetch_assoc()) {
                         ?>
-                                    <form action="php/pdf.php" id="pdf" method="post">
-                                        <div
-                                            class="sm:flex sm:mb-2 mb-2 sm:flex-col sm:flex-wrap justify-center items-center">
-                                            <button id="pdfButton"><img src="img/pdf.png" class="w-20 h-auto"
-                                                    alt=""></button>
-                                            <label for=""
-                                                class="block text-sm font-medium mb-1 text-gray-900"><?php echo $row["Fecha_Formateada"] ?></label>
-                                            <input type="hidden" name="id_registro"
-                                                value=<?php echo $row["idRegistro_diario"] ?>>
-                                        </div>
-                                    </form>
+                                    <div
+                                        class="sm:flex sm:mb-2 mb-2 sm:flex-col sm:flex-wrap justify-center items-center">
+                                        <img src="../src/img/pdf.png" class="w-20 h-auto" alt="">
+                                        <label for=""
+                                            class="block text-sm font-medium mb-1 text-gray-900"><?php echo $row["Fecha_Hora"] ?></label>
+                                    </div>
                                     <?php
                           }
                         ?>
-
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -232,7 +230,5 @@
         </div>
 </body>
 <script src="js/script.js"></script>
-<script src="js/code.jquery.com_jquery-3.7.1.min.js"></script>
-<script src="js/jquery.js"></script>
 
 </html>

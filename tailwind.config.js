@@ -1,5 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // content: [
+  //   "./public/index.php",
+  //   "./public/ejercicio.php",
+  //   "./public/registro.php",
+  //   "./public/login.php",
+  
+
+  // ],
   content: [
     "./public/index.php",
     "./public/ejercicio.php",
@@ -9,6 +17,7 @@ module.exports = {
     "./public/principal.php",
     "./public/registroAlimentos.php",
     "./public/registroCorreo.php",
+    "./public/analisis.php",
   ],
   theme: {
     extend: {
@@ -25,4 +34,6 @@ module.exports = {
       },
     },
   },
+  plugins: [require("flowbite/plugin")],
 };
+
