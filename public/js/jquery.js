@@ -409,6 +409,7 @@ jQuery(document).on("click", "#agregar", function () {
   }
 });
 
-jQuery(document).on("click", "#btnsubir", function () {
-  $("#doc").trigger("click");
+jQuery(document).on("click", "#enviar", function (event) {
+  event.preventDefault();
+  window.location.href = "expediente.php";
 });
