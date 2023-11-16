@@ -125,6 +125,28 @@
         $link = $this->open();
         $sql = "INSERT INTO `paciente` (`Cve_paciente`, `Nombre`, `Apellido_paterno`, `Apellido_materno`, `Fecha_nacimiento`, `Sexo`, `Correo`, `Contraseña`) VALUES (1, ?, ?, ?, ?, ?, ?, ?);";
     }
- }
+
+    public function verCitas(){
+        $link = $this->open();
+        
+        $sql = "SELECT * FROM `citas`";
+
+        $result = $link ->query($sql);
+        
+        return $result;
+
+    }
+
+    public function elimiarCitas($id){
+        $link = $this->open();
+        
+        $sql = "DELETE FROM citas WHERE id = $id";
+
+        $result = $link ->query($sql);
+        
+        return $result;
+
+    }
+}
 
 ?>
