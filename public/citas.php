@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +9,23 @@
 </head>
 
 <script>
-       $(document).ready(function() {
+$(document).ready(function() {
 
-            $('#btn').click(function(){
+    $('#btn').click(function() {
 
-                $("#forms").show();
-                $(this).hide();
-            })
-        
-       });
+        $("#forms").show();
+        $(this).hide();
+    })
+
+});
 </script>
 
 <body class="bg-fondoGris">
 
-<div class="p-8">
-<div class="flex w-full h-screen">
-        <!-- Barra lateral -->
-        <div class="bg-azul w-1/4 mt-6 ml-6 mb-6 rounded-3xl flex flex-col items-center justify-center shadow-xl">
+    <div class="p-8">
+        <div class="flex w-full h-screen">
+            <!-- Barra lateral -->
+            <div class="bg-azul w-1/4 mt-6 ml-6 mb-6 rounded-3xl flex flex-col items-center justify-center shadow-xl">
                 <img class="mb-10" src="img/Techani blanco con nombre.png" alt="" width="130">
                 <div class="">
                     <div
@@ -71,101 +72,159 @@
                         <p class="mx-8">Sofi Garcia</p>
                     </div>
                 </div>
-                
 
 
 
 
-        <div class="block m-11 ml-28">
 
-        <h1 class="text-left mt-10 font-size text-2xl text-black font-sans">Citas Medicas</h1>
+                <div class="block m-11 ml-28">
 
-        <button id="btn" class="bg-white p-4 mt-10 ml-10 mb-10 border-2 border-black rounded-md">+  Agregar Cita</button>
+                    <h1 class="text-left mt-10 font-size text-2xl text-black font-sans">Citas Medicas</h1>
 
-            <div id="divForm" class="ml-10 mr-10">
+                    <button id="btn" class="bg-white p-4 mt-10 ml-10 mb-10 border-2 border-black rounded-md">+ Agregar
+                        Cita</button>
 
-                <form id="form" action="php/addCitas.php" method="post" 
-                class="flex flex-col hidden p-4
+                    <div id="divForm" class="ml-10 mr-10">
+
+                        <form id="form" action="php/addCitas.php" method="post" class="flex-col hidden p-4
                  bg-white sm:w-4/5 border ml:2 mr:2 mb-5 sm:mr-5 sm:mb-10 shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl
-                 " >
-                    
-                    <div class="flex space-x-4 mb-5">
-                        <div class="w-1/2 mr-4">
-                            <label for="fecha_cita" class="block font-semibold">Fecha de la cita:</label>
-                            <input type="date" name="fecha_cita" required class="border border-black rounded p-2 w-full">
-                        </div>
-                        <div class="w-1/2">
-                            <label for="hora_cita" class="block font-semibold">Hora de la cita:</label>
-                            <input type="time" name="hora_cita" required class="border border-black rounded p-2 w-full">
-                        </div>
-                    </div>
+                 ">
 
-                    <div class="w-full mb-5">
-                        <label for="tipo_cita" class="block font-semibold">Tipo de cita:</label>
-                        <input type="text" name="tipo_cita" required class="border border-black rounded p-2 w-full">
-                    </div>
-
-
-                    <div class="w-full mb-5">
-                        <label for="lugar" class="block font-semibold">Lugar:</label>
-                        <input type="text" name="lugar" required class="border border-black rounded p-2 w-full">
-                    </div>
-
-
-            
-                    
-
-                    <div
-                                    class="w-full flex flex-col">
-                                    <label for="observaciones"
-                                        class="block text-sm font-medium mb-1 text-gray-900">Observaciones</label>
-                                    <textarea name="observaciones" id="observaciones" cols="30" rows="10"
-                                        class="bg-black-50 border border-black text-gray-900 text-sm rounded-md block resize-none"></textarea>
-                                    <div id="contador-caracteres">Caracteres restantes: 600</div>
+                            <div class="flex space-x-4 mb-5">
+                                <div class="w-1/2 mr-4">
+                                    <label for="fecha_cita" class="block font-semibold">Fecha de la cita:</label>
+                                    <input type="date" name="fecha_cita" required
+                                        class="border border-black rounded p-2 w-full">
                                 </div>
-                                <script>
-                                const textarea = document.getElementById('observaciones');
-                                const contadorCaracteres = document.getElementById('contador-caracteres');
-                                const maxLength = 600;
+                                <div class="w-1/2">
+                                    <label for="hora_cita" class="block font-semibold">Hora de la cita:</label>
+                                    <input type="time" name="hora_cita" required
+                                        class="border border-black rounded p-2 w-full">
+                                </div>
+                            </div>
 
-                                textarea.addEventListener('input', () => {
-                                    let inputValue = textarea.value;
-                                    const lineBreaks = (inputValue.match(/\n/g) || []).length;
-                                    const totalCaracteres = inputValue.length + lineBreaks * 50;
+                            <div class="w-full mb-5">
+                                <label for="tipo_cita" class="block font-semibold">Tipo de cita:</label>
+                                <input type="text" name="tipo_cita" required
+                                    class="border border-black rounded p-2 w-full">
+                            </div>
 
-                                    if (totalCaracteres > maxLength || totalCaracteres + 50 > maxLength) {
-                                        const maxTextLength = maxLength - lineBreaks * 50;
-                                        inputValue = inputValue.substring(0, maxTextLength);
-                                        textarea.value = inputValue;
-                                    }
 
-                                    const caracteresRestantes = maxLength - totalCaracteres;
-                                    contadorCaracteres.textContent = `Caracteres restantes: ${
+                            <div class="w-full mb-5">
+                                <label for="lugar" class="block font-semibold">Lugar:</label>
+                                <input type="text" name="lugar" required class="border border-black rounded p-2 w-full">
+                            </div>
+
+
+
+
+
+                            <div class="w-full flex flex-col">
+                                <label for="observaciones"
+                                    class="block text-sm font-medium mb-1 text-gray-900">Observaciones</label>
+                                <textarea name="observaciones" id="observaciones" cols="30" rows="10"
+                                    class="bg-black-50 border border-black text-gray-900 text-sm rounded-md block resize-none"></textarea>
+                                <div id="contador-caracteres">Caracteres restantes: 600</div>
+                            </div>
+                            <script>
+                            const textarea = document.getElementById('observaciones');
+                            const contadorCaracteres = document.getElementById('contador-caracteres');
+                            const maxLength = 600;
+
+                            textarea.addEventListener('input', () => {
+                                let inputValue = textarea.value;
+                                const lineBreaks = (inputValue.match(/\n/g) || []).length;
+                                const totalCaracteres = inputValue.length + lineBreaks * 50;
+
+                                if (totalCaracteres > maxLength || totalCaracteres + 50 > maxLength) {
+                                    const maxTextLength = maxLength - lineBreaks * 50;
+                                    inputValue = inputValue.substring(0, maxTextLength);
+                                    textarea.value = inputValue;
+                                }
+
+                                const caracteresRestantes = maxLength - totalCaracteres;
+                                contadorCaracteres.textContent = `Caracteres restantes: ${
                                         Math.max(0, caracteresRestantes)
                                     }`;
-                                });
+                            });
 
-                                textarea.addEventListener('keydown', (event) => {
-                                    if (event.key === 'Enter') {
-                                        const caracteresRestantes = maxLength - (textarea.value.length + (
-                                            textarea.value.match(/\n/g) || []).length * 50);
-                                        if (caracteresRestantes <= 50) {
-                                            event.preventDefault();
-                                        }
+                            textarea.addEventListener('keydown', (event) => {
+                                if (event.key === 'Enter') {
+                                    const caracteresRestantes = maxLength - (textarea.value.length + (
+                                        textarea.value.match(/\n/g) || []).length * 50);
+                                    if (caracteresRestantes <= 50) {
+                                        event.preventDefault();
                                     }
-                                });
-                                </script>
+                                }
+                            });
+                            </script>
 
-                    <button type="submit" class="bg-amarillo text-black p-2 rounded font-semibold">Guardar Cita</button>
-                    
-                </form>
+                            <button type="submit" class="bg-azul text-black p-2 rounded font-semibold">Guardar
+                                Cita</button>
+
+                        </form>
+                    </div>
+
+                    <div class="bg-white sm:w-4/5 border ml:2 mr:2 mb-1 sm:mr-5 sm:mb-10 shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
+                        <h1 class="text-left mb-5 m-4 font-size text-2xl text-black font-sans">Octubre</h1>
+
+                        <div onclick="toggleCalendar('datosCalendar', 'imgDes')" id="miDivCard" class="flex flex-col  border-b border-black transition-transform">
+                            <div class="flex flex-row justify-center items-center">
+                                <div id="fecha" class="mr-4 mt-4 ml-4 p-8">
+                                    <h2 class="font-size text-4xl">25</h2>
+                                </div>
+                                <div id="mesa" class="mr-4 mt-4 ml-4">
+                                    <p>Mie <br> Oct </p>
+                                </div>
+                                <div class="mr-4 mt-4 ml-4 w-1/4 text-center">
+                                    <h2 class="font-size text-2xl">Tipo de cita</h2>
+                                </div>
+
+                                <div>
+                                <img src="img/arrow.png" id="imgDes" class="w-5 h-5" alt="">
+                                </div>
+
+                            </div>
+
+                            <div id="datosCalendar" class="hidden ml-[30%] mb-4 transition-transform transform">
+                                <p>Lugar</p>
+                                <p>Fecha</p>
+                                <p>observación</p>
+                            </div> 
+                        </div>
+
+                        <div onclick="toggleCalendar('datosCalendar1', 'imgDes1')" id="miDivCard" class="flex flex-col  border-b border-black transition-transform">
+                            <div class="flex flex-row justify-center items-center">
+                                <div id="fecha" class="mr-4 mt-4 ml-4 p-8">
+                                    <h2 class="font-size text-4xl">25</h2>
+                                </div>
+                                <div id="mesa" class="mr-4 mt-4 ml-4">
+                                    <p>Mie <br> Oct </p>
+                                </div>
+                                <div class="mr-4 mt-4 ml-4 w-1/4 text-center">
+                                    <h2 class="font-size text-2xl">Tipo de cita</h2>
+                                </div>
+
+                                <div>
+                                <img src="img/arrow.png" id="imgDes1" class="w-5 h-5" alt="">
+                                </div>
+
+                            </div>
+
+                            <div id="datosCalendar1" class="hidden ml-[30%] mb-4 transition-transform transform">
+                                <p>Lugar</p>
+                                <p>Fecha</p>
+                                <p>observación</p>
+                            </div> 
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
 
-            <p>Texto prueba</p>
-        </div>
-    </div>
-        
 </body>
 
 <script src="js/script.js"></script>
+
 </html>
