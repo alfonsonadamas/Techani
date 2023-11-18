@@ -14,52 +14,86 @@ function ocultar() {
   }
 }
 
+function mostrar() {
+  const btn = document.getElementById("btn");
+  const form = document.getElementById("form");
 
-function mostrar(){
-
-  const btn = document.getElementById('btn');
-  const form=document.getElementById('form');
-
-  btn.addEventListener('click',()=>{
-
-    if(form.classList.contains('hidden')){
-
-        form.classList.remove('hidden');
-
-    } else{
-
-      form.classList.add('hidden');
+  btn.addEventListener("click", () => {
+    if (form.classList.contains("hidden")) {
+      form.classList.remove("hidden");
+    } else {
+      form.classList.add("hidden");
     }
   });
 }
 
 mostrar();
 
-const fechaFiltroInput = document.getElementById("FechaFiltro");
-const filtrarButton = document.getElementById("filtrar");
-const registros = document.querySelectorAll(".registro");
-const sinRegistrosMessage = document.getElementById("sinRegistros");
+function ocultarCard1() {
+  const myDiv = document.getElementById("card1");
+  const myDiv2 = document.getElementById("card11");
+  myDiv.classList.add("hidden");
+  myDiv2.classList.remove("hidden");
 
-filtrarButton.addEventListener("click", () => {
-  const fechaFiltro = fechaFiltroInput.value;
-  let registrosMostrados = 0;
-  
-  registros.forEach(registro => {
-    const fechaRegistro = registro.querySelector("label").textContent;
+  event.preventDefault();
+}
 
-    if (fechaFiltro === "" || fechaRegistro === fechaFiltro) {
-      registro.style.display = "block"; // Mostrar registros que coinciden con la fecha
-      registrosMostrados++;
-    } else {
-      registro.style.display = "none"; // Ocultar registros que no coinciden con la fecha
-    }
+function ocultarCard2() {
+  const myDiv = document.getElementById("card2");
+  const myDiv2 = document.getElementById("card21");
+  myDiv.classList.add("hidden");
+  myDiv2.classList.remove("hidden");
+  event.preventDefault();
+}
 
-    if (registrosMostrados === 0) {
-      sinRegistrosMessage.style.display = "block";
-    } else {
-      sinRegistrosMessage.style.display = "none";
-    }
-  });
-});
+function ocultarCard3() {
+  const myDiv = document.getElementById("card3");
+  const myDiv2 = document.getElementById("card31");
+  myDiv.classList.add("hidden");
+  myDiv2.classList.remove("hidden");
+  event.preventDefault();
+}
 
+function ocultarCard4() {
+  const myDiv = document.getElementById("card4");
+  const myDiv2 = document.getElementById("card41");
+  myDiv.classList.add("hidden");
+  myDiv2.classList.remove("hidden");
+  event.preventDefault();
+}
 
+function ocultarCard5() {
+  const myDiv = document.getElementById("card5");
+  const myDiv2 = document.getElementById("card51");
+  myDiv.classList.add("hidden");
+  myDiv2.classList.remove("hidden");
+  event.preventDefault();
+}
+
+function ocultarCard6() {
+  const myDiv = document.getElementById("card6");
+  const myDiv2 = document.getElementById("card61");
+  myDiv.classList.add("hidden");
+  myDiv2.classList.remove("hidden");
+  event.preventDefault();
+}
+
+function ocultarCard7() {
+  const myDiv = document.getElementById("card7");
+  const myDiv2 = document.getElementById("card71");
+  myDiv.classList.add("hidden");
+  myDiv2.classList.remove("hidden");
+  event.preventDefault();
+}
+
+function toggleDetalle(buttonDetalle) {
+  var detalleCita = document.getElementById(buttonDetalle);
+  console.log("error");
+  if (detalleCita.classList.contains("hidden")) {
+      detalleCita.classList.remove("hidden");
+      console.log("error2");
+  } else {
+    console.log("error4");
+      detalleCita.classList.add("hidden");
+  }
+}
