@@ -5,6 +5,7 @@ module.exports = {
   //   "./public/ejercicio.php",
   //   "./public/registro.php",
   //   "./public/login.php",
+  
 
   // ],
   content: [
@@ -16,6 +17,7 @@ module.exports = {
     "./public/principal.php",
     "./public/registroAlimentos.php",
     "./public/registroCorreo.php",
+    "./public/analisis.php",
   ],
   theme: {
     extend: {
@@ -32,4 +34,5 @@ module.exports = {
       },
     },
   },
+  plugins: [require("flowbite/plugin")],
 };
