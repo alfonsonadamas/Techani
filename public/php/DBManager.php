@@ -137,6 +137,19 @@
 
     }
 
+
+    public function editarCitas($id, $fechaCita, $horaCita, $tipoCita, $lugar, $observaciones){
+        $link = $this->open();
+        
+        $sql = "UPDATE citas SET Fecha = '$fechaCita', Hora = '$horaCita', Tipo_Cita = '$tipoCita', Lugar = '$lugar', Observaciones = '$observaciones' WHERE idCitas = $id";
+
+
+        $result = $link ->query($sql);
+        
+        return $result;
+
+    }
+
     public function elimiarCitas($id){
         $link = $this->open();
         

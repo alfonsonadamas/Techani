@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +11,6 @@
 
 <body class="bg-fondoGris">
 
-    <div class="p-8">
-        <div class="flex w-full h-screen">
-            <!-- Barra lateral -->
-            <div class="bg-azul w-1/4 mt-6 ml-6 mb-6 rounded-3xl flex flex-col items-center justify-center shadow-xl">
     <div class="p-8">
         <div class="flex w-full h-screen">
             <!-- Barra lateral -->
@@ -134,9 +129,9 @@
                                         <div id="contador-caracteres">Caracteres restantes: 600</div>
                                     </div>
                                     <script>
-                                    const textarea = document.getElementById('observaciones');
-                                    const contadorCaracteres = document.getElementById('contador-caracteres');
-                                    const maxLength = 600;
+                                    var textarea = document.getElementById('observaciones');
+                                    var contadorCaracteres = document.getElementById('contador-caracteres');
+                                    var maxLength = 600;
 
                                     textarea.addEventListener('input', () => {
                                         let inputValue = textarea.value;
@@ -190,7 +185,8 @@
                         <div class="w-11/12 mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-3">               
                         <script>
                             // Función para cambiar la visibilidad del div al hacer clic en el botón
-                            function toggleDetalle(id) {
+                            function MDetalle(id) {
+                                console.log("HOLA MUNDO");
                                 var detalleCita = document.getElementById("DetalleCita"+id);
                                 if (detalleCita.classList.contains("hidden")) {
                                     detalleCita.classList.remove("hidden");
@@ -209,10 +205,10 @@
                                                 <p class="mt-2 text-gray-500">Descripción</p>
                                                 <label for=""><?php echo $row["Observaciones"] ?></label><br>      
                                             </div>
-                                            <button onclick="toggleDetalle(<?php echo $row["idCitas"] ?>)"  class="mt-5 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-azul hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                            <button onclick="MDetalle(<?php echo $row["idCitas"] ?>)"  class="mt-5 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-azul hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2">
                                                 Detalle
                                             </button>
-                                            <button data-modal-target="formEditarCita" data-modal-toggle="formEditarCita" class="mt-5 ml-3 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-azul hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                            <button data-modal-target="formEditarCita" data-modal-toggle="formEditarCita" class="ml-4 mt-5 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-azul hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" type="button">
                                                 Editar
                                             </button>
                                             <button class="mt-5 ml-3 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2">
@@ -221,6 +217,112 @@
                                             </div>
                                         </div>
                                     </div><br>
+
+                    <!-- Main modal -->
+                    <div id="formEditarCita" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow ">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                        Crear cita
+                                    </h3>
+                                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="formEditarCita">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="p-4 md:p-5 space-y-4">
+
+                                    <form id="form" action="php/endPointEditarCitas.php" method="post">
+
+                                    <div class="flex space-x-4 mb-5">
+                                        <div class="w-1/2 mr-4">
+                                            <label for="fecha_cita" class="block font-semibold">Fecha de la cita:</label>
+                                            <input value="<?php echo $row["Fecha"] ?>" type="date" id="Fecha" name="Fecha" required
+                                                class="border border-black rounded p-2 w-full">
+                                        </div>
+                                        <div class="w-1/2">
+                                            <label for="hora_cita" class="block font-semibold">Hora de la cita:</label>
+                                            <input value="<?php echo $row["Hora"] ?>" type="time" id="Hora" name="Hora" required
+                                                class="border border-black rounded p-2 w-full">
+                                        </div>
+                                    </div>
+
+                                    <div class="w-full mb-5">
+                                        <label for="tipo_cita" class="block font-semibold">Tipo de cita:</label>
+                                        <input value="<?php echo $row["Tipo_Cita"] ?>" type="text" id="Tipo_Cita" name="Tipo_Cita" required
+                                            class="border border-black rounded p-2 w-full">
+                                    </div>
+
+                                    <div class="w-full mb-5">
+                                        <label for="lugar" class="block font-semibold">Lugar:</label>
+                                        <input value="<?php echo $row["Lugar"] ?>" 
+                                        type="text" id="Lugar" name="Lugar" required class="border border-black rounded p-2 w-full">
+                                    </div>
+
+                                    <div class="w-full flex flex-col">
+                                        <label for="observaciones"
+                                            class="block text-sm font-medium mb-1 text-gray-900">Observaciones</label>
+                                        <textarea 
+                                        name="Observaciones" id="Observaciones" cols="30" rows="10"
+                                            class="bg-black-50 border border-black text-gray-900 text-sm rounded-md block resize-none"><?php echo $row["Observaciones"] ?></textarea>
+                                        <div id="contador-caracteres">Caracteres restantes: 600</div>
+                                    </div>
+
+                                    <div class="hidden" >
+                                        <input  id="idCitas" name="idCitas" type="text" value="<?php echo $row["idCitas"] ?>">
+                                    </div>
+
+                                    <script>
+                                    var textarea = document.getElementById('observaciones');
+                                    var contadorCaracteres = document.getElementById('contador-caracteres');
+                                    var maxLength = 600;
+
+                                    textarea.addEventListener('input', () => {
+                                        let inputValue = textarea.value;
+                                        const lineBreaks = (inputValue.match(/\n/g) || []).length;
+                                        const totalCaracteres = inputValue.length + lineBreaks * 50;
+
+                                        if (totalCaracteres > maxLength || totalCaracteres + 50 > maxLength) {
+                                            const maxTextLength = maxLength - lineBreaks * 50;
+                                            inputValue = inputValue.substring(0, maxTextLength);
+                                            textarea.value = inputValue;
+                                        }
+
+                                        const caracteresRestantes = maxLength - totalCaracteres;
+                                        contadorCaracteres.textContent = `Caracteres restantes: ${
+                                                Math.max(0, caracteresRestantes)
+                                            }`;
+                                    });
+
+                                    textarea.addEventListener('keydown', (event) => {
+                                        if (event.key === 'Enter') {
+                                            const caracteresRestantes = maxLength - (textarea.value.length + (
+                                                textarea.value.match(/\n/g) || []).length * 50);
+                                            if (caracteresRestantes <= 50) {
+                                                event.preventDefault();
+                                            }
+                                        }
+                                    });
+                                    </script>
+                                        <!-- Modal footer -->    
+                                        <button data-modal-hide="formEditarCita" type="submit" class="bg-amarillo text-black p-2 rounded font-semibold">
+                                            Guardar Cita
+                                        </button>
+                                        <button data-modal-hide="formEditarCita" type="button" class="modal-close bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                            Cerrar
+                                        </button>                                    
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                                     <?php
                         }
                         ?>
@@ -232,6 +334,5 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
 <script src="js/script.js"></script>
-
 
 </html>

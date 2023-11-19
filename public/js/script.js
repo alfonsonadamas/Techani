@@ -86,14 +86,16 @@ function ocultarCard7() {
   event.preventDefault();
 }
 
-function toggleDetalle(buttonDetalle) {
-  var detalleCita = document.getElementById(buttonDetalle);
-  console.log("error");
-  if (detalleCita.classList.contains("hidden")) {
-      detalleCita.classList.remove("hidden");
-      console.log("error2");
-  } else {
-    console.log("error4");
-      detalleCita.classList.add("hidden");
-  }
-}
+// function toggleDetalle(buttonDetalle) {
+//   var detalleCita = document.getElementById(buttonDetalle);
+//   console.log("error");
+//   if (detalleCita.classList.contains("hidden")) {
+//       detalleCita.classList.remove("hidden");
+//       console.log("error2");
+//   } else {
+//     console.log("error4");
+//       detalleCita.classList.add("hidden");
+//   }
+// }
+
+

@@ -18,5 +18,5 @@
 
     $db->addRegistrAlimentoo($cadenaFinal);
 
-
+    header('Location: public/citas.php');
 ?>
