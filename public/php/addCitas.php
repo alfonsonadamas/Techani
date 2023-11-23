@@ -5,11 +5,11 @@ require 'DBManager.php';
 $db = new DBMAnager();
 
     
-    $fechaCita = $_POST['fecha_cita'];
-    $horaCita = $_POST['hora_cita'];
-    $tipoCita = $_POST['tipo_cita'];
-    $lugar = $_POST['lugar'];
-    $observaciones = $_POST['observaciones'];
+    $fechaCita = $_POST['Fecha'];
+    $horaCita = $_POST['Hora'];
+    $tipoCita = $_POST['Tipo_Cita'];
+    $lugar = $_POST['Lugar'];
+    $observaciones = $_POST['ObservacionesAgregar'];
 
     
 

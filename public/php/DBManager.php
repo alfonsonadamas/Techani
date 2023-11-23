@@ -1,5 +1,5 @@
 <?php
- class DBManager{
+class DBManager{
     private $key;
     private function open(){
         $link = mysqli_connect("127.0.0.1", "root", null, "techani") or die('Error connecting to Data Base');
@@ -130,6 +130,17 @@
         $link = $this->open();
         
         $sql = "SELECT * FROM `citas`";
+
+        $result = $link ->query($sql);
+        
+        return $result;
+
+    }
+
+    public function editarCitas($id, $fechaCita, $horaCita, $tipoCita, $lugar, $observaciones){
+        $link = $this->open();
+        
+        $sql = "UPDATE citas SET Fecha = '$fechaCita', Hora = '$horaCita', Tipo_Cita = '$tipoCita', Lugar = '$lugar', Observaciones = '$observaciones' WHERE idCitas = $id";
 
         $result = $link ->query($sql);
         
