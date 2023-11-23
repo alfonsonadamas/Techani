@@ -163,9 +163,6 @@
         return $result;
 
     }
-}
-
-?>
     public function addAnalisis($fecha, $tipo_estudio, $observaciones, $archivo, $clave)
     {
         $link = $this->open();
