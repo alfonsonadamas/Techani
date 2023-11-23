@@ -96,12 +96,33 @@
                             </div>
                         </form>
                     </div>
-                    <div class="border border-gray-400 w-11/12 rounded-lg shadow-xl drop-shadow-lg flex justify-center my-14">
-                        <div class="flex flex-col items-center my-7">
-                            <img src="img/pdf.png" alt="" width="80">
-                            <p>Titulo</p>
-                        </div>
+                    <!-- registro de analisis realizados -->
+                    <div class="border border-gray-400 w-11/12 rounded-lg shadow-xl drop-shadow-lg  my-14">
+                        <?php
+                        require_once("php/verAnalisis.php");
+                        while ($row = $data->fetch_assoc()) {
+                        ?>
+                            <div class="flex items-center justify-between my-7 px-12">
+                                <img src="img/pdf.png" alt="" width="80">
+                                <p><?php echo $row["Archivo pdf"] ?></p>
+                                <div class=" flex pr-8">
+                                    <a class=" text-white bg-amarillo rounded px-4 py-2 mr-2" href="./archivos/1/<?php echo $row["Archivo pdf"] ?>" target="_blank">
+                                        Ver
+                                    </a>
+                                    <form action="php/borrarAnalisis.php" method="post" class="text-white bg-rojo rounded px-4 py-2">
+                                        <input type="hidden" name="id" value="<?php echo $row["idAnálisis_archivos"] ?>">
+                                        <input type="hidden" name="nombre" value="<?php echo $row["Archivo pdf"] ?>">
+                                        <input type="submit" value="Eliminar" class="cursor-pointer">
+                                    </form>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
                     </div>
+
+
+
                 </div>
 
 </body>
