@@ -1,6 +1,5 @@
 <?php
-class DBManager
-{
+ class DBManager{
     private $key;
     private function open()
     {
@@ -127,6 +126,46 @@ class DBManager
         return $result;
     }
 
+    public function registrarCorreo(){
+        $link = $this->open();
+        $sql = "INSERT INTO `paciente` (`Cve_paciente`, `Nombre`, `Apellido_paterno`, `Apellido_materno`, `Fecha_nacimiento`, `Sexo`, `Correo`, `Contraseña`) VALUES (1, ?, ?, ?, ?, ?, ?, ?);";
+    }
+
+    public function verCitas(){
+        $link = $this->open();
+        
+        $sql = "SELECT * FROM `citas`";
+
+        $result = $link ->query($sql);
+        
+        return $result;
+
+    }
+
+    public function editarCitas($id, $fechaCita, $horaCita, $tipoCita, $lugar, $observaciones){
+        $link = $this->open();
+        
+        $sql = "UPDATE citas SET Fecha = '$fechaCita', Hora = '$horaCita', Tipo_Cita = '$tipoCita', Lugar = '$lugar', Observaciones = '$observaciones' WHERE idCitas = $id";
+
+        $result = $link ->query($sql);
+        
+        return $result;
+
+    }
+
+    public function elimiarCitas($id){
+        $link = $this->open();
+        
+        $sql = "DELETE FROM citas WHERE id = $id";
+
+        $result = $link ->query($sql);
+        
+        return $result;
+
+    }
+}
+
+?>
     public function addAnalisis($fecha, $tipo_estudio, $observaciones, $archivo, $clave)
     {
         $link = $this->open();
