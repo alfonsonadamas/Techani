@@ -42,9 +42,7 @@
         $query -> execute();
         header("location: ../registro.php");
 
-        $this->close($link);
-        
-        
+        $this->close($link);  
     }
 
     public function addRegistrAlimentoo($cadena) {
@@ -107,8 +105,16 @@
         return $result;
     }
 
+    public function expedienteDp($nombre_paciente, $nombre_padre_tutor, $correo, $fecha_nacimiento, $lugar_nacimiento , $estado_nacimiento, $estado_residencia ,$sexo){
+        $link = $this->open();
+        $sql = "INSERT INTO expedientedp (Cve_paciente, nombrePaciente, menorEdad, correo, sexoBio, fechaNac, lugarNac, edoNac, edoRadicaAct) VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?);";
+        $query = mysqli_prepare($link, $sql) or die("Error at login");
+        $query -> bind_param("ssssssss", $nombre_paciente, $nombre_padre_tutor, $correo, $sexo, $fecha_nacimiento , $lugar_nacimiento, $estado_nacimiento ,$estado_residencia);
+        $query -> execute();
+        header("location: ../registro.php");
 
-   
+        $this->close($link);  
+    }
 
 
     
