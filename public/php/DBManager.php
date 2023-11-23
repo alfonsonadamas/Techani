@@ -72,21 +72,6 @@ class DBManager
     }
 
 
-    public function addRegistrAlimentoo($cadena)
-    {
-        $link = $this->open();
-        $query = mysqli_prepare($link, $cadena) or die("Error");
-        $query->execute();
-
-        $this->close($link);
-    }
-
-    public function verRegistrosDia()
-    {
-        $link = $this->open();
-
-        $sql = "SELECT idRegistro_diario, DATE_FORMAT(Fecha_Hora, '%d %b %Y %h:%i') AS Fecha_Formateada  FROM registro_diario WHERE DATE(Fecha_Hora) = CURDATE();";
-
     public function verRegistrosDia()
     {
         $link = $this->open();
