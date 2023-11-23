@@ -14,74 +14,188 @@ function ocultar() {
   }
 }
 
-function mostrar() {
-  const btn = document.getElementById("btn");
-  const form = document.getElementById("form");
+function guardar1() {
+  const myDiv = document.getElementById("Indicaciones");
+  const myDivB = document.getElementById("botonS1");
+  const divS = document.getElementById("card1");
+  const btS = document.getElementById("buttonC1");
+  const n1 = document.getElementById("n1");
+  const c1 = document.getElementById("c1");
+  const n2 = document.getElementById("n2");
+  const c2 = document.getElementById("c2");
+  n1.classList.add("text-gray-400");
+  n1.classList.remove("bg-blue-500");
+  c1.classList.remove("text-blue-500");
+  c1.classList.add("text-gray-400");
+  n2.classList.remove("text-gray-400");
+  n2.classList.add("text-white");
+  n2.classList.add("bg-blue-500");
+  c2.classList.add("text-blue-500");
+  c2.classList.remove("text-gray-400");
+  myDiv.classList.add("hidden");
+  myDivB.classList.add("hidden");
+  divS.classList.remove("hidden");
+  btS.classList.remove("hidden");
+  n1.classList.add("text-gray-400");
 
-  btn.addEventListener("click", () => {
-    if (form.classList.contains("hidden")) {
-      form.classList.remove("hidden");
-    } else {
-      form.classList.add("hidden");
-    }
-  });
+  event.preventDefault();
+  window.scrollTo(0, 0);
 }
 
-mostrar();
-
-function ocultarCard1() {
+function guardar2() {
   const myDiv = document.getElementById("card1");
-  const myDiv2 = document.getElementById("card11");
+  const divS = document.getElementById("card2");
+  const n2 = document.getElementById("n2");
+  const c2 = document.getElementById("c2");
+  const n3 = document.getElementById("n3");
+  const c3 = document.getElementById("c3");
+  n2.classList.add("text-gray-400");
+  n2.classList.remove("bg-blue-500");
+  c2.classList.remove("text-blue-500");
+  c2.classList.add("text-gray-400");
+  n3.classList.remove("text-gray-400");
+  n3.classList.add("text-white");
+  n3.classList.add("bg-blue-500");
+  c3.classList.add("text-blue-500");
+  c3.classList.remove("text-gray-400");
   myDiv.classList.add("hidden");
-  myDiv2.classList.remove("hidden");
+  divS.classList.remove("hidden");
+  n2.classList.add("text-gray-400");
 
   event.preventDefault();
+  window.scrollTo(0, 0);
 }
 
-function ocultarCard2() {
+function guardar3() {
   const myDiv = document.getElementById("card2");
-  const myDiv2 = document.getElementById("card21");
+  const divS = document.getElementById("card3");
+  const n3 = document.getElementById("n3");
+  const c3 = document.getElementById("c3");
+  const n4 = document.getElementById("n4");
+  const c4 = document.getElementById("c4");
+  n3.classList.add("text-gray-400");
+  n3.classList.remove("bg-blue-500");
+  c3.classList.remove("text-blue-500");
+  c3.classList.add("text-gray-400");
+  n4.classList.remove("text-gray-400");
+  n4.classList.add("text-white");
+  n4.classList.add("bg-blue-500");
+  c4.classList.add("text-blue-500");
+  c4.classList.remove("text-gray-400");
   myDiv.classList.add("hidden");
-  myDiv2.classList.remove("hidden");
+  divS.classList.remove("hidden");
+  n3.classList.add("text-gray-400");
+
   event.preventDefault();
+  window.scrollTo(0, 0);
 }
 
-function ocultarCard3() {
+function guardar4() {
   const myDiv = document.getElementById("card3");
-  const myDiv2 = document.getElementById("card31");
+  const divS = document.getElementById("card4");
+  const n4 = document.getElementById("n4");
+  const c4 = document.getElementById("c4");
+  const n5 = document.getElementById("n5");
+  const c5 = document.getElementById("c5");
+  n4.classList.add("text-gray-400");
+  n4.classList.remove("bg-blue-500");
+  c4.classList.remove("text-blue-500");
+  c4.classList.add("text-gray-400");
+  n5.classList.remove("text-gray-400");
+  n5.classList.add("text-white");
+  n5.classList.add("bg-blue-500");
+  c5.classList.add("text-blue-500");
+  c5.classList.remove("text-gray-400");
   myDiv.classList.add("hidden");
-  myDiv2.classList.remove("hidden");
+  divS.classList.remove("hidden");
+  n3.classList.add("text-gray-400");
   event.preventDefault();
+  window.scrollTo(0, 0);
 }
 
-function ocultarCard4() {
+function guardar5() {
   const myDiv = document.getElementById("card4");
-  const myDiv2 = document.getElementById("card41");
+  const divS = document.getElementById("card5");
+  const n5 = document.getElementById("n5");
+  const c5 = document.getElementById("c5");
+  const n6 = document.getElementById("n6");
+  const c6 = document.getElementById("c6");
+  n5.classList.add("text-gray-400");
+  n5.classList.remove("bg-blue-500");
+  c5.classList.remove("text-blue-500");
+  c5.classList.add("text-gray-400");
+  n6.classList.remove("text-gray-400");
+  n6.classList.add("text-white");
+  n6.classList.add("bg-blue-500");
+  c6.classList.add("text-blue-500");
+  c6.classList.remove("text-gray-400");
   myDiv.classList.add("hidden");
-  myDiv2.classList.remove("hidden");
+  divS.classList.remove("hidden");
   event.preventDefault();
+  window.scrollTo(0, 0);
 }
 
-function ocultarCard5() {
+function guardar6() {
   const myDiv = document.getElementById("card5");
-  const myDiv2 = document.getElementById("card51");
+  const divS = document.getElementById("card6");
+  const n6 = document.getElementById("n6");
+  const c6 = document.getElementById("c6");
+  const n7 = document.getElementById("n7");
+  const c7 = document.getElementById("c7");
+  n6.classList.add("text-gray-400");
+  n6.classList.remove("bg-blue-500");
+  c6.classList.remove("text-blue-500");
+  c6.classList.add("text-gray-400");
+  n7.classList.remove("text-gray-400");
+  n7.classList.add("text-white");
+  n7.classList.add("bg-blue-500");
+  c7.classList.add("text-blue-500");
+  c7.classList.remove("text-gray-400");
   myDiv.classList.add("hidden");
-  myDiv2.classList.remove("hidden");
+  divS.classList.remove("hidden");
+  n3.classList.add("text-gray-400");
   event.preventDefault();
+  window.scrollTo(0, 0);
 }
 
-function ocultarCard6() {
+function guardar7() {
   const myDiv = document.getElementById("card6");
-  const myDiv2 = document.getElementById("card61");
+  const divS = document.getElementById("card7");
+  const n7 = document.getElementById("n7");
+  const c7 = document.getElementById("c7");
+  const n8 = document.getElementById("n8");
+  const c8 = document.getElementById("c8");
+  n7.classList.add("text-gray-400");
+  n7.classList.remove("bg-blue-500");
+  c7.classList.remove("text-blue-500");
+  c7.classList.add("text-gray-400");
+  n8.classList.remove("text-gray-400");
+  n8.classList.add("text-white");
+  n8.classList.add("bg-blue-500");
+  c8.classList.add("text-blue-500");
+  c8.classList.remove("text-gray-400");
   myDiv.classList.add("hidden");
-  myDiv2.classList.remove("hidden");
+  divS.classList.remove("hidden");
+
   event.preventDefault();
+  window.scrollTo(0, 0);
 }
 
-function ocultarCard7() {
+function guardar8() {
   const myDiv = document.getElementById("card7");
-  const myDiv2 = document.getElementById("card71");
+  const divS = document.getElementById("card8");
+  const n8 = document.getElementById("n8");
+  const c8 = document.getElementById("c8");
+
+  n8.classList.add("text-gray-400");
+  n8.classList.remove("bg-blue-500");
+  c8.classList.remove("text-blue-500");
+  c8.classList.add("text-gray-400");
+
   myDiv.classList.add("hidden");
-  myDiv2.classList.remove("hidden");
+  divS.classList.remove("hidden");
+  n3.classList.add("text-gray-400");
   event.preventDefault();
+  window.scrollTo(0, 0);
 }
+

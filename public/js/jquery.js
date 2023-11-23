@@ -152,6 +152,11 @@ var comprobacionCorreo = false;
 var comprobacionContra = false;
 var comprobacionUsuario = false;
 var comprobacionContraConf = false;
+var nombre = false;
+var apellidoP = false;
+var apellidoM = false;
+var celular = false;
+var terminos = $("#terminos").prop("checked");
 
 jQuery(document).on("input", "#correo", function () {
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -161,27 +166,27 @@ jQuery(document).on("input", "#correo", function () {
   if (regex.test(correo)) {
     comprobacionCorreo = true;
     $("#mensajeCorreo").html("Correo Valido");
-    $("#siguienteCont").prop("disabled", false);
+    $("#contraseñasig").prop("disabled", false);
     $("#correoConf").removeClass("text-red-600");
     $("#correoConf").addClass("text-green-600");
   } else {
     comprobacionCorreo = false;
     $("#mensajeCorreo").text("Correo no valido. Ejemplo: example@example.com");
-    $("#siguienteCont").prop("disabled", true);
+    $("#contraseñasig").prop("disabled", true);
     $("#correoConf").addClass("text-red-600");
     $("#correoConf").removeClass("text-green-600");
   }
-
-  console.log(comprobacionContra);
-  console.log(comprobacionCorreo);
-  console.log(comprobacionUsuario);
-  console.log(comprobacionContraConf);
 
   if (
     comprobacionContra == true &&
     comprobacionCorreo == true &&
     comprobacionUsuario == true &&
-    comprobacionContraConf == true
+    comprobacionContraConf == true &&
+    nombre == true &&
+    apellidoP == true &&
+    apellidoM == true &&
+    celular == true &&
+    $("#terminos").prop("checked") == true
   ) {
     $("#enviar").prop("disabled", false);
   } else {
@@ -230,16 +235,16 @@ jQuery(document).on("input", "#contraseña", function () {
     comprobacionContra = false;
   }
 
-  console.log(comprobacionContra);
-  console.log(comprobacionCorreo);
-  console.log(comprobacionUsuario);
-  console.log(comprobacionContraConf);
-
   if (
     comprobacionContra == true &&
     comprobacionCorreo == true &&
     comprobacionUsuario == true &&
-    comprobacionContraConf == true
+    comprobacionContraConf == true &&
+    nombre == true &&
+    apellidoP == true &&
+    apellidoM == true &&
+    celular == true &&
+    $("#terminos").prop("checked") == true
   ) {
     $("#enviar").prop("disabled", false);
   } else {
@@ -257,24 +262,26 @@ jQuery(document).on("input", "#confContraseña", function () {
     $("#passwordConf").addClass("text-green-600");
     $("#passwordMSg").html("Las contraseñas coinciden");
     comprobacionContraConf = true;
+    $("#siguienteNom").prop("disabled", false);
   } else {
     $("#confMsg").removeClass("hidden");
     $("#passwordConf").addClass("text-red-600");
     $("#passwordConf").removeClass("text-green-600");
     $("#passwordMSg").html("Las contraseñas no coinciden");
+    $("#siguienteNom").prop("disabled", true);
     comprobacionContraConf = false;
   }
-
-  console.log(comprobacionContra);
-  console.log(comprobacionCorreo);
-  console.log(comprobacionUsuario);
-  console.log(comprobacionContraConf);
 
   if (
     comprobacionContra == true &&
     comprobacionCorreo == true &&
     comprobacionUsuario == true &&
-    comprobacionContraConf == true
+    comprobacionContraConf == true &&
+    nombre == true &&
+    apellidoP == true &&
+    apellidoM == true &&
+    celular == true &&
+    $("#terminos").prop("checked") == true
   ) {
     $("#enviar").prop("disabled", false);
   } else {
@@ -298,16 +305,16 @@ jQuery(document).on("input", "#usuario", function () {
     comprobacionUsuario = false;
   }
 
-  console.log(comprobacionContra);
-  console.log(comprobacionCorreo);
-  console.log(comprobacionUsuario);
-  console.log(comprobacionContraConf);
-
   if (
     comprobacionContra == true &&
     comprobacionCorreo == true &&
     comprobacionUsuario == true &&
-    comprobacionContraConf == true
+    comprobacionContraConf == true &&
+    nombre == true &&
+    apellidoP == true &&
+    apellidoM == true &&
+    celular == true &&
+    $("#terminos").prop("checked") == true
   ) {
     $("#enviar").prop("disabled", false);
   } else {
@@ -315,30 +322,120 @@ jQuery(document).on("input", "#usuario", function () {
   }
 });
 
-$("#siguiente").on("click", function (event) {
-  event.preventDefault();
-  $("#correo").removeClass("hidden");
-  $("#usuario").addClass("hidden");
-  $("#msgUsuario").addClass("hidden");
-  $("#siguiente").addClass("hidden");
-  $("#siguienteCont").removeClass("hidden");
-  $("#login").addClass("hidden");
+$("#nombrePaciente").on("input", function () {
+  const nombreP = $("#nombrePaciente").val().trim();
+
+  if (nombreP.length > 0) {
+    nombre = true;
+  } else {
+    nombre = false;
+  }
+
+  if (
+    comprobacionContra == true &&
+    comprobacionCorreo == true &&
+    comprobacionUsuario == true &&
+    comprobacionContraConf == true &&
+    nombre == true &&
+    apellidoP == true &&
+    apellidoM == true &&
+    celular == true &&
+    $("#terminos").prop("checked") == true
+  ) {
+    $("#enviar").prop("disabled", false);
+  } else {
+    $("#enviar").prop("disabled", true);
+  }
 });
 
-$("#siguienteCont").on("click", function (event) {
-  event.preventDefault();
-  $("#correo").addClass("hidden");
-  $("#contraseña").removeClass("hidden");
-  $("#confContraseña").removeClass("hidden");
-  $("#mensajeCorreo").addClass("hidden");
-  $("#mensajeCorreoValido").addClass("hidden");
-  $("#enviar").removeClass("hidden");
-  $("#siguienteCont").addClass("hidden");
-  $("#correoVerif").addClass("hidden");
+$("#apellidoP_Paciente").on("input", function () {
+  const apellidoP_Paciente = $("#apellidoP_Paciente").val().trim();
+
+  if (apellidoP_Paciente.length > 0) {
+    apellidoP = true;
+  } else {
+    apellidoP = false;
+  }
+
+  if (
+    comprobacionContra == true &&
+    comprobacionCorreo == true &&
+    comprobacionUsuario == true &&
+    comprobacionContraConf == true &&
+    nombre == true &&
+    apellidoP == true &&
+    apellidoM == true &&
+    celular == true &&
+    $("#terminos").prop("checked") == true
+  ) {
+    $("#enviar").prop("disabled", false);
+  } else {
+    $("#enviar").prop("disabled", true);
+  }
 });
 
-jQuery(document).on("submit", "#registro", function (event) {
+$("#apellidoM_Paciente").on("input", function () {
+  const apellidoM_Paciente = $("#apellidoM_Paciente").val().trim();
+
+  if (apellidoM_Paciente.length > 0) {
+    apellidoM = true;
+  } else {
+    apellidoM = false;
+  }
+
+  if (
+    comprobacionContra == true &&
+    comprobacionCorreo == true &&
+    comprobacionUsuario == true &&
+    comprobacionContraConf == true &&
+    nombre == true &&
+    apellidoP == true &&
+    apellidoM == true &&
+    celular == true &&
+    $("#terminos").prop("checked") == true
+  ) {
+    $("#enviar").prop("disabled", false);
+  } else {
+    $("#enviar").prop("disabled", true);
+  }
+});
+
+$("#celular").on("input", function () {
+  const regex = /^[0-9]{10}$/;
+  const celularPasc = $("#celular").val().trim();
+  $("#confCel").removeClass("hidden");
+  if (regex.test(celularPasc)) {
+    $("#celConf").removeClass("text-red-600");
+    $("#celConf").addClass("text-green-600");
+    $("#celMSG").html("Numero Valido");
+    celular = true;
+  } else {
+    $("#celConf").addClass("text-red-600");
+    $("#celConf").removeClass("text-green-600");
+    $("#celMSG").html("Numero no Valido");
+    celular = false;
+  }
+
+  if (
+    comprobacionContra == true &&
+    comprobacionCorreo == true &&
+    comprobacionUsuario == true &&
+    comprobacionContraConf == true &&
+    nombre == true &&
+    apellidoP == true &&
+    apellidoM == true &&
+    celular == true &&
+    $("#terminos").prop("checked") == true
+  ) {
+    $("#enviar").prop("disabled", false);
+  } else {
+    $("#enviar").prop("disabled", true);
+  }
+});
+
+jQuery(document).on("submit", "#registroCorreo", function (event) {
   event.preventDefault();
+  $("#enviar").prop("disabled", true);
   jQuery
     .ajax({
       url: "../public/php/endPointRegistroCorreo.php",
@@ -348,48 +445,11 @@ jQuery(document).on("submit", "#registro", function (event) {
     })
     .done(function (response) {
       console.log(response);
-    })
-    .fail(function (resp) {
-      console.log("error");
-    })
-    .always(function (param) {
-      console.log("complete");
-    });
-});
-
-$("#siguiente").on("click", function (event) {
-  event.preventDefault();
-  $("#correo").removeClass("hidden");
-  $("#usuario").addClass("hidden");
-  $("#msgUsuario").addClass("hidden");
-  $("#siguiente").addClass("hidden");
-  $("#siguienteCont").removeClass("hidden");
-  $("#login").addClass("hidden");
-});
-
-$("#siguienteCont").on("click", function (event) {
-  event.preventDefault();
-  $("#correo").addClass("hidden");
-  $("#contraseña").removeClass("hidden");
-  $("#confContraseña").removeClass("hidden");
-  $("#mensajeCorreo").addClass("hidden");
-  $("#mensajeCorreoValido").addClass("hidden");
-  $("#enviar").removeClass("hidden");
-  $("#siguienteCont").addClass("hidden");
-  $("#correoVerif").addClass("hidden");
-});
-
-jQuery(document).on("submit", "#registro", function (event) {
-  event.preventDefault();
-  jQuery
-    .ajax({
-      url: "../public/php/endPointRegistroCorreo.php",
-      type: "POST",
-      dataType: "json",
-      data: $(this).serialize(),
-    })
-    .done(function (response) {
-      console.log(response);
+      if (response.success) {
+        window.location.href = response.redirect_url;
+      } else if (response.failed) {
+        $("#error_registro").html(response.message);
+      }
     })
     .fail(function (resp) {
       console.log("error");
@@ -409,7 +469,20 @@ jQuery(document).on("click", "#agregar", function () {
   }
 });
 
-jQuery(document).on("click", "#enviar", function (event) {
-  event.preventDefault();
-  window.location.href = "expediente.php";
+$("#terminos").on("click", function () {
+  if (
+    comprobacionContra == true &&
+    comprobacionCorreo == true &&
+    comprobacionUsuario == true &&
+    comprobacionContraConf == true &&
+    nombre == true &&
+    apellidoP == true &&
+    apellidoM == true &&
+    celular == true &&
+    $("#terminos").prop("checked") == true
+  ) {
+    $("#enviar").prop("disabled", false);
+  } else {
+    $("#enviar").prop("disabled", true);
+  }
 });
