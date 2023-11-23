@@ -25,7 +25,7 @@
 
             <div class="mr-10">
                 <ul class="flex items-center">
-                    <li class="mx-14"><a href="">Registrarse</a></li>
+                    <li class="mx-14"><a href="registroCorreo.php">Registrarse</a></li>
                     <li><a class="mr-5 text-azulSecundario font-bold" href="login.php">Iniciar Sesion</a></li>
                     <li><a href="login.php"><img src="img/perfil 1.png" alt="" width="60" height=""></a></li>
                 </ul>
@@ -37,7 +37,6 @@
             style="background-image: url(img/Fondo_techani2.webp);">
             <div class="w-5/12" data-aos="fade-up">
                 <div class="h-1 w-32 bg-azulBorde">
-
                 </div>
                 <div class="my-3 mr-14">
                     <h3 class="font-bold text-4xl mb-2 text-white">¿QUÉ ES TECHANI?</h3>

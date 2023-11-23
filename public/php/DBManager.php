@@ -45,6 +45,20 @@
         $this->close($link);  
     }
 
+    public function addCitas($fechaCita, $horaCita, $tipoCita, $lugar, $observaciones) {
+        $link = $this->open();
+        $sql = "INSERT INTO citas (Fecha, Hora, Tipo_Cita, Lugar, Observaciones, Cve_paciente) VALUES (?, ?, ?, ?, ?, 1)";
+        $query = mysqli_prepare($link, $sql) or die("Error al insertar la cita");
+        $query->bind_param("sssss", $fechaCita, $horaCita, $tipoCita, $lugar, $observaciones);
+        $query -> execute();
+        
+            
+        header("location: ../citas.php");
+        
+        $this->close($link);
+    }
+    
+
     public function addRegistrAlimentoo($cadena) {
         $link = $this->open();
        $query = mysqli_prepare($link, $cadena) or die("Error");
@@ -105,6 +119,10 @@
         return $result;
     }
 
+    public function registrarCorreo(){
+        $link = $this->open();
+        $sql = "INSERT INTO `paciente` (`Cve_paciente`, `Nombre`, `Apellido_paterno`, `Apellido_materno`, `Fecha_nacimiento`, `Sexo`, `Correo`, `Contraseña`) VALUES (1, ?, ?, ?, ?, ?, ?, ?);";
+    }
     public function expedienteDp($nombre_paciente, $nombre_padre_tutor, $correo, $fecha_nacimiento, $lugar_nacimiento , $estado_nacimiento, $estado_residencia ,$sexo){
         $link = $this->open();
         $sql = "INSERT INTO expedientedp (Cve_paciente, nombrePaciente, menorEdad, correo, sexoBio, fechaNac, lugarNac, edoNac, edoRadicaAct) VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?);";

@@ -151,28 +151,37 @@ jQuery(document).on("click", "#panel", function () {
 var comprobacionCorreo = false;
 var comprobacionContra = false;
 var comprobacionUsuario = false;
+var comprobacionContraConf = false;
 
 jQuery(document).on("input", "#correo", function () {
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const correo = $("#correo").val();
-  if (!regex.test(correo)) {
-    $("#mensajeCorreo").addClass("block");
-    $("#mensajeCorreo").removeClass("hidden");
-    $("#mensajeCorreoValido").removeClass("block");
-    $("#mensajeCorreoValido").addClass("hidden");
-    comprobacionCorreo = false;
-  } else {
-    $("#mensajeCorreo").removeClass("block");
-    $("#mensajeCorreo").addClass("hidden");
-    $("#mensajeCorreoValido").addClass("block");
-    $("#mensajeCorreoValido").removeClass("hidden");
+  const correo = $("#correo").val().trim();
+  const mensaje = $("#mensajeCorreo").html();
+  $("#correoVerif").removeClass("hidden");
+  if (regex.test(correo)) {
     comprobacionCorreo = true;
+    $("#mensajeCorreo").html("Correo Valido");
+    $("#siguienteCont").prop("disabled", false);
+    $("#correoConf").removeClass("text-red-600");
+    $("#correoConf").addClass("text-green-600");
+  } else {
+    comprobacionCorreo = false;
+    $("#mensajeCorreo").text("Correo no valido. Ejemplo: example@example.com");
+    $("#siguienteCont").prop("disabled", true);
+    $("#correoConf").addClass("text-red-600");
+    $("#correoConf").removeClass("text-green-600");
   }
+
+  console.log(comprobacionContra);
+  console.log(comprobacionCorreo);
+  console.log(comprobacionUsuario);
+  console.log(comprobacionContraConf);
 
   if (
     comprobacionContra == true &&
     comprobacionCorreo == true &&
-    comprobacionUsuario == true
+    comprobacionUsuario == true &&
+    comprobacionContraConf == true
   ) {
     $("#enviar").prop("disabled", false);
   } else {
@@ -215,14 +224,22 @@ jQuery(document).on("input", "#contraseña", function () {
     regexEsp.test(password)
   ) {
     $("#errorMsg").html("Contraseña Valida");
+    comprobacionContra = true;
   } else {
     $("#errorMsg").html("Contraseña no Valida");
+    comprobacionContra = false;
   }
+
+  console.log(comprobacionContra);
+  console.log(comprobacionCorreo);
+  console.log(comprobacionUsuario);
+  console.log(comprobacionContraConf);
 
   if (
     comprobacionContra == true &&
     comprobacionCorreo == true &&
-    comprobacionUsuario == true
+    comprobacionUsuario == true &&
+    comprobacionContraConf == true
   ) {
     $("#enviar").prop("disabled", false);
   } else {
@@ -238,18 +255,26 @@ jQuery(document).on("input", "#confContraseña", function () {
     $("#confMsg").removeClass("hidden");
     $("#passwordConf").removeClass("text-red-600");
     $("#passwordConf").addClass("text-green-600");
-    comprobacionContra = true;
+    $("#passwordMSg").html("Las contraseñas coinciden");
+    comprobacionContraConf = true;
   } else {
     $("#confMsg").removeClass("hidden");
     $("#passwordConf").addClass("text-red-600");
     $("#passwordConf").removeClass("text-green-600");
-    comprobacionContra = false;
+    $("#passwordMSg").html("Las contraseñas no coinciden");
+    comprobacionContraConf = false;
   }
+
+  console.log(comprobacionContra);
+  console.log(comprobacionCorreo);
+  console.log(comprobacionUsuario);
+  console.log(comprobacionContraConf);
 
   if (
     comprobacionContra == true &&
     comprobacionCorreo == true &&
-    comprobacionUsuario == true
+    comprobacionUsuario == true &&
+    comprobacionContraConf == true
   ) {
     $("#enviar").prop("disabled", false);
   } else {
@@ -264,17 +289,25 @@ jQuery(document).on("input", "#usuario", function () {
   if (regex.test(user)) {
     $("#caracUsuario").removeClass("text-red-600");
     $("#caracUsuario").addClass("text-green-600");
+    $("#siguiente").prop("disabled", false);
     comprobacionUsuario = true;
   } else {
     $("#caracUsuario").addClass("text-red-600");
     $("#caracUsuario").removeClass("text-green-600");
+    $("#siguiente").prop("disabled", true);
     comprobacionUsuario = false;
   }
+
+  console.log(comprobacionContra);
+  console.log(comprobacionCorreo);
+  console.log(comprobacionUsuario);
+  console.log(comprobacionContraConf);
 
   if (
     comprobacionContra == true &&
     comprobacionCorreo == true &&
-    comprobacionUsuario == true
+    comprobacionUsuario == true &&
+    comprobacionContraConf == true
   ) {
     $("#enviar").prop("disabled", false);
   } else {
@@ -282,4 +315,100 @@ jQuery(document).on("input", "#usuario", function () {
   }
 });
 
+$("#siguiente").on("click", function (event) {
+  event.preventDefault();
+  $("#correo").removeClass("hidden");
+  $("#usuario").addClass("hidden");
+  $("#msgUsuario").addClass("hidden");
+  $("#siguiente").addClass("hidden");
+  $("#siguienteCont").removeClass("hidden");
+  $("#login").addClass("hidden");
+});
 
+$("#siguienteCont").on("click", function (event) {
+  event.preventDefault();
+  $("#correo").addClass("hidden");
+  $("#contraseña").removeClass("hidden");
+  $("#confContraseña").removeClass("hidden");
+  $("#mensajeCorreo").addClass("hidden");
+  $("#mensajeCorreoValido").addClass("hidden");
+  $("#enviar").removeClass("hidden");
+  $("#siguienteCont").addClass("hidden");
+  $("#correoVerif").addClass("hidden");
+});
+
+jQuery(document).on("submit", "#registro", function (event) {
+  event.preventDefault();
+  jQuery
+    .ajax({
+      url: "../public/php/endPointRegistroCorreo.php",
+      type: "POST",
+      dataType: "json",
+      data: $(this).serialize(),
+    })
+    .done(function (response) {
+      console.log(response);
+    })
+    .fail(function (resp) {
+      console.log("error");
+    })
+    .always(function (param) {
+      console.log("complete");
+    });
+});
+
+$("#siguiente").on("click", function (event) {
+  event.preventDefault();
+  $("#correo").removeClass("hidden");
+  $("#usuario").addClass("hidden");
+  $("#msgUsuario").addClass("hidden");
+  $("#siguiente").addClass("hidden");
+  $("#siguienteCont").removeClass("hidden");
+  $("#login").addClass("hidden");
+});
+
+$("#siguienteCont").on("click", function (event) {
+  event.preventDefault();
+  $("#correo").addClass("hidden");
+  $("#contraseña").removeClass("hidden");
+  $("#confContraseña").removeClass("hidden");
+  $("#mensajeCorreo").addClass("hidden");
+  $("#mensajeCorreoValido").addClass("hidden");
+  $("#enviar").removeClass("hidden");
+  $("#siguienteCont").addClass("hidden");
+  $("#correoVerif").addClass("hidden");
+});
+
+jQuery(document).on("submit", "#registro", function (event) {
+  event.preventDefault();
+  jQuery
+    .ajax({
+      url: "../public/php/endPointRegistroCorreo.php",
+      type: "POST",
+      dataType: "json",
+      data: $(this).serialize(),
+    })
+    .done(function (response) {
+      console.log(response);
+    })
+    .fail(function (resp) {
+      console.log("error");
+    })
+    .always(function (param) {
+      console.log("complete");
+    });
+});
+
+jQuery(document).on("click", "#agregar", function () {
+  if ($("#form").hasClass("hidden")) {
+    $("#form").removeClass("hidden");
+    $("#form").addClass("block");
+  } else {
+    $("#form").addClass("hidden");
+    $("#form").removeClass("block");
+  }
+});
+
+jQuery(document).on("click", "#btnsubir", function () {
+  $("#doc").trigger("click");
+});
