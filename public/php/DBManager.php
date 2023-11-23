@@ -48,14 +48,11 @@ class DBManager
         $this->close($link);
     }
 
-    public function addAnalisis($fecha, $tipo_estudio, $observaciones, $archivo)
+    public function addRegistrAlimentoo($cadena)
     {
         $link = $this->open();
-        $sql = "INSERT INTO análisis_archivos (Fecha, `Tipo de estudio`, `Archivo pdf`, Imagen, Observaciones, Cve_paciente) VALUES (?, ?, ?, NULL, ?, 1);";
-        $query = mysqli_prepare($link, $sql) or die("Error at login");
-        $query->bind_param("ssss", $fecha, $tipo_estudio, $archivo, $observaciones);
+        $query = mysqli_prepare($link, $cadena) or die("Error");
         $query->execute();
-        header("location: ../analisis.php");
 
         $this->close($link);
     }
@@ -83,6 +80,12 @@ class DBManager
 
         $this->close($link);
     }
+
+    public function verRegistrosDia()
+    {
+        $link = $this->open();
+
+        $sql = "SELECT idRegistro_diario, DATE_FORMAT(Fecha_Hora, '%d %b %Y %h:%i') AS Fecha_Formateada  FROM registro_diario WHERE DATE(Fecha_Hora) = CURDATE();";
 
     public function verRegistrosDia()
     {
@@ -137,5 +140,39 @@ class DBManager
         $result = $link->query($sql);
 
         return $result;
+    }
+
+    public function addAnalisis($fecha, $tipo_estudio, $observaciones, $archivo, $clave)
+    {
+        $link = $this->open();
+        $sql = "INSERT INTO análisis_archivos (Fecha, `Tipo de estudio`, `Archivo pdf`, Imagen, Observaciones, Cve_paciente) VALUES (?, ?, ?, NULL, ?, ?);";
+        $query = mysqli_prepare($link, $sql) or die("Error at login");
+        $query->bind_param("sssss", $fecha, $tipo_estudio, $archivo, $observaciones, $clave);
+        $query->execute();
+        header("location: ../analisis.php");
+
+        $this->close($link);
+    }
+
+    public function verAnalisis($clave)
+    {
+        $link = $this->open();
+        $sql = "SELECT análisis_archivos.`Archivo pdf`,análisis_archivos.idAnálisis_archivos FROM análisis_archivos WHERE Cve_paciente =?";
+        $query = mysqli_prepare($link, $sql) or die("Error at login");
+        $query->bind_param("s", $clave);
+        $query->execute();
+        $result = $query->get_result();
+        return $result;
+    }
+
+    public function borrarAnalisis($id, $clave)
+    {
+        $link = $this->open();
+        $sql = "DELETE FROM análisis_archivos WHERE idAnálisis_archivos=? AND Cve_paciente=?";
+        $query = mysqli_prepare($link, $sql) or die("Error at login");
+        $query->bind_param("ss", $id, $clave);
+        $query->execute();
+        header("location: ../analisis.php");
+        $this->close($link);
     }
 }
