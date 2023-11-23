@@ -24,6 +24,7 @@
         $result = $query->get_result();
 
         if ($result->num_rows == 1) {
+            $_SESSION['usuario'] = $usuario;
             $response = array("success" => true, "redirect_url" => "principal.php");
         } else {
             $response = array("success" => false, "message" => "Inicio de sesión fallido");
@@ -35,13 +36,12 @@
     }
 
 
-    public function addRegistro($tipo_insulina, $dosis, $tipo_dosis, $tipo_medicion, $agua, $dia_atipico, $observaciones)
-    {
+    public function addRegistro( $tipo_insulina, $dosis, $tipo_dosis, $tipo_medicion , $agua, $dia_atipico ,$observaciones, $glucosa){
         $link = $this->open();
-        $sql = "INSERT INTO registro_diario (Fecha_Hora, Tipo_insulina, Dosis ,Tipo_dosis, Tipo_medicion,Cantidad_agua, Dia_atipico, Observaciones, Cve_paciente ) VALUES (NOW(), ?, ?, ?,?, ?, ?, ?, 1);";
+        $sql = "INSERT INTO registro_diario (Fecha, Tipo_insulina, Dosis ,Tipo_dosis, Tipo_medicion,Cantidad_agua, Dia_atipico, Observaciones, glucosa ,Cve_paciente ) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?, ? ,1);";
         $query = mysqli_prepare($link, $sql) or die("Error at login");
-        $query->bind_param("sssssss", $tipo_insulina, $dosis, $tipo_dosis, $tipo_medicion, $agua, $dia_atipico, $observaciones);
-        $query->execute();
+        $query -> bind_param("ssssssss", $tipo_insulina, $dosis,$tipo_dosis, $tipo_medicion, $agua ,$dia_atipico, $observaciones, $glucosa);
+        $query -> execute();
         header("location: ../registro.php");
 
         $this->close($link);
@@ -85,8 +85,8 @@
     public function verRegistrosDiarios()
     {
         $link = $this->open();
-
-        $sql = "SELECT idRegistro_diario, DATE_FORMAT(Fecha_Hora, '%d %b %Y %h:%i') AS Fecha_Formateada  FROM registro_diario WHERE DATE(Fecha_Hora) = CURDATE();";
+        
+        $sql = "SELECT * , DATE_FORMAT(Fecha, '%d %b %Y') AS Fecha_Formateada  FROM registro_diario WHERE DATE(Fecha) = CURDATE();";
 
         $result = $link->query($sql);
 
@@ -126,9 +126,49 @@
         return $result;
     }
 
-    public function registrarCorreo(){
+    public function registrarCorreo($nombre, $apellidoP, $apellidoM, $usuario, $contraseña, $telefono, $correo){
         $link = $this->open();
-        $sql = "INSERT INTO `paciente` (`Cve_paciente`, `Nombre`, `Apellido_paterno`, `Apellido_materno`, `Fecha_nacimiento`, `Sexo`, `Correo`, `Contraseña`) VALUES (1, ?, ?, ?, ?, ?, ?, ?);";
+        $sel = "SELECT correo FROM paciente WHERE correo = ? OR nombre_usuario = ?;";
+        $query = mysqli_prepare($link, $sel) or die("Error at Sign Up");
+        $query -> bind_param("ss", $correo, $usuario);
+        $query -> execute();
+        $result = $query->get_result();
+        if ($result->num_rows >= 1) {
+            $response = array("failed" => true, "message" => "El usuario o correo ya está registrado");
+            
+        } else {
+            $sql = "INSERT INTO `paciente` (`nombre_paciente`, `apellidoP_paciente`, `apellidoM_paciente`, `nombre_usuario`, `contraseña`, `telefono`, `correo`) VALUES ( ?, ?, ?, ?, ?, ?, ?);";
+            $query = mysqli_prepare($link, $sql) or die("Error al insertar el correo");
+            $query->bind_param("sssssss", $nombre, $apellidoP, $apellidoM, $usuario, $contraseña, $telefono, $correo);
+            $query -> execute();
+            $result = $query->affected_rows;
+
+            if ($result > 0) {
+                $response = array("success" => true, "redirect_url" => "expediente.php");
+                
+            } else {
+                $response = array("failedSignup" => false, "message" => "Algo salió mal");
+            }
+
+            
+        }
+        
+
+        echo json_encode($response);
+
+        $this->close($link);
+
+    }
+
+    public function eliminarRegistro($id){
+        $link = $this->open();
+        $sql = "DELETE FROM registro_diario WHERE idRegistro_diario = ?;";
+        $query = mysqli_prepare($link, $sql) or die("Error al eliminar el registro");
+        $query->bind_param("i", $id);
+        $query -> execute();
+        header("location: ../registro.php");
+
+        $this->close($link);
     }
 
     public function verCitas(){
