@@ -78,23 +78,23 @@
                     </div>
 
                     <div id="form" class="hidden mb-14">
-                        <form action=""
+                        <form enctype="multipart/form-data" action="php/addAnalisis.php" method="post"
                             class="border border-gray-400 w-2/4 rounded-lg my-7 ml-20 shadow-xl drop-shadow-lg p-6 flex flex-col items-center">
                             <div class="flex mb-8">
                                 <div class="flex flex-col mr-20">
-                                    <label for="" class="font-semibold text-lg mb-2">Tipo de Estudio</label>
-                                    <input type="text" class="border border-black w-56 h-8">
+                                    <label for="tipo_estudio" class="font-semibold text-lg mb-2">Tipo de Estudio</label>
+                                    <input name="tipo_estudio" type="text" class="border border-black w-56 h-8">
                                 </div>
 
                                 <div class="flex flex-col ">
-                                    <label for="" class="font-semibold text-lg mb-2">Fecha</label>
-                                    <input type="date" class="border border-black w-40 h-8">
+                                    <label for="fecha" class="font-semibold text-lg mb-2">Fecha</label>
+                                    <input name="fecha" type="date" class="border border-black w-40 h-8">
                                 </div>
                             </div>
                             <div class="flex mb-5">
-                                <input
+                                <input name="archivo_pdf"
                                     class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                    id="default_size" type="file">
+                                    id="default_size" type="file" accept=".pdf">
                             </div>
                             <div
                                 class="w-full ml-2 mr-2 mb-5 p-4 flex flex-col border shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
@@ -111,13 +111,35 @@
                             </div>
                         </form>
                     </div>
-                    <div
-                        class="border border-gray-400 w-11/12 rounded-lg shadow-xl drop-shadow-lg flex justify-center my-14">
-                        <div class="flex flex-col items-center my-7">
+                    <!-- registro de analisis realizados -->
+                    <div class="border border-gray-400 w-11/12 rounded-lg shadow-xl drop-shadow-lg  my-14">
+                        <?php
+                        require_once("php/verAnalisis.php");
+                        while ($row = $data->fetch_assoc()) {
+                        ?>
+                        <div class="flex items-center justify-between my-7 px-12">
                             <img src="img/pdf.png" alt="" width="80">
-                            <p>Titulo</p>
+                            <p><?php echo $row["Archivo pdf"] ?></p>
+                            <div class=" flex pr-8">
+                                <a class=" text-white bg-amarillo rounded px-4 py-2 mr-2"
+                                    href="./archivos/1/<?php echo $row["Archivo pdf"] ?>" target="_blank">
+                                    Ver
+                                </a>
+                                <form action="php/borrarAnalisis.php" method="post"
+                                    class="text-white bg-rojo rounded px-4 py-2">
+                                    <input type="hidden" name="id" value="<?php echo $row["idAnálisis_archivos"] ?>">
+                                    <input type="hidden" name="nombre" value="<?php echo $row["Archivo pdf"] ?>">
+                                    <input type="submit" value="Eliminar" class="cursor-pointer">
+                                </form>
+                            </div>
                         </div>
+                        <?php
+                        }
+                        ?>
                     </div>
+
+
+
                 </div>
 
 </body>
