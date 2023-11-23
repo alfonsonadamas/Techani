@@ -227,13 +227,14 @@
                                 </div>
                                 <div class="sm:flex sm:flex-wrap justify-between flex border flex-wrap shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl p-4 mb-10"
                                     id="registros">
-                                    <div
-                                        class="flex w-full items-center justify-around boder border-b border-slate-400 pb-3">
-                                        <?php
+                                    <?php
                                             include_once("./php/verRegistros.php");
                                             while ($row = $data->fetch_assoc()) {
                                                 
                                             ?>
+                                    <div
+                                        class="flex w-full items-center justify-around boder border-b border-slate-400 pb-3 mb-3">
+
                                         <img src="img/pdf.png" alt="" width="70">
                                         <p class="text-center">Fecha: <?php echo $row['Fecha_Formateada'] ?></p>
                                         <div class="flex">
@@ -286,16 +287,16 @@
                                                 <input type="text" hidden
                                                     value="<?php echo $row['idRegistro_diario'] ?>" name="id">
                                             </form>
-                                            <?php
-                                            }
-                                            ?>
+
 
 
                                         </div>
 
                                     </div>
 
-
+                                    <?php
+                                            }
+                                            ?>
 
                                 </div>
                             </div>
