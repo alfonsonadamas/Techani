@@ -144,13 +144,12 @@
                                             <button onclick='eliminarCita(<?php echo $row["idCitas"] ?>)' id="buttonEliminarCita<?php echo $row["idCitas"] ?>" name="buttonEliminarCita<?php echo $row["idCitas"] ?>" class="mt-5 ml-3 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2">
                                                 Eliminar
                                             </button>
-<!-- Aquí incluyes el script JavaScript -->
-<script>
-    function eliminarCita(id) {
-        console.log(id);
-
-    }
-</script>
+                                            <!-- Aquí incluyes el script JavaScript -->
+                                                <script>
+                                                    function eliminarCita(id) {
+                                                        console.log(id);
+                                                    }
+                                                </script>
                                             </div>
                                         </div>
                                     </div><br>

@@ -43,38 +43,35 @@
 </form>
 
 <script>
-
+var textarea = document.getElementById('ObservacionesAgregar');
 var contadorCaracteres = document.getElementById('Contador_caracteresAgregar');
 var maxLength = 600;
                                     
-                                    textarea.addEventListener('input', () => {
+textarea.addEventListener('input', () => {
+    let inputValue = textarea.value;
+    var lineBreaks = (inputValue.match(/\n/g) || []).length;
+    var totalCaracteres = inputValue.length + lineBreaks * 50;
+    console.log("JJJJ");
+    if (totalCaracteres > maxLength || totalCaracteres + 50 > maxLength) {
+        var maxTextLength = maxLength - lineBreaks * 50;
+        inputValue = inputValue.substring(0, maxTextLength);
+        textarea.value = inputValue;
+    }
 
-                                        var textarea = document.getElementById('ObservacionesAgregar');
+    var caracteresRestantes = maxLength - totalCaracteres;
+    console.log(caracteresRestantes);
+    contadorCaracteres.textContent = `Caracteres restantes: ${
+    Math.max(0, caracteresRestantes)
+    }`;
+    });
 
-                                        let inputValue = textarea.value;
-                                        var lineBreaks = (inputValue.match(/\n/g) || []).length;
-                                        var totalCaracteres = inputValue.length + lineBreaks * 50;
-                                        console.log("JJJJ");
-                                        if (totalCaracteres > maxLength || totalCaracteres + 50 > maxLength) {
-                                            var maxTextLength = maxLength - lineBreaks * 50;
-                                            inputValue = inputValue.substring(0, maxTextLength);
-                                            textarea.value = inputValue;
-                                        }
-
-                                        var caracteresRestantes = maxLength - totalCaracteres;
-                                        console.log(caracteresRestantes);
-                                        contadorCaracteres.textContent = `Caracteres restantes: ${
-                                                Math.max(0, caracteresRestantes)
-                                            }`;
-                                    });
-
-                                    textarea.addEventListener('keydown', (event) => {
-                                        if (event.key === 'Enter') {
-                                            const caracteresRestantes = maxLength - (textarea.value.length + (
-                                                textarea.value.match(/\n/g) || []).length * 50);
-                                            if (caracteresRestantes <= 50) {
-                                                event.preventDefault();
-                                            }
-                                        }
-                                    });
-                                    </script>
+    textarea.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+        const caracteresRestantes = maxLength - (textarea.value.length + (
+        textarea.value.match(/\n/g) || []).length * 50);
+        if (caracteresRestantes <= 50) {
+        event.preventDefault();
+        }
+        }
+        });
+</script>
