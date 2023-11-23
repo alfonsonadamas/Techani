@@ -20,6 +20,9 @@ $clave = 1;
 
 if ($tipo_archivo == "application/pdf" && $tamaño <= $limite * 1024) {
     $ruta = '../archivos/' . $clave . '/' . $archivo;
+    if (!file_exists("../archivos/")) {
+        mkdir('../archivos/');
+    }
     if (!file_exists('../archivos/' . $clave)) {
         mkdir('../archivos/' . $clave);
     }
