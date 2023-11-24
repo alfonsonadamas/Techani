@@ -11,14 +11,14 @@
 
 <body class="bg-fondoGris">
 
-    <div class="p-8">
+    <div class="">
         <div class="flex w-full h-screen">
             <!-- Barra lateral -->
             <div class="bg-azul w-1/4 mt-6 ml-6 mb-6 rounded-3xl flex flex-col items-center justify-center shadow-xl">
                 <img class="mb-10" src="img/Techani blanco con nombre.png" alt="" width="130">
                 <div class="">
                     <div
-                        class="flex items-center h-10 px-5 transition duration-500 ease-in-out hover:bg-azulFondo  rounded-lg">
+                        class="flex items-center h-10 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
                         <img src="img/registro.png" alt="" width="30">
                         <a class="text-white ml-3" href="registro.php">Registro Diario</a>
                     </div>
@@ -30,22 +30,17 @@
                     <div
                         class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
                         <img src="img/rutina-de-ejercicio.png" alt=" " width="30">
-                        <a class="text-white ml-3" href="">Registro de Ejercicio</a>
+                        <a class="text-white ml-3" href="ejercicio.php">Registro de Ejercicio</a>
                     </div>
                     <div
                         class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
                         <img src="img/carpeta.png" alt="" width="30">
-                        <a class="text-white ml-3" href="">Análisis Clínicos</a>
-                    </div>
-                    <div
-                        class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
-                        <img src="img/alarma.png" alt="" width="30">
-                        <a class="text-white ml-3" href="">Alarmas</a>
+                        <a class="text-white ml-3" href="analisis.php">Análisis Clínicos</a>
                     </div>
                     <div
                         class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out bg-azulFondo rounded-lg">
                         <img src="img/calendario.png" alt="" width="30">
-                        <a class="text-white ml-3" href="">Citas Médicas</a>
+                        <a class="text-white ml-3" href="citas.php">Citas Médicas</a>
                     </div>
                 </div>
             </div>
@@ -104,8 +99,8 @@
                 </div>
 
 
-                <div class="ml-8 p-4 relative overflow-x-auto shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
-                    <h1>Lista de citas</h1>
+                <div class="block m-11 ml-28">
+                    <h1 class="text-left mt-10 font-size text-2xl text-black font-sans">Lista de citas</h1>
                 <?php
                         require_once("php/verCitas.php");
 

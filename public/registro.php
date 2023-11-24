@@ -9,7 +9,7 @@
   <title>Techani</title>
 </head>
 
-<body class="">
+<body class="bg-fondoGris">
     <div class="flex">
         <div class="flex w-full h-screen">
             <!-- Barra lateral -->
@@ -29,22 +29,17 @@
                     <div
                         class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
                         <img src="img/rutina-de-ejercicio.png" alt=" " width="30">
-                        <a class="text-white ml-3" href="">Registro de Ejercicio</a>
+                        <a class="text-white ml-3" href="ejercicio.php">Registro de Ejercicio</a>
                     </div>
                     <div
                         class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
                         <img src="img/carpeta.png" alt="" width="30">
-                        <a class="text-white ml-3" href="">Análisis Clínicos</a>
-                    </div>
-                    <div
-                        class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
-                        <img src="img/alarma.png" alt="" width="30">
-                        <a class="text-white ml-3" href="">Alarmas</a>
+                        <a class="text-white ml-3" href="analisis.php">Análisis Clínicos</a>
                     </div>
                     <div
                         class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
                         <img src="img/calendario.png" alt="" width="30">
-                        <a class="text-white ml-3" href="">Citas Médicas</a>
+                        <a class="text-white ml-3" href="citas.php">Citas Médicas</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +64,7 @@
                                     Diario</h1>
                                 <div class="">
                                     <div
-                                        class="flex flex-col justify-center border shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl mb-10 w-1/3  h-20 p-2 ">
+                                        class="flex flex-col justify-center border shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl mb-10 w-1/3  h-20 p-2 bg-white">
                                         <label class="font-medium text-gray-900" for="glucosa">Medidición de
                                             Glucosa</label>
                                         <input
@@ -78,7 +73,7 @@
                                     </div>
                                     <div class="sm:flex sm:flex-row sm:justify-center sm:w-full">
                                         <div
-                                            class="sm:w-1/2 border ml:2 mr:2 mb-5 sm:mr-5 sm:mb-10 shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
+                                            class="sm:w-1/2 border ml:2 mr:2 mb-5 sm:mr-5 sm:mb-10 shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl bg-white">
 
                                             <div class="ml-4 mr-4 flex flex-row sm:flex sm:flex-col">
 
@@ -117,7 +112,7 @@
                                         </div>
 
                                         <div
-                                            class="sm:w-1/2 border ml:2 mr:2 mb-5 sm:ml-5 sm:mb-10 shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
+                                            class="sm:w-1/2 border ml:2 mr:2 mb-5 sm:ml-5 sm:mb-10 shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl bg-white">
                                             <div class="ml-4 mr-4 mb-2 flex flex-col">
                                                 <label for="tipo_medicion"
                                                     class="block mt-2 mb-1 text-sm font-medium text-gray-900">Tipo de
@@ -167,9 +162,9 @@
 
                                 </div>
                                 <div
-                                    class="w-full ml-2 mr-2 mb-5 p-4 flex flex-col border shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
+                                    class="w-full ml-2 mr-2 mb-5 p-4 flex flex-col border shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl bg-white">
                                     <label for="observaciones"
-                                        class="block text-sm font-medium mb-1 text-gray-900">Observaciones</label>
+                                        class="block text-sm font-medium mb-1 text-gray-900 ">Observaciones</label>
                                     <textarea name="observaciones" id="observaciones" cols="30" rows="10"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm p-1 rounded-lg block resize-none"></textarea>
                                     <div id="contador-caracteres">Caracteres restantes: 600</div>

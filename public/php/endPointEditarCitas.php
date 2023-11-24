@@ -7,7 +7,7 @@ $fechaCita = $_POST['Fecha'];
 $horaCita = $_POST['Hora'];
 $tipoCita = $_POST['Tipo_Cita'];
 $lugar = $_POST['Lugar'];
-$observaciones = $_POST['Observaciones'];
+$observaciones = $_POST['ObservacionesEditar'];
 
 // Instanciar la clase que contiene la función editarCitas
 $tuObjeto = new DBManager(); // Reemplaza con el nombre de tu clase

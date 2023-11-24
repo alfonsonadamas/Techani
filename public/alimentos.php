@@ -17,34 +17,35 @@ require_once('php/classes.php');
     <div class="flex w-full h-screen">
         <!-- Barra lateral -->
         <div class="bg-azul w-1/4 mt-6 ml-6 mb-6 rounded-3xl flex flex-col items-center justify-center shadow-xl">
-            <img class="mb-10" src="img/Techani blanco con nombre.png" alt="" width="130">
-            <div class="">
-                <div class="flex items-center h-10 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
-                    <img src="img/registro.png" alt="" width="30">
-                    <a class="text-white ml-3" href="">Registro Diario</a>
-                </div>
-                <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
-                    <img src="img/comida-sana.png" alt="" width="30">
-                    <a class="text-white ml-3" href="">Registro de Alimentos</a>
-                </div>
-                <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
-                    <img src="img/rutina-de-ejercicio.png" alt=" " width="30">
-                    <a class="text-white ml-3" href="">Registro de Ejercicio</a>
-                </div>
-                <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
-                    <img src="img/carpeta.png" alt="" width="30">
-                    <a class="text-white ml-3" href="">Registros</a>
-                </div>
-                <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
-                    <img src="img/alarma.png" alt="" width="30">
-                    <a class="text-white ml-3" href="">Alarmas</a>
-                </div>
-                <div class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
-                    <img src="img/calendario.png" alt="" width="30">
-                    <a class="text-white ml-3" href="">Citas Médicas</a>
+                <img class="mb-10" src="img/Techani blanco con nombre.png" alt="" width="130">
+                <div class="">
+                    <div
+                        class="flex items-center h-10 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
+                        <img src="img/registro.png" alt="" width="30">
+                        <a class="text-white ml-3" href="registro.php">Registro Diario</a>
+                    </div>
+                    <div
+                        class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out bg-azulFondo rounded-lg">
+                        <img src="img/comida-sana.png" alt="" width="30">
+                        <a class="text-white ml-3" href="alimentos.php">Registro de Alimentos</a>
+                    </div>
+                    <div
+                        class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
+                        <img src="img/rutina-de-ejercicio.png" alt=" " width="30">
+                        <a class="text-white ml-3" href="ejercicio.php">Registro de Ejercicio</a>
+                    </div>
+                    <div
+                        class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
+                        <img src="img/carpeta.png" alt="" width="30">
+                        <a class="text-white ml-3" href="analisis.php">Análisis Clínicos</a>
+                    </div>
+                    <div
+                        class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
+                        <img src="img/calendario.png" alt="" width="30">
+                        <a class="text-white ml-3" href="citas.php">Citas Médicas</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
         <div class="w-full">
             <div class="flex justify-end h-16 mt-6 mx-6 border-2 shadow-xl drop-shadow-lg">
