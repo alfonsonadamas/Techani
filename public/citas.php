@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="build/styles.css" />
+    <meta http-equiv="X-Frame-Options" content="DENY">
     <title>Citas Médicas</title>
-    <script>
-        if(window.top !== window.self){
-            window.top.location = window.self.location;
-        }
-    </script>
 </head>
 
 <body class="bg-fondoGris">

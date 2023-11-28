@@ -8,6 +8,7 @@ try {
     $horaCita = htmlspecialchars($_POST['Hora'], ENT_QUOTES, 'UTF-8');
     $tipoCita = htmlspecialchars($_POST['Tipo_Cita'], ENT_QUOTES, 'UTF-8');
     $lugar = htmlspecialchars($_POST['Lugar'], ENT_QUOTES, 'UTF-8');
+    //$lugar = $_POST['Lugar'];
     $observaciones = htmlspecialchars($_POST['ObservacionesEditar'], ENT_QUOTES, 'UTF-8');
 
     // Instanciar la clase que contiene la función editarCitas
