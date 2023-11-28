@@ -19,7 +19,7 @@
                     <p class="font-fuenteTechani text-azul ml-5">TECHANI</p>
                 </div>
                 <div>
-                    <p class="font-fuenteEslogan px-12">La salud en tus manos</p>
+                    <p class="font-fuentesec px-12">La salud en tus manos</p>
                 </div>
             </div>
 
