@@ -1,11 +1,17 @@
+<?php
+    include("../public/php/open.php");
+    if($sesion){
+?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Estado de Ánimo</title>
 </head>
+
 <body>
     <h1>Estado de Ánimo</h1>
     <form action="php/addEstadoAnimo.php" method="post" class="sm:flex sm:flex-row">
@@ -25,7 +31,7 @@
         <div class="emoticon" id="emoticon-feliz">&#128516;</div>
         <div class="emoticon" id="emoticon-muy-feliz">&#128512;</div>
     </div>
-<!-- 
+    <!-- 
     <style>
         body {
     text-align: center;
@@ -56,8 +62,14 @@ form {
 
 -->
 
-    
+
 </body>
-    <script src="script.js"></script>
-    
+<script src="script.js"></script>
+
 </html>
+
+<?php
+    }else{
+        header("location: login.php");
+    }
+?>

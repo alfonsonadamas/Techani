@@ -1,3 +1,8 @@
+<?php
+    include("../public/php/open.php");
+    if($sesion){
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -124,4 +129,11 @@
                                 </div>
 
 </body>
+
 </html>
+
+<?php
+    }else{
+        header("location: login.php");
+    }
+?>

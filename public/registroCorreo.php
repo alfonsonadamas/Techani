@@ -1,3 +1,7 @@
+<?php
+    include("../public/php/open.php");
+    if($sesion){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -175,3 +179,8 @@
 <script src="js/jquery.js"></script>
 
 </html>
+<?php
+    }else{
+        header("location: principal.php");
+    }
+?>

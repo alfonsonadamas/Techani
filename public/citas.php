@@ -1,3 +1,7 @@
+<?php
+    include("../public/php/open.php");
+    if($sesion){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -174,3 +178,8 @@ $(document).ready(function() {
 <script src="js/script.js"></script>
 
 </html>
+<?php
+    }else{
+        header("location: login.php");
+    }
+?>
