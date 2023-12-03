@@ -135,7 +135,7 @@ jQuery(document).on("submit", "#login", function (event) {
       }
     })
     .fail(function (resp) {
-      console.log("error");
+      console.log(resp.responseText);
     })
     .always(function (param) {
       console.log("complete");

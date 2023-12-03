@@ -22,6 +22,8 @@
                     placeholder="Correo Electronico" name="correo">
                 <input class="rounded-lg border-solid border-2 border-gray-300 px-2 py-2 mb-5 w-72" type="password"
                     placeholder="Contraseña" name="contrasena">
+                <?php require_once 'php/endPointToken.php'; ?>
+                <input type="hidden" name="csrf_token" value="<?php echo $token ?>">
                 <p class="text-red-600 hidden" id="alerta">Correo o contraseña incorrectos</p>
                 <p class="mb-5">¿No tienes cuenta? <a class="text-azul font-bold underline"
                         href="registroCorreo.php">Registrate</a>

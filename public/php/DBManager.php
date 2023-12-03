@@ -10,6 +10,12 @@
         mysqli_close($link);
     }
 
+    public function generarToken(){
+        $this->key = bin2hex(random_bytes(32));
+        $_SESSION['csrf_token'] = $this->key;
+        return $this->key;
+    }
+
     public function login($usuario, $contrasena){
         $link = $this->open();
 
@@ -60,6 +66,7 @@
         
         $this->close($link);
     }
+    
     
 
     public function addRegistrAlimentoo($cadena) {
