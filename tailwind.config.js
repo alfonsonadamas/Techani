@@ -1,12 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // content: [
-  //   "./public/index.php",
-  //   "./public/ejercicio.php",
-  //   "./public/registro.php",
-  //   "./public/login.php",
-
-  // ],
   content: [
     "./public/index.php",
     "./public/ejercicio.php",
@@ -18,8 +11,8 @@ module.exports = {
     "./public/registroCorreo.php",
     "./public/expediente.php",
     "./public/registroAlarmas.php",
-    "./node_modules/flowbite/**/*.js",
     "./public/analisis.php",
+    "./public/prueba.php",
   ],
   theme: {
     extend: {
@@ -33,8 +26,9 @@ module.exports = {
         amarillo: "#FFE08C",
         fondoGris: "#F6F6F6",
         azulFondo: "#18578B",
+        rojo:"#fd2020",
+        amarillo:"#ffcd4b"
       },
     },
   },
-  
 };
