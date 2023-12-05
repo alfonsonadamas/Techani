@@ -26,6 +26,8 @@ module.exports = {
         amarillo: "#FFE08C",
         fondoGris: "#F6F6F6",
         azulFondo: "#18578B",
+        rojo:"#fd2020",
+        amarillo:"#ffcd4b"
       },
     },
   },

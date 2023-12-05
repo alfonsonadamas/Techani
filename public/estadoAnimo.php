@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h1>Estado de Ánimo</h1>
+    <h1>Estado de Ánimo</h2>
     <form action="php/addEstadoAnimo.php" method="post" class="sm:flex sm:flex-row">
         <label for="estado_animo">Selecciona cómo está tu estado de ánimo:</label>
         <select name="estado_animo" id="estado_animo" class="border-2 border-black" onchange="actualizarEmoticon()">
