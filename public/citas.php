@@ -74,25 +74,33 @@
                 <div class="block m-11 ml-28">
 
                     <h1 class="text-left mt-10 font-size text-2xl text-black font-sans">Citas Medicas</h1>
-                    
+
                     <!-- Modal toggle -->
-                    <button data-modal-target="formRegistrarCita" data-modal-toggle="formRegistrarCita" class="mt-5 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-azul hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" type="button">
-                    Agregar cita
+                    <button data-modal-target="formRegistrarCita" data-modal-toggle="formRegistrarCita"
+                        class="mt-5 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-azul hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                        type="button">
+                        Agregar cita
                     </button>
 
                     <!-- Main modal -->
-                    <div id="formRegistrarCita" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div id="formRegistrarCita" tabindex="-1" aria-hidden="true"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                         <div class="relative p-4 w-full max-w-2xl max-h-full">
                             <!-- Modal content -->
                             <div class="relative bg-white rounded-lg shadow ">
                                 <!-- Modal header -->
-                                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                <div
+                                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                                         Crear cita
                                     </h3>
-                                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="formRegistrarCita">
-                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                        data-modal-hide="formRegistrarCita">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                                         </svg>
                                         <span class="sr-only">Close modal</span>
                                     </button>
@@ -100,83 +108,90 @@
                                 <!-- Modal body -->
                                 <div class="p-4 md:p-5 space-y-4">
 
-                                <form id="form" action="php/addCitas.php" method="post">
+                                    <form id="form" action="php/addCitas.php" method="post">
 
-                                <div class="flex space-x-4 mb-5">
-                                    <div class="w-1/2 mr-4">
-                                        <label for="fecha_cita" class="block font-semibold">Fecha de la cita:</label>
-                                        <input type="date" name="Fecha" id="Fecha" required
-                                            class="border border-black rounded p-2 w-full">
-                                    </div>
-                                    <div class="w-1/2">
-                                        <label for="hora_cita" class="block font-semibold">Hora de la cita:</label>
-                                        <input type="time" name="Hora" id="Hora" required
-                                            class="border border-black rounded p-2 w-full">
-                                    </div>
-                                </div>
+                                        <div class="flex space-x-4 mb-5">
+                                            <div class="w-1/2 mr-4">
+                                                <label for="fecha_cita" class="block font-semibold">Fecha de la
+                                                    cita:</label>
+                                                <input type="date" name="Fecha" id="Fecha" required
+                                                    class="border border-black rounded p-2 w-full">
+                                            </div>
+                                            <div class="w-1/2">
+                                                <label for="hora_cita" class="block font-semibold">Hora de la
+                                                    cita:</label>
+                                                <input type="time" name="Hora" id="Hora" required
+                                                    class="border border-black rounded p-2 w-full">
+                                            </div>
+                                        </div>
 
-                                <div class="w-full mb-5">
-                                    <label for="tipo_cita" class="block font-semibold">Tipo de cita:</label>
-                                    <input type="text" name="Tipo_Cita" id="Tipo_Cita" required
-                                        class="border border-black rounded p-2 w-full">
-                                </div>
+                                        <div class="w-full mb-5">
+                                            <label for="tipo_cita" class="block font-semibold">Tipo de cita:</label>
+                                            <input type="text" name="Tipo_Cita" id="Tipo_Cita" required
+                                                class="border border-black rounded p-2 w-full">
+                                        </div>
 
-                                <div class="w-full mb-5">
-                                    <label for="lugar" class="block font-semibold">Lugar:</label>
-                                    <input type="text" name="Lugar" id="Lugar" required class="border border-black rounded p-2 w-full">
-                                </div>
+                                        <div class="w-full mb-5">
+                                            <label for="lugar" class="block font-semibold">Lugar:</label>
+                                            <input type="text" name="Lugar" id="Lugar" required
+                                                class="border border-black rounded p-2 w-full">
+                                        </div>
 
-                                <div class="w-full flex flex-col">
-                                    <label for="Observaciones"
-                                        class="block text-sm font-medium mb-1 text-gray-900">Observaciones</label>
+                                        <div class="w-full flex flex-col">
+                                            <label for="Observaciones"
+                                                class="block text-sm font-medium mb-1 text-gray-900">Observaciones</label>
 
-                                    <textarea name="ObservacionesAgregar" id="ObservacionesAgregar"  cols="30" rows="10"
-                                        class="bg-black-50 border border-black text-gray-900 text-sm rounded-md block resize-none"></textarea>
-                                    <div name="Contador_caracteresAgregar" id="Contador_caracteresAgregar">Caracteres restantes: 600</div>
+                                            <textarea name="ObservacionesAgregar" id="ObservacionesAgregar" cols="30"
+                                                rows="10"
+                                                class="bg-black-50 border border-black text-gray-900 text-sm rounded-md block resize-none"></textarea>
+                                            <div name="Contador_caracteresAgregar" id="Contador_caracteresAgregar">
+                                                Caracteres restantes: 600</div>
 
-                                </div>
-                                    <!-- Modal footer -->    
-                                    <button data-modal-hide="formRegistrarCita" type="submit" class="bg-amarillo text-black p-2 rounded font-semibold">
-                                        Guardar Cita
-                                    </button>
-                                    <button data-modal-hide="formRegistrarCita" type="button" class="modal-close bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                        Cerrar
-                                    </button>                                    
-                                </form>
+                                        </div>
+                                        <!-- Modal footer -->
+                                        <button data-modal-hide="formRegistrarCita" type="submit"
+                                            class="bg-amarillo text-black p-2 rounded font-semibold">
+                                            Guardar Cita
+                                        </button>
+                                        <button data-modal-hide="formRegistrarCita" type="button"
+                                            class="modal-close bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                            Cerrar
+                                        </button>
+                                    </form>
 
-                                <script>
-                                var textarea = document.getElementById('ObservacionesAgregar');
-                                var contadorCaracteres = document.getElementById('Contador_caracteresAgregar');
-                                var maxLength = 600;
-                                                                    
-                                textarea.addEventListener('input', () => {
-                                    let inputValue = textarea.value;
-                                    var lineBreaks = (inputValue.match(/\n/g) || []).length;
-                                    var totalCaracteres = inputValue.length + lineBreaks * 50;
-                                    console.log("JJJJ");
-                                    if (totalCaracteres > maxLength || totalCaracteres + 50 > maxLength) {
-                                        var maxTextLength = maxLength - lineBreaks * 50;
-                                        inputValue = inputValue.substring(0, maxTextLength);
-                                        textarea.value = inputValue;
-                                    }
+                                    <script>
+                                    var textarea = document.getElementById('ObservacionesAgregar');
+                                    var contadorCaracteres = document.getElementById('Contador_caracteresAgregar');
+                                    var maxLength = 600;
 
-                                    var caracteresRestantes = maxLength - totalCaracteres;
-                                    console.log(caracteresRestantes);
-                                    contadorCaracteres.textContent = `Caracteres restantes: ${
+                                    textarea.addEventListener('input', () => {
+                                        let inputValue = textarea.value;
+                                        var lineBreaks = (inputValue.match(/\n/g) || []).length;
+                                        var totalCaracteres = inputValue.length + lineBreaks * 50;
+                                        console.log("JJJJ");
+                                        if (totalCaracteres > maxLength || totalCaracteres + 50 > maxLength) {
+                                            var maxTextLength = maxLength - lineBreaks * 50;
+                                            inputValue = inputValue.substring(0, maxTextLength);
+                                            textarea.value = inputValue;
+                                        }
+
+                                        var caracteresRestantes = maxLength - totalCaracteres;
+                                        console.log(caracteresRestantes);
+                                        contadorCaracteres.textContent = `Caracteres restantes: ${
                                     Math.max(0, caracteresRestantes)
                                     }`;
                                     });
 
                                     textarea.addEventListener('keydown', (event) => {
                                         if (event.key === 'Enter') {
-                                        const caracteresRestantes = maxLength - (textarea.value.length + (
-                                        textarea.value.match(/\n/g) || []).length * 50);
-                                        if (caracteresRestantes <= 50) {
-                                        event.preventDefault();
+                                            const caracteresRestantes = maxLength - (textarea.value.length + (
+                                                textarea.value.match(/\n/g) || []).length * 50);
+                                            if (caracteresRestantes <= 50) {
+                                                event.preventDefault();
+                                            }
                                         }
-                                        }
-                                        });
-                                </script>                                
+                                    });
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -186,9 +201,9 @@
 
                 <div class="ml-8 p-4 relative overflow-x-auto shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl">
                     <h1>Lista de citas</h1>
-                <div id="Container_Citas">
+                    <div id="Container_Citas">
 
-                <?php
+                        <?php
                 require_once("php/verCitas.php");
 
                 // Datos de ejemplo
@@ -379,14 +394,14 @@
                 </a>';
                 echo '</div>';
                 ?>
-                </div>     
+                    </div>
+                </div>
             </div>
         </div>
-</div>
 
 </body>
 
-                                    
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
 <script src="js/script.js"></script>
