@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2023 a las 20:14:37
+-- Tiempo de generación: 05-12-2023 a las 15:45:18
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -36,6 +36,65 @@ CREATE TABLE `análisis_archivos` (
   `idAnálisis_archivos` varchar(45) NOT NULL,
   `Cve_paciente` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `bitacora`
+--
+
+CREATE TABLE `bitacora` (
+  `id` int(11) NOT NULL,
+  `fecha_hora` timestamp NOT NULL DEFAULT current_timestamp(),
+  `tipo_evento` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(30) NOT NULL,
+  `usuario` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `bitacora`
+--
+
+INSERT INTO `bitacora` (`id`, `fecha_hora`, `tipo_evento`, `descripcion`, `usuario`) VALUES
+(1, '2023-11-28 15:58:25', 'nuevo usuario', 'Se creó un nuevo usuario: Alfo', 'Alfonso'),
+(2, '2023-12-03 01:05:07', 'nuevo usuario', 'Se creó un nuevo usuario: Alfo', 'Alfonso'),
+(3, '2023-12-03 01:06:11', 'nuevo usuario', 'Se creó un nuevo usuario: Alfo', 'Alfonso'),
+(4, '2023-12-03 01:13:44', 'nuevo usuario', 'Se creó un nuevo usuario: Alfo', 'Alfonso'),
+(5, '2023-12-04 22:11:49', 'nuevo usuario', 'Se creó un nuevo usuario: Alfo', 'Alfonso');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `bitacora_deletes`
+--
+
+CREATE TABLE `bitacora_deletes` (
+  `id` int(11) NOT NULL,
+  `id_eliminado` int(11) DEFAULT NULL,
+  `dato_eliminado` varchar(100) DEFAULT NULL,
+  `fecha_hora` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `bitacora_updates`
+--
+
+CREATE TABLE `bitacora_updates` (
+  `id` int(11) NOT NULL,
+  `id_original` int(11) DEFAULT NULL,
+  `dato_anterior` varchar(100) DEFAULT NULL,
+  `dato_nuevo` varchar(100) DEFAULT NULL,
+  `fecha_hora` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `bitacora_updates`
+--
+
+INSERT INTO `bitacora_updates` (`id`, `id_original`, `dato_anterior`, `dato_nuevo`, `fecha_hora`) VALUES
+(1, 1, 'Alfonso', 'Jose', '2023-12-04 02:43:02');
 
 -- --------------------------------------------------------
 
@@ -77,13 +136,20 @@ INSERT INTO `catalogo_alimentos` (`Clave_alimento`, `Tipo_alimento`, `Nombre_ali
 CREATE TABLE `citas` (
   `idCitas` int(10) UNSIGNED NOT NULL,
   `Fecha` date DEFAULT NULL,
-  `Hora` datetime DEFAULT NULL,
+  `Hora` time DEFAULT NULL,
   `Tipo_Cita` varchar(45) DEFAULT NULL,
   `Lugar` varchar(45) DEFAULT NULL,
   `FechaHora_Recordatorio` datetime DEFAULT NULL,
   `Observaciones` varchar(45) DEFAULT NULL,
   `Cve_paciente` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `citas`
+--
+
+INSERT INTO `citas` (`idCitas`, `Fecha`, `Hora`, `Tipo_Cita`, `Lugar`, `FechaHora_Recordatorio`, `Observaciones`, `Cve_paciente`) VALUES
+(8, '2023-12-06', '11:00:00', 'Analisis Clinicos', 'IMSS', NULL, 'Ninguna', 1);
 
 -- --------------------------------------------------------
 
@@ -207,7 +273,9 @@ CREATE TABLE `expediente` (
 CREATE TABLE `paciente` (
   `Cve_paciente` int(10) UNSIGNED NOT NULL,
   `nombre_paciente` varchar(45) DEFAULT NULL,
-  `apodo` varchar(45) DEFAULT NULL,
+  `apellidoP_paciente` varchar(30) NOT NULL,
+  `apellidoM_paciente` varchar(30) NOT NULL,
+  `nombre_usuario` varchar(45) DEFAULT NULL,
   `contraseña` varchar(45) DEFAULT NULL,
   `telefono` varchar(45) DEFAULT NULL,
   `correo` varchar(45) DEFAULT NULL
@@ -217,8 +285,43 @@ CREATE TABLE `paciente` (
 -- Volcado de datos para la tabla `paciente`
 --
 
-INSERT INTO `paciente` (`Cve_paciente`, `nombre_paciente`, `apodo`, `contraseña`, `telefono`, `correo`) VALUES
-(1, 'Alfonso', '_alfonso', '123456', '123456', 'correo@correo.com');
+INSERT INTO `paciente` (`Cve_paciente`, `nombre_paciente`, `apellidoP_paciente`, `apellidoM_paciente`, `nombre_usuario`, `contraseña`, `telefono`, `correo`) VALUES
+(1, 'Jose', 'Gallardo', 'Magaña', '_alfonso', '123456', '123456', 'correo@correo.com'),
+(19, 'Alfonso', 'Gallardo', 'Gallardo', 'usuario123', 'Contraseña', '4432733246', 'correo@correo432.com');
+
+--
+-- Disparadores `paciente`
+--
+DELIMITER $$
+CREATE TRIGGER `editar_paciente_apellidoM` BEFORE UPDATE ON `paciente` FOR EACH ROW INSERT INTO bitacora_updates (id_original, dato_anterior, dato_nuevo)
+    VALUES (OLD.Cve_paciente, OLD.apellidoM_paciente, NEW.apellidoM_paciente)
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `editar_paciente_apellidoP` BEFORE UPDATE ON `paciente` FOR EACH ROW INSERT INTO bitacora_updates (id_original, dato_anterior, dato_nuevo)
+    VALUES (OLD.Cve_paciente, OLD.apellidoP_paciente, NEW.apellidoP_paciente)
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `editar_paciente_nombre` BEFORE UPDATE ON `paciente` FOR EACH ROW INSERT INTO bitacora_updates (id_original, dato_anterior, dato_nuevo)
+    VALUES (OLD.Cve_paciente, OLD.nombre_paciente, NEW.nombre_paciente)
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `editar_paciente_telefono` BEFORE UPDATE ON `paciente` FOR EACH ROW INSERT INTO bitacora_updates (id_original, dato_anterior, dato_nuevo)
+    VALUES (OLD.Cve_paciente, OLD.telefono, NEW.telefono)
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `editar_paciente_usuario` BEFORE UPDATE ON `paciente` FOR EACH ROW INSERT INTO bitacora_updates (id_original, dato_anterior, dato_nuevo)
+    VALUES (OLD.Cve_paciente, OLD.nombre_usuario, NEW.nombre_usuario)
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `nuevo_paciente` BEFORE INSERT ON `paciente` FOR EACH ROW INSERT INTO bitacora (tipo_evento, usuario, descripcion) 
+    VALUES ('nuevo usuario', NEW.nombre_paciente, CONCAT('Se creó un nuevo usuario: ', NEW.nombre_paciente))
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -253,7 +356,7 @@ INSERT INTO `registrodiario_alimentos` (`idRegistroDiario_Alimentos`, `Registro_
 
 CREATE TABLE `registro_diario` (
   `idRegistro_diario` int(10) UNSIGNED NOT NULL,
-  `Fecha_Hora` datetime DEFAULT NULL,
+  `Fecha` date DEFAULT NULL,
   `glucosa` int(11) NOT NULL,
   `Tipo_insulina` varchar(45) DEFAULT NULL,
   `Dosis` varchar(45) DEFAULT NULL,
@@ -269,19 +372,10 @@ CREATE TABLE `registro_diario` (
 -- Volcado de datos para la tabla `registro_diario`
 --
 
-INSERT INTO `registro_diario` (`idRegistro_diario`, `Fecha_Hora`, `glucosa`, `Tipo_insulina`, `Dosis`, `Tipo_dosis`, `Tipo_medicion`, `Cantidad_agua`, `Dia_atipico`, `Observaciones`, `Cve_paciente`) VALUES
-(5, '2023-09-11 21:09:37', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'menstruacion', 'asdasda', 1),
-(8, '2023-09-23 17:36:24', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'menstruacion', '', 1),
-(9, '2023-09-25 17:36:24', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'menstruacion', '', 1),
-(10, '2023-10-01 16:40:09', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'menstruacion', '', 1),
-(11, '2023-10-02 16:40:09', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'menstruacion', '', 1),
-(12, '2023-10-05 22:12:11', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'menstruacion', '', 1),
-(13, '2023-10-05 22:13:41', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'menstruacion', '', 1),
-(14, '2023-10-05 22:14:04', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'menstruacion', '', 1),
-(15, '2023-10-06 09:24:12', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'ninguno', '', 1),
-(16, '2023-10-06 12:49:01', 0, 'rapida', '2', 'alimentos', 'prep_d', '2', 'ninguno', '', 1),
-(17, '2023-10-07 19:01:17', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'ninguno', '', 1),
-(18, '2023-10-07 19:29:31', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'ninguno', '', 1);
+INSERT INTO `registro_diario` (`idRegistro_diario`, `Fecha`, `glucosa`, `Tipo_insulina`, `Dosis`, `Tipo_dosis`, `Tipo_medicion`, `Cantidad_agua`, `Dia_atipico`, `Observaciones`, `Cve_paciente`) VALUES
+(10, '2023-10-01', 0, 'lenta', '1', 'alimentos', 'prep_d', '0', 'menstruacion', '', 1),
+(22, '2023-11-22', 1, 'lenta', '1', 'alimentos', 'Prepandrial - Desayuno', '0', 'ninguno', '', 1),
+(23, '2023-11-23', 1, 'lenta', '1', 'alimentos', 'Prepandrial - Desayuno', '0', 'ninguno', 'ljkl', 1);
 
 --
 -- Índices para tablas volcadas
@@ -293,6 +387,24 @@ INSERT INTO `registro_diario` (`idRegistro_diario`, `Fecha_Hora`, `glucosa`, `Ti
 ALTER TABLE `análisis_archivos`
   ADD PRIMARY KEY (`idAnálisis_archivos`),
   ADD KEY `fk_Análisis_archivos_Contacto_paciente_idx` (`Cve_paciente`);
+
+--
+-- Indices de la tabla `bitacora`
+--
+ALTER TABLE `bitacora`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `bitacora_deletes`
+--
+ALTER TABLE `bitacora_deletes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `bitacora_updates`
+--
+ALTER TABLE `bitacora_updates`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `catalogo_alimentos`
@@ -387,6 +499,24 @@ ALTER TABLE `registro_diario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `bitacora`
+--
+ALTER TABLE `bitacora`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `bitacora_deletes`
+--
+ALTER TABLE `bitacora_deletes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `bitacora_updates`
+--
+ALTER TABLE `bitacora_updates`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `catalogo_alimentos`
 --
 ALTER TABLE `catalogo_alimentos`
@@ -396,7 +526,7 @@ ALTER TABLE `catalogo_alimentos`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `idCitas` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idCitas` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `contacto_emergencia`
@@ -438,7 +568,7 @@ ALTER TABLE `expediente`
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `Cve_paciente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Cve_paciente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `registrodiario_alimentos`
@@ -450,7 +580,7 @@ ALTER TABLE `registrodiario_alimentos`
 -- AUTO_INCREMENT de la tabla `registro_diario`
 --
 ALTER TABLE `registro_diario`
-  MODIFY `idRegistro_diario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idRegistro_diario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Restricciones para tablas volcadas
