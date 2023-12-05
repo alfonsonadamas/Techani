@@ -1,6 +1,6 @@
 <?php
     include("../public/php/open.php");
-    if($sesion){
+    if(!$sesion){
 ?>
 <!DOCTYPE html>
 <html lang="en">
