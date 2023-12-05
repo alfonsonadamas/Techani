@@ -6,11 +6,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="build/styles.css" />
-  <link rel="shortcut icon" href="img/logo blanco.png" type="image/x-icon">
-  <title>Techani</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="build/styles.css" />
+    <link rel="shortcut icon" href="img/logo blanco.png" type="image/x-icon">
+    <title>Techani</title>
 </head>
 
 <body class="">
@@ -218,9 +218,9 @@
                         </div>
                         <div class="sm:flex sm:justify-center">
 
-              <div class="sm:w-4/5 sm:flex sm:flex-col">
-                <h2 class="text-left mb-5 mt-10 font-size text-2xl text-black font-sans">Registros
-                  Anteriores</h2>
+                            <div class="sm:w-4/5 sm:flex sm:flex-col">
+                                <h2 class="text-left mb-5 mt-10 font-size text-2xl text-black font-sans">Registros
+                                    Anteriores</h2>
 
                                 <div
                                     class="flex border items-center shadow-lg shadow-gray-500/50 border-slate-400 rounded-xl mb-5 p-2 w-1/3">
