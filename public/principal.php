@@ -34,12 +34,12 @@
                 <div
                     class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
                     <img src="img/rutina-de-ejercicio.png" alt=" " width="30">
-                    <a class="text-white ml-3" href="">Registro de Ejercicio</a>
+                    <a class="text-white ml-3" href="ejercicio.php">Registro de Ejercicio</a>
                 </div>
                 <div
                     class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
                     <img src="img/carpeta.png" alt="" width="30">
-                    <a class="text-white ml-3" href="">Analisis Clinicos</a>
+                    <a class="text-white ml-3" href="analisis.php">Analisis Clinicos</a>
                 </div>
                 <div
                     class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
@@ -49,7 +49,7 @@
                 <div
                     class="flex items-center h-10 my-7 px-5 transition duration-500 ease-in-out hover:bg-azulFondo rounded-lg">
                     <img src="img/calendario.png" alt="" width="30">
-                    <a class="text-white ml-3" href="">Citas Médicas</a>
+                    <a class="text-white ml-3" href="citas.php">Citas Médicas</a>
                 </div>
             </div>
         </div>
