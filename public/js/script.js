@@ -199,3 +199,39 @@ function guardar8() {
   window.scrollTo(0, 0);
 }
 
+function caracteresRestantes() {
+  const textarea = document.getElementById("observaciones");
+  const maxLength = 300;
+  const contadorCaracteres = document.getElementById("contador-caracteres");
+
+  let inputValue = textarea.value;
+  const lineBreaks = (inputValue.match(/\n/g) || []).length;
+  const totalCaracteres = inputValue.length + lineBreaks * 30;
+
+  if (totalCaracteres > maxLength || totalCaracteres + 30 > maxLength) {
+    const maxTextLength = maxLength - lineBreaks * 30;
+    inputValue = inputValue.substring(0, maxTextLength);
+    textarea.value = inputValue;
+  }
+
+  const caracteresRestantes = maxLength - totalCaracteres;
+  contadorCaracteres.textContent = `Caracteres restantes: ${Math.max(
+    0,
+    caracteresRestantes
+  )}`;
+}
+
+// textarea.addEventListener("keydown", (event) => {});
+
+function Enter(event) {
+  const textarea = document.getElementById("observaciones");
+  const maxLength = 300;
+  if (event.key === "Enter") {
+    const caracteresRestantes =
+      maxLength -
+      (textarea.value.length + (textarea.value.match(/\n/g) || []).length * 30);
+    if (caracteresRestantes <= 30) {
+      event.preventDefault();
+    }
+  }
+}

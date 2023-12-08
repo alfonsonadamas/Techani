@@ -241,7 +241,13 @@ class DBManager{
     public function borrarAnalisis($id, $clave)
     {
         $link = $this->open();
-        $sql = "INSERT INTO `paciente` (`Cve_paciente`, `Nombre`, `Apellido_paterno`, `Apellido_materno`, `Fecha_nacimiento`, `Sexo`, `Correo`, `Contraseña`) VALUES (1, ?, ?, ?, ?, ?, ?, ?);";
+        $sql = "DELETE FROM análisis_archivos WHERE idAnálisis_archivos=? AND Cve_paciente=?";
+        $query = mysqli_prepare($link,$sql) or die ("Error at login");
+        $query-> bind_param("ss",$id,$clave);
+        $query-> execute();
+        header("location: ../analisis.php");
+        $this->close($link);
+
     }
     public function expedienteDp($nombre_paciente, $nombre_padre_tutor, $correo, $fecha_nacimiento, $lugar_nacimiento , $estado_nacimiento, $estado_residencia ,$sexo){
         $link = $this->open();

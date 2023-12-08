@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="build/styles.css" />
+    <meta http-equiv="X-Frame-Options" content="DENY">
     <link rel="shortcut icon" href="img/logo blanco.png" type="image/x-icon">
     <title>Techani</title>
 </head>

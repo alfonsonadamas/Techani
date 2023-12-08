@@ -112,7 +112,7 @@
                                                 <div class="flex flex-col w-full sm:w-full mb-2">
                                                     <label for="dosis"
                                                         class="block text-sm font-medium resize-none mt-2 mb-1 text-gray-900">Dosis
-                                                        en ml</label>
+                                                        en unidades</label>
                                                     <input type="number" name="dosis" min="1" max="25" placeholder="1"
                                                         value="1"
                                                         class="bg-gray-50 border border-gray-300 p-1 text-gray-900 text-sm rounded-lg block">
