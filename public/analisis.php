@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-Frame-Options" content="DENY">
+
     <link rel="stylesheet" href="build/styles.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
     <title>Techani</title>
@@ -13,7 +15,7 @@
     <div class="flex">
         <div class="flex w-full h-screen">
             <!-- Barra lateral -->
-            <div class="bg-azul w-1/4 mt-6 ml-6 mb-6 rounded-3xl flex flex-col items-center justify-center shadow-xl">
+            <div class="bg-azul w-1/4 mt-6 ml-6 mb-6 rounded-3xl flex flex-col items-center justify-center shadow-xl ">
                 <img class="mb-10" src="img/Techani blanco con nombre.png" alt="" width="130">
                 <div class="">
                     <div class="flex items-center h-10 px-5 transition duration-500 ease-in-out hover:bg-azulSecundario rounded-lg">
@@ -97,7 +99,7 @@
                         </form>
                     </div>
                     <!-- registro de analisis realizados -->
-                    <div class="border border-gray-400 w-11/12 rounded-lg shadow-xl drop-shadow-lg  my-14">
+                    <div class="border border-gray-400 w-11/12 rounded-lg shadow-xl drop-shadow-lg  m-7">
                         <?php
                         require_once("php/verAnalisis.php");
                         while ($row = $data->fetch_assoc()) {
