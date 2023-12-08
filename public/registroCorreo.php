@@ -25,11 +25,14 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CY9Q1W4ZRL"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-CY9Q1W4ZRL');
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
+
+gtag('config', 'G-CY9Q1W4ZRL');
 </script>
 
 
@@ -170,7 +173,8 @@
                             Sesion</a></p>
 
                     <div class="w-full flex justify-end mt-1">
-
+                        <?php require_once 'php/endPointToken.php'; ?>
+                        <input type="hidden" name="csrf_token" value="<?php echo $token ?>">
                         <button
                             class="bg-amarillo cursor-pointer disabled:opacity-50 disabled:cursor-default w-1/3 rounded-lg py-1 "
                             id="enviar" disabled>Registrarse</button>
