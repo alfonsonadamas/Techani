@@ -1,5 +1,5 @@
 <?php
- class DBManager{
+class DBManager{
     private $key;
     private function open()
     {
@@ -47,25 +47,10 @@
         $this->close($link);
     }
 
-    public function addRegistrAlimentoo($cadena)
-    {
+    public function addRegistrAlimentoo($cadena) {
         $link = $this->open();
         $query = mysqli_prepare($link, $cadena) or die("Error");
-        $query->execute();
-
-        $this->close($link);
-    }
-
-    public function addCitas($fechaCita, $horaCita, $tipoCita, $lugar, $observaciones)
-    {
-        $link = $this->open();
-        $sql = "INSERT INTO citas (Fecha, Hora, Tipo_Cita, Lugar, Observaciones, Cve_paciente) VALUES (?, ?, ?, ?, ?, 1)";
-        $query = mysqli_prepare($link, $sql) or die("Error al insertar la cita");
-        $query->bind_param("sssss", $fechaCita, $horaCita, $tipoCita, $lugar, $observaciones);
-        $query->execute();
-
-
-        header("location: ../citas.php");
+        $query ->execute();
 
         $this->close($link);
     }
@@ -171,26 +156,47 @@
         $this->close($link);
     }
 
-    public function verCitas(){
+    public function addCitas($fechaCita, $horaCita, $tipoCita, $lugar, $observaciones) {
         $link = $this->open();
+        $sql = "INSERT INTO citas (Fecha, Hora, Tipo_Cita, Lugar, Observaciones, Cve_paciente) VALUES (?, ?, ?, ?, ?, 1)";
+        $query = mysqli_prepare($link, $sql) or die("Error al insertar la cita");
+        $query->bind_param("sssss", $fechaCita, $horaCita, $tipoCita, $lugar, $observaciones);
+        $query -> execute();
         
-        $sql = "SELECT * FROM `citas`";
-
-        $result = $link ->query($sql);
+            
+        header("location: ../citas.php");
         
-        return $result;
-
+        $this->close($link);
     }
 
-    public function editarCitas($id, $fechaCita, $horaCita, $tipoCita, $lugar, $observaciones){
+    public function verCitas() {
         $link = $this->open();
-        
-        $sql = "UPDATE citas SET Fecha = '$fechaCita', Hora = '$horaCita', Tipo_Cita = '$tipoCita', Lugar = '$lugar', Observaciones = '$observaciones' WHERE idCitas = $id";
-
-        $result = $link ->query($sql);
-        
+        // Consulta preparada
+        $sql = "SELECT * FROM citas";
+        $stmt = $link->prepare($sql);
+        // Ejecutar la consulta
+        $stmt->execute();
+        // Obtener el resultado
+        $result = $stmt->get_result();
+        // Cerrar la consulta preparada y la conexión
+        $stmt->close();
+        $this->close($link);
         return $result;
+    }
 
+    public function editarCitas($id, $fechaCita, $horaCita, $tipoCita, $lugar, $observaciones) {
+        $link = $this->open();
+        // Consulta preparada
+        $sql = "UPDATE citas SET Fecha = ?, Hora = ?, Tipo_Cita = ?, Lugar = ?, Observaciones = ? WHERE idCitas = ?";
+        $stmt = $link->prepare($sql);
+        // Asociar parámetros
+        $stmt->bind_param("sssssi", $fechaCita, $horaCita, $tipoCita, $lugar, $observaciones, $id);
+        // Ejecutar la consulta
+        $result = $stmt->execute();
+        // Cerrar la consulta preparada y la conexión
+        $stmt->close();
+        $this->close($link);
+        return $result;
     }
 
     public function elimiarCitas($id){
@@ -249,7 +255,6 @@
     }
 
 
-    
- }
+}
 
 ?>
