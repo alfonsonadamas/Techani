@@ -3,7 +3,7 @@ class DBManager{
     private $key;
     private function open()
     {
-        $link = mysqli_connect("127.0.0.1", "root", null, "techani") or die('Error connecting to Data Base');
+        $link = mysqli_connect("127.0.0.1", "id21639247_techani", "Pspvita1.", "techani") or die('Error connecting to Data Base');
         return $link;
     }
 
