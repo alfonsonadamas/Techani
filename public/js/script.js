@@ -25,8 +25,10 @@ function guardar1() {
   const c2 = document.getElementById("c2");
   n1.classList.add("text-gray-400");
   n1.classList.remove("bg-blue-500");
+  n1.classList.add("bg-green-500");
+  n1.innerHTML = "✔";
   c1.classList.remove("text-blue-500");
-  c1.classList.add("text-gray-400");
+  c1.classList.add("text-green-500");
   n2.classList.remove("text-gray-400");
   n2.classList.add("text-white");
   n2.classList.add("bg-blue-500");
@@ -51,8 +53,10 @@ function guardar2() {
   const c3 = document.getElementById("c3");
   n2.classList.add("text-gray-400");
   n2.classList.remove("bg-blue-500");
+  n2.classList.add("bg-green-500");
+  n2.innerHTML = "✔";
   c2.classList.remove("text-blue-500");
-  c2.classList.add("text-gray-400");
+  c2.classList.add("text-green-500");
   n3.classList.remove("text-gray-400");
   n3.classList.add("text-white");
   n3.classList.add("bg-blue-500");
@@ -75,8 +79,10 @@ function guardar3() {
   const c4 = document.getElementById("c4");
   n3.classList.add("text-gray-400");
   n3.classList.remove("bg-blue-500");
+  n3.classList.add("bg-green-500");
+  n3.innerHTML = "✔";
   c3.classList.remove("text-blue-500");
-  c3.classList.add("text-gray-400");
+  c3.classList.add("text-green-500");
   n4.classList.remove("text-gray-400");
   n4.classList.add("text-white");
   n4.classList.add("bg-blue-500");
@@ -99,8 +105,10 @@ function guardar4() {
   const c5 = document.getElementById("c5");
   n4.classList.add("text-gray-400");
   n4.classList.remove("bg-blue-500");
+  n4.classList.add("bg-green-500");
+  n4.innerHTML = "✔";
   c4.classList.remove("text-blue-500");
-  c4.classList.add("text-gray-400");
+  c4.classList.add("text-green-500");
   n5.classList.remove("text-gray-400");
   n5.classList.add("text-white");
   n5.classList.add("bg-blue-500");
@@ -122,8 +130,10 @@ function guardar5() {
   const c6 = document.getElementById("c6");
   n5.classList.add("text-gray-400");
   n5.classList.remove("bg-blue-500");
+  n5.classList.add("bg-green-500");
+  n5.innerHTML = "✔";
   c5.classList.remove("text-blue-500");
-  c5.classList.add("text-gray-400");
+  c5.classList.add("text-green-500");
   n6.classList.remove("text-gray-400");
   n6.classList.add("text-white");
   n6.classList.add("bg-blue-500");
@@ -144,8 +154,10 @@ function guardar6() {
   const c7 = document.getElementById("c7");
   n6.classList.add("text-gray-400");
   n6.classList.remove("bg-blue-500");
+  n6.classList.add("bg-green-500");
+  n6.innerHTML = "✔";
   c6.classList.remove("text-blue-500");
-  c6.classList.add("text-gray-400");
+  c6.classList.add("text-green-500");
   n7.classList.remove("text-gray-400");
   n7.classList.add("text-white");
   n7.classList.add("bg-blue-500");
@@ -167,8 +179,10 @@ function guardar7() {
   const c8 = document.getElementById("c8");
   n7.classList.add("text-gray-400");
   n7.classList.remove("bg-blue-500");
+  n7.classList.add("bg-green-500");
+  n7.innerHTML = "✔";
   c7.classList.remove("text-blue-500");
-  c7.classList.add("text-gray-400");
+  c7.classList.add("text-green-500");
   n8.classList.remove("text-gray-400");
   n8.classList.add("text-white");
   n8.classList.add("bg-blue-500");
@@ -189,8 +203,10 @@ function guardar8() {
 
   n8.classList.add("text-gray-400");
   n8.classList.remove("bg-blue-500");
+  n8.classList.add("bg-green-500");
+  n8.innerHTML = "✔";
   c8.classList.remove("text-blue-500");
-  c8.classList.add("text-gray-400");
+  c8.classList.add("text-green-500");
 
   myDiv.classList.add("hidden");
   divS.classList.remove("hidden");

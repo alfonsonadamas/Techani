@@ -1119,11 +1119,6 @@ input:checked + .toggle-bg{
   margin-right: 3.5rem;
 }
 
-.mx-40{
-  margin-left: 10rem;
-  margin-right: 10rem;
-}
-
 .mx-6{
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -1888,6 +1883,10 @@ input:checked + .toggle-bg{
   text-align: center;
 }
 
+.text-justify{
+  text-align: justify;
+}
+
 .font-fuenteTechani{
   font-family: Open Sans, sans-serif;
 }
@@ -1987,6 +1986,11 @@ input:checked + .toggle-bg{
 .text-gray-500{
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.text-gray-600{
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 .text-gray-800{
@@ -2335,6 +2339,14 @@ input:checked + .toggle-bg{
     margin-top: 2.5rem;
   }
 
+  .sm\:mt-4{
+    margin-top: 1rem;
+  }
+
+  .sm\:mt-5{
+    margin-top: 1.25rem;
+  }
+
   .sm\:flex{
     display: flex;
   }
@@ -2373,6 +2385,10 @@ input:checked + .toggle-bg{
 
   .sm\:flex-wrap{
     flex-wrap: wrap;
+  }
+
+  .sm\:items-center{
+    align-items: center;
   }
 
   .sm\:justify-center{

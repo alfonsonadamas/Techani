@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expediente</title>
     <link rel="stylesheet" href="build/styles.css" />
+    <meta http-equiv="X-Frame-Options" content="DENY">
     </head>
 <body class="bg-blue-100 font-fuenteTechani text-gray-800">
 
 <div class="sm:w-full flex flex-col items-center">
-    <div class="sm:w-11/12 border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
+    <div class="sm:w-11/12 border mb-4 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
         <h1 class="text-3xl font-bold sm:m-7">Formulario de Expediente Clínico</h1>
     </div>
 
-    <div class="flex flex-col sm:w-11/12 border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
+    <div class="flex flex-col sm:w-11/12 border sm:mt-4 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl">
         <div class="grid grid-cols-8 gap-4 justify-center items-center mt-5 ml-5 mr-5">
             <span id="n1" class="w-20 h-20 border-8 border-gray-300 rounded-full bg-blue-500 text-white text-lg justify-self-center text-center justify-center flex items-center">1</span>
             <span id="n2" class="w-20 h-20 border-8 border-gray-300 rounded-full  text-gray-400 text-lg justify-self-center text-center justify-center flex items-center">2</span>
@@ -25,7 +26,7 @@
             <span id="n8" class="w-20 h-20 border-8 border-gray-300 rounded-full  text-gray-400 text-lg justify-self-center text-center justify-center flex items-center">8</span>
         </div>
 
-        <div class="grid grid-cols-8 gap-4 items-center mt-2 mr-5 ml-5 mb-5">
+        <div class="grid grid-cols-8 gap-4 items-center mt-2 mr-5 ml-5 mb-2">
             <p id="c1" class="text-blue-500 text-center">Indicaciones</p>
             <p id="c2" class="text-center text-gray-400">Datos personales</p>
             <p id="c3" class="text-center text-gray-400">Diabetes Histórico</p>
@@ -39,9 +40,10 @@
 
 
 
-        <div id="Indicaciones" class="border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl sm:w-11/12">
-            <h2 class="font-fuenteEslogan m-4 size">
-                Realiza el cuestionario de manera correcta, cuando termines cada uno de los apartados presiona el boton de guardar <br> Podrás ver tu avance en la barra
+        <div id="Indicaciones" class="border mb-5 sm:mt-4 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl sm:w-11/12">
+            <h2 class="font-fuenteEslogan text-justify m-4 size text-gray-600">
+            Te invito a participar en nuestro cuestionario interactivo. Asegúrate de responder cada pregunta cuidadosamente antes de avanzar y presiona el botón "Guardar" después de cada respuesta para registrar tu progreso. Observa la barra de progreso en la parte inferior de la pantalla para tener una visión clara de cuánto has completado. Recuerda revisar tus respuestas antes de guardarlas, ya que una vez guardadas, no podrán editarse. Cuando hayas respondido todas las preguntas, verás tu progreso completo en la barra. Al finalizar, presiona el botón "Finalizar".
+            <br><br><span class="text-black">¡Gracias por tu participación!</span> 
             </h2>
         </div>
         
@@ -49,58 +51,66 @@
                 <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer" onclick="guardar1()">Siguiente</button>
         </div>
 
-        <div id="card1" class="hidden border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl sm:w-11/12">
+        <div id="card1" class="hidden border mb-5 sm:mt-5 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl sm:w-11/12">
             <!-- <form action="php/endPointExpedienteDP.php" class="" method="post"> -->
                 <div>
                     <h2 class="font-fuenteEslogan m-4 size">DATOS PERSONALES</h2>
-                    <div class="mt-4 ml-4 mr-4 flex mb-2 flex-col">
-                        <label class="block mb-1 text-sm font-medium text-gray-900">Nombre de la persona que participará en la investigación:</label>
-                        <input type="text" name="nombre_paciente" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
-                    </div>
+                    <div class="sm:flex sm:flex-row sm:justify-center sm:items-center sm:w-full">
+                        <div class=" ml-4 mr-4 flex mb-2 flex-col sm:w-1/2">
+                            <label class="block mb-1 text-sm font-medium text-gray-900">Nombre de la persona que participará en la investigación:</label>
+                            <input type="text" name="nombre_paciente" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        </div>
 
-                    
-                    <div class="ml-4 mr-4 flex mb-2 flex-col">
-                        <label class="block text-sm font-semibold">En caso de ser menor de edad, nombre del padre o tutor que autoriza la participación en la investigación:</label>
-                        <input type="text" name="nombre_padre_tutor" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
-                    </div>
-
-                
-                    <div class="ml-4 mr-4 flex mb-2 flex-col">
-                        <label class="block text-sm font-semibold">Correo electrónico:</label>
-                        <input type="email" name="correo" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
-                    </div>
-
-                
-                    <div class="ml-4 mr-4 flex mb-2 flex-col">
-                        <label class="block text-sm font-semibold">Sexo biológico:</label>
-                        <div class="flex flex-row items-center">
-                            <input required class="w-4 h-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="sexo" value="Masculino" class="mr-2"> Masculino
-                            <input class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="sexo" value="Femenino" class="mr-2"> Femenino
+                        
+                        <div class="ml-4 mr-4 mt-4 flex mb-2 flex-col sm:w-1/2">
+                            <label class="block  text-sm font-semibold">En caso de ser menor de edad, nombre del padre o tutor que autoriza la participación en la investigación:</label>
+                            <input type="text" name="nombre_padre_tutor" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                         </div>
                     </div>
 
-                
-                    <div class="ml-4 mr-4 flex mb-2 flex-col">
-                        <label class="block text-sm font-semibold">¿Cuál es su fecha de nacimiento?</label>
-                        <input type="date" name="fecha_nacimiento" required  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
-                    </div>
-
-                
-                    <div class="ml-4 mr-4 flex mb-2 flex-col">
-                        <label class="block text-sm font-semibold">¿Cuál es su lugar de nacimiento?</label>
-                        <input type="text" name="lugar_nacimiento" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
-                    </div>
+                    <div class="sm:flex sm:flex-row sm:justify-center sm:items-center sm:w-full">
+                        <div class="ml-4 mr-4 flex mb-2 flex-col sm:w-1/2">
+                            <label class="block text-sm font-semibold">Correo electrónico:</label>
+                            <input type="email" name="correo" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        </div>
 
                     
-                    <div class="ml-4 mr-4 flex mb-2 flex-col">
-                        <label class="block text-sm font-semibold">¿Cuál es su Estado de nacimiento?</label>
-                        <input type="text" name="estado_nacimiento" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        <div class="ml-4 mr-4 flex mb-2 flex-col sm:w-1/2">
+                            <label class="block text-sm font-semibold">Sexo biológico:</label>
+                            <div class="flex flex-row items-center">
+                                <input required class="w-4 h-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="sexo" value="Masculino" class="mr-2"> Masculino
+                                <input class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="sexo" value="Femenino" class="mr-2"> Femenino
+                            </div>
+                        </div>
                     </div>
-                
-                    <div class="ml-4 mr-4 flex mb-2 flex-col">
-                        <label class="block text-sm font-semibold">¿En qué Estado de la República radica actualmente?</label>
-                        <input type="text" name="estado_residencia" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+
+
+                    <div class="sm:flex sm:flex-row sm:justify-center sm:items-center sm:w-full">
+                        <div class="ml-4 mr-4 flex mb-2 flex-col sm:w-1/2">
+                            <label class="block text-sm font-semibold">¿Cuál es su fecha de nacimiento?</label>
+                            <input type="date" name="fecha_nacimiento" required  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        </div>
+
+                    
+                        <div class="ml-4 mr-4 flex mb-2 flex-col sm:w-1/2">
+                            <label class="block text-sm font-semibold">¿Cuál es su lugar de nacimiento?</label>
+                            <input type="text" name="lugar_nacimiento" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        </div>
                     </div>
+
+                    <div class="sm:flex sm:flex-row sm:justify-center sm:items-center sm:w-full">
+                        <div class="ml-4 mr-4 flex mb-2 flex-col sm:w-1/2">
+                            <label class="block text-sm font-semibold">¿Cuál es su Estado de nacimiento?</label>
+                            <input type="text" name="estado_nacimiento" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        </div>
+                    
+                        <div class="ml-4 mr-4 flex mb-2 flex-col sm:w-1/2">
+                            <label class="block text-sm font-semibold">¿En qué Estado de la República radica actualmente?</label>
+                            <input type="text" name="estado_residencia" required class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        </div>
+                    </div>
+                    
+
                 </div>
                 <div class="ml-4 mr-4 mb-4 flex flex-row justify-end">
                     <!-- <input type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer" onclick="guardar2()"> -->
@@ -110,37 +120,43 @@
         </div>
 
 
-       <div id="card2" class="hidden border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl sm:w-11/12">
+       <div id="card2" class="hidden border mb-5 sm:mt-5 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl sm:w-11/12">
             <!-- <form action="php/endPointExpedienteDP.php" class="" method="post"> -->
             <h2 class="font-fuenteEslogan m-4 size">DIABETES HISTÓRICO</h2>
-                <div class="ml-4 mr-4 flex mb-2 flex-col">
-                    <label class="block text-sm font-semibold">¿Qué tipo de diabetes tiene?</label>
-                    <select name="tipo_diabetes"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
-                        <option value="1">Tipo 1</option>
-                            <option value="2">Tipo 2</option>
-                            <option value="ninguna">Ninguna</option>
-                    </select>
-                </div>
-
-                <div class="ml-4 mr-4 flex mb-2 flex-col">
-                    <label class="block text-sm font-semibold">¿Desde qué fecha fue diagnosticado(a)?</label>
-                    <input type="date" name="fecha_diagnostico" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
-                </div>
-
                 
-                <div class="ml-4 mr-4 flex mb-2 flex-col">
-                    <label class="block text-sm font-semibold">¿Con qué cantidad de glucosa debutó?</label>
-                    <input type="number" name="glucosa_debut" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
-                </div>
+                <div class="sm:flex sm:flex-row sm:justify-center sm:items-center sm:w-full">
+                    <div class="ml-4 mr-4 flex mb-2 flex-col sm:w-1/2">
+                        <label class="block text-sm font-semibold">¿Qué tipo de diabetes tiene?</label>
+                        <select name="tipo_diabetes"  class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                            <option value="1">Tipo 1</option>
+                                <option value="2">Tipo 2</option>
+                                <option value="ninguna">Ninguna</option>
+                        </select>
+                    </div>
 
-                
-                <div class="ml-4 mr-4 flex mb-2 flex-col">
-                    <label class="block text-sm font-semibold">¿Estuvo hospitalizado cuando debutó? Si es así, ¿cuál fue la causa?</label>
-                    <div class="flex flex-row items-center">
-                        <input class="w-4 h-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="hospitalizado" value="Si" class="mr-2"> Sí
-                        <input class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="hospitalizado" value="No" class="mr-2"> No
+                    <div class="ml-4 mr-4 flex mb-2 flex-col sm:w-1/2">
+                        <label class="block text-sm font-semibold">¿Desde qué fecha fue diagnosticado(a)?</label>
+                        <input type="date" name="fecha_diagnostico" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                     </div>
                 </div>
+                
+                <div class="sm:flex sm:flex-row sm:justify-center sm:items-center sm:w-full">
+                    <div class="ml-4 mr-4 flex mb-2 flex-col sm:w-1/2">
+                        <label class="block text-sm font-semibold">¿Con qué cantidad de glucosa debutó?</label>
+                        <input type="number" name="glucosa_debut" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    </div>
+
+                    
+                    <div class="ml-4 mr-4 flex mb-2 flex-col sm:w-1/2">
+                        <label class="block text-sm font-semibold">¿Estuvo hospitalizado cuando debutó? Si es así, ¿cuál fue la causa?</label>
+                        <div class="flex flex-row items-center">
+                            <input class="w-4 h-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="hospitalizado" value="Si" class="mr-2"> Sí
+                            <input class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="hospitalizado" value="No" class="mr-2"> No
+                        </div>
+                    </div>
+                </div>
+                
+
                 <div class="ml-4 mr-4 flex mb-2 flex-col">
                     Causas: <input type="text" name="causas_hospitalizacion" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
                 </div>
@@ -203,64 +219,67 @@
         </div>
 
 
-        <div id="card3" class="hidden border mb-5 sm:mt-10 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl sm:w-11/12">
+        <div id="card3" class="hidden border mb-5 sm:mt-5 shadow-lg bg-white shadow-gray-500/50 border-slate-400 rounded-xl sm:w-11/12">
             <!-- <form action=""> -->
-                <h2 class="font-fuenteEslogan m-4 size">DATOS CLÍNICOS</h2>
-                <div class="ml-4 mr-4 flex mb-2 flex-col">
-                    <label class="block text-sm font-semibold">¿Dónde sigue su tratamiento actualmente?</label>
-                    <div class="flex flex-row items-center">            
-                        <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="ISSSTE"> ISSSTE
-                    </div>
-                    <div class="flex flex-row items-center">
-                        <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="IMSS"> IMSS
-                    </div>
-                    <div class="flex flex-row items-center">
-                        <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="SSA"> SSA
-                    </div>
-                    <div class="flex flex-row items-center">
-                        <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="Servicio médico de PEMEX"> Servicio médico de PEMEX
-                    </div>
-                    <div class="flex flex-row items-center">
-                    <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="Servicio médico de la SEDENA"> Servicio médico de la SEDENA
-                    </div>
-                    <div class="flex flex-row items-center">
-                        <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="Médico particular" class="mr-2"> Médico particular
-                    </div>
-                    <div class="flex flex-row items-center">
-                        <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="Otro" class="mr-2"> Otro
-                        <input type="text" name="nombre_otro_lugar_tratamiento" class="ml-4 hidden bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg">
-                    </div>
-                </div>
+            <h2 class="font-fuenteEslogan m-4 size">DATOS CLÍNICOS</h2>
+                <div class="sm:flex sm:flex-row sm:justify-center sm:items-center sm:w-full">
+                    <div class="sm:w-1/2">
+                        <div class="ml-4 mr-4 flex mb-2 flex-col">
+                            <label class="block text-sm font-semibold">¿Cuál es su última Hemoglobina glicosilada y fecha en que se obtuvo?</label>
+                            <input type="number" max="330" name="hemoglobina_glicosilada" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                            <input type="date" name="fecha_hemoglobina_glicosilada" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block mt-2">
+                        </div>
+                        <div class="ml-4 mr-4 flex mb-2 flex-col">
+                            <label class="block text-sm font-semibold">¿Cuál es su estado civil?</label>
+                            <div class="flex flex-row items-center">
+                                <input class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="estado_civil" value="Soltero(a)" class="mr-2"> Soltero(a)
+                            </div>
+                            <div class="flex flex-row items-center">            
+                                <input class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="estado_civil" value="Casado(a)" class="mr-2"> Casado(a)
+                            </div>
+                        </div>
 
-                <div class="ml-4 mr-4 flex mb-2 flex-col">
-                    <label class="block text-sm font-semibold">¿Cuál es su última Hemoglobina glicosilada y fecha en que se obtuvo?</label>
-                    <input type="number" max="330" name="hemoglobina_glicosilada" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
-                    <input type="date" name="fecha_hemoglobina_glicosilada" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block mt-2">
-                </div>
+                        <div class="ml-4 mr-4 flex mb-2 flex-col">
+                            <label class="block text-sm font-semibold">¿Cuál es su ocupación?</label>
+                            <input type="text" name="ocupacion" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                        </div>
 
+                    </div>
+                    <div class=" sm:w-1/2">
+                    <div class="ml-4 mr-4 flex mb-2 flex-col">
+                        <label class="block text-sm font-semibold">¿Dónde sigue su tratamiento actualmente?</label>
+                        <div class="flex flex-row items-center">            
+                            <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="ISSSTE"> ISSSTE
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="IMSS"> IMSS
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="SSA"> SSA
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="Servicio médico de PEMEX"> Servicio médico de PEMEX
+                        </div>
+                        <div class="flex flex-row items-center">
+                        <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="Servicio médico de la SEDENA"> Servicio médico de la SEDENA
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="Médico particular" class="mr-2"> Médico particular
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <input type="radio" class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="lugar_tratamiento" value="Otro" class="mr-2"> Otro
+                            <input type="text" name="nombre_otro_lugar_tratamiento" class="ml-4 hidden bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg">
+                        </div>
+                    </div>
+                    <div class="ml-4 mr-4 flex mb-2 flex-col">
+                        <label class="block text-sm font-semibold">¿Cuál es su peso?</label>
+                        <input type="number" name="peso" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
+                    </div>
+                    </div>
+                    
+                </div>
                 
-                <div class="ml-4 mr-4 flex mb-2 flex-col">
-                    <label class="block text-sm font-semibold">¿Cuál es su estado civil?</label>
-                    <div class="flex flex-row items-center">
-                        <input class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="estado_civil" value="Soltero(a)" class="mr-2"> Soltero(a)
-                    </div>
-                    <div class="flex flex-row items-center">            
-                        <input class="w-4 h-4 ml-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="radio" name="estado_civil" value="Casado(a)" class="mr-2"> Casado(a)
-                    </div>
-                </div>
-
-                
-                <div class="ml-4 mr-4 flex mb-2 flex-col">
-                    <label class="block text-sm font-semibold">¿Cuál es su ocupación?</label>
-                    <input type="text" name="ocupacion" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
-                </div>
-
             
-                <div class="ml-4 mr-4 flex mb-2 flex-col">
-                    <label class="block text-sm font-semibold">¿Cuál es su peso?</label>
-                    <input type="number" name="peso" class="bg-gray-50 border border-gray-300 text-gray-900 p-1 text-sm rounded-lg block">
-                </div>
-
             
                 <div class="ml-4 mr-4 flex mb-2 flex-col">
                     <label class="block text-sm font-semibold">¿Cuál es su talla?</label>
