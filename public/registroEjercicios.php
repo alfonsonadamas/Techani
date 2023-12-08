@@ -12,6 +12,16 @@
     <title>Techani</title>
 </head>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CY9Q1W4ZRL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CY9Q1W4ZRL');
+</script>
+
 <body class="">
     <h1 class="text-center font-size  mb-4 text-2xl text-white font-sans bg-azult">REGISTRO DE EJERCICIOS</h1>
     <div class="sm:flex sm:justify-center">

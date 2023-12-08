@@ -22,6 +22,17 @@
     <title>Techani</title>
 </head>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CY9Q1W4ZRL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CY9Q1W4ZRL');
+</script>
+
+
 <body class="bg-azulSecundario">
     <div class="flex justify-center items-center h-screen bg-cover bg-center ">
 
